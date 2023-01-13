@@ -17,19 +17,19 @@
     let items = [
         {
           label: "Works",
-		  value: 1,
+		      value: 1,
           href:"/works"
 		//  component: Tab1
 		},
         {
           label: "Texts",
-		  value: 2,
+		      value: 2,
           href:"/texts"
 		//  component: Tab2
 		},
         {
           label: "About",
-		  value: 3,
+		      value: 3,
           href:"/about"
 		//  component: Tab3
 		}
@@ -44,7 +44,7 @@
     // let myActiveClass = 'selected';
     import "./+layout_style.css";
 </script>
-<!-- <MetaTags
+ <MetaTags
   title="Eun Oh's website"
 	titleTemplate = '%s | Svelte Meta Tags'
   description="This is Eun Oh's website"
@@ -71,8 +71,8 @@
     ],
     site_name: "Eun Oh's Website"
   }}
-/> -->
-<!-- <JsonLd
+/>
+<JsonLd
 schema={{
     '@type': 'Article',
     mainEntityOfPage: {
@@ -98,11 +98,12 @@ schema={{
         }
     }
 }}
-/> -->
+/>
+<svelte:head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <title>Eun Oh's Home</title>
-
+</svelte:head>
 <header>
     <nav>
         <ul class="top-menu">
@@ -122,3 +123,13 @@ schema={{
         <p>copyright 2022. Eun Oh. all rights reserved.</p>
     </div>
 </footer>
+<style>
+  * {
+    margin: 0.5vh 0 0.5vh 0;
+  }
+
+  *:global(*){
+    margin: 0;
+    font-family: 'Rubik', 'Malgun Gothic', '맑은 고딕', sans-serif;
+  }
+</style>

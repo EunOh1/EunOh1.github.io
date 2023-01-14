@@ -76,7 +76,7 @@
         display:grid;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(2, 5vh);
-        margin-top: 2vh;
+        margin: 2vh 0 2vh 0;
         padding: 0;
         list-style:none;
         background-color:#ffffff;

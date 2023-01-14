@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+  
+  .header {
+    text-align: center;
+    border-top: 1px solid #6e6e6e;
+  }
+  .m-image{
+        width:auto;
+        max-width: 560px;      
+        height:auto;
+        max-height: 680px;
+    }
+  .text {
+        font-size: 1rem;
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+  .close {
+        cursor: pointer;
+        font-size: 2rem;
+        position: absolute;
+        right: 0;
+        color: white;
+        margin-right:1.5rem;
+        top:0;
+    }
+  
+  .image:hover {
+        opacity: 0.7;
+    }
+
+  img:active {
+        opacity: 0.5;
+    }
+
+    .modal-image {
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;	
+    }
+    .modal {
+        position: fixed;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 50% 30%;
+        padding-top: 8%;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.7);
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+        align-content: center; 
+    }
+@media screen and (max-width: 1024px) {
+  .m-image{
+    width:auto;
+    max-width: 800px;      
+    height:auto;    
+    max-height: 800px;
+}
+}
+@media screen and (max-width: 915px) {
+  .m-image{
+    width:auto;
+    max-width: 800px;      
+    height:auto;    
+    max-height: 800px;
+}
+}
+@media screen and (max-width: 820px) {
+  .m-image{
+    width:auto;
+    max-width: 800px;      
+    height:auto;    
+    max-height: 800px;
+}
+  /* .modal {
+    padding-top: 8%;
+    grid-template-rows: 1fr 1.5fr 1fr;
+} */
+}
+@media screen and (max-width: 740px) {
+  .m-image{
+    width:80%;      
+    height:auto;    
+}
+}
+@media screen and (max-width: 600px) {
+  .m-image{
+    width:80%;      
+    height:auto;    
+}
+  .modal{
+    padding-top: 15%;
+  }
+}

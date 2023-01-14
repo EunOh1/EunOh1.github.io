@@ -35,7 +35,7 @@
         justify-items: center;
         justify-content: center;
         align-content: center;
-        height: 760px;
+        height: calc(100vh - 100px);
     }
     #mainitems{
         box-sizing: border-box;
@@ -64,7 +64,7 @@
 }
     @media only screen and (min-width: 320px) and (max-width: 767px) {
         #container{
-        height: calc(100vh - 100px);
+        height: calc(100vh - 120px);
         }
 
         #mainitems{
@@ -79,8 +79,8 @@
         align-content: center;
     }
         #mainitems model-viewer {
-        height: 500px;
-        width: 340px;
+        height: 460px;
+        width: 320px;
         padding: 0 auto;
         overflow-x: hidden;
     }
@@ -94,7 +94,7 @@
 
     @media only screen and (min-width: 320px) and (max-width: 767px) and (orientation:landscape){
         #container {
-        height: calc(100vh - 60px);
+        height: calc(100vh - 70px);
         align-items: center;
         justify-items: center;
         justify-content: center;

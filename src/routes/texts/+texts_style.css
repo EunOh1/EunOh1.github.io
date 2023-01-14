@@ -1,0 +1,74 @@
+h2 {
+    text-align: center;
+}
+.text {
+    text-align: left;
+    line-height: 4vh;
+}
+.txt-container {
+    font-size: 3vh;
+    padding: 10vh 10vh 20vh 10vh;
+}
+.p-container {
+    column-count: 2;
+    column-width: 20vh;
+}
+.sub-title{
+    text-align: right;
+}
+@media screen and (max-width: 1024px) {
+.txt-container {
+    font-size: 3vh;
+    padding: 10vh 6vh 20vh 6vh;
+}
+}
+@media screen and (max-width: 915px) {
+.txt-container {
+    font-size: 3vh;
+    padding: 10vh 5vh 20vh 5vh;
+}
+.p-container {
+    column-count: 1;
+    column-width: 20vh;
+}
+}
+@media screen and (max-width: 820px) {  
+.txt-container {
+    font-size: 3vh;
+    padding: 10vh 5vh 20vh 5vh;
+}
+.p-container {
+    column-count: 1;
+    column-width: 20vh;
+}
+}
+@media screen and (max-width: 800px) {
+.txt-container {
+    font-size: 3vh;
+    padding: 10vh 4vh 20vh 4vh;
+}
+.p-container {
+    column-count: 1;
+    column-width: 20vh;
+}
+}  
+@media screen and (max-width: 740px) {
+.txt-container {
+    font-size: 3vh;
+    padding: 10vh 3vh 10vh 3vh;
+}
+.p-container {
+    column-count: 1;
+    column-width: 20vh;
+}
+}
+@media screen and (max-width: 600px) {
+.txt-container {
+    font-size: 3vh;
+    padding: 10vh 3vh 10vh 3vh;
+}
+.p-container {
+    column-count: 1;
+    column-width: 20vh;
+}
+}

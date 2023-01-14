@@ -102,6 +102,7 @@ schema={{
 <svelte:head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik&family=Rubik+Bubbles&display=swap" rel="stylesheet">
 <title>Eun Oh's Home</title>
 </svelte:head>
 <header>
@@ -124,12 +125,4 @@ schema={{
     </div>
 </footer>
 <style>
-  * {
-    margin: 0.5vh 0 0.5vh 0;
-  }
-
-  *:global(*){
-    margin: 0;
-    font-family: 'Rubik', 'Malgun Gothic', '맑은 고딕', sans-serif;
-  }
 </style>

@@ -112,7 +112,7 @@ schema={{
             {#each items as item}          
             <li class="def-menu {activeTabValue === item.value ? 'active' : ''}"><a on:click={handleClick(item.value)} href={item.href}>{item.label}</a></li>
             {/each}
-            <li class="insta-menu"><a rel='noreferrer' href="https://instagram.com/eunohhh" target="_blank">  </a></li>
+            <li class="insta-menu"><a rel='noreferrer' href="https://instagram.com/eunohhh" target="_blank">뷁</a></li>
         </ul>
     </nav>
 </header>

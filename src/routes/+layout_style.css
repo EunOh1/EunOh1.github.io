@@ -50,8 +50,9 @@ body{
 }
 
 .top-menu li.insta-menu {
+    justify-content: right;
     padding-top: 0vh;
-    color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 255, 0);
     text-align: right;
     margin-right: 2vw;
     background-image: url('https://gpuseoul.com/wp-content/uploads/2023/01/instagram-logo.png');
@@ -60,6 +61,12 @@ body{
     background-size: 30px auto;
     cursor: pointer;
 }
+.top-menu li.insta-menu a:link, .top-menu li.insta-menu a:visited{
+    text-align: right;
+    color: rgba(0, 0, 255, 0);
+    background-color: rgba(0,0,0,0);
+}
+
 .top-menu li.insta-menu:hover{
     background-image: url('https://gpuseoul.com/wp-content/uploads/2023/01/instagram-after.png');
     background-repeat: no-repeat;

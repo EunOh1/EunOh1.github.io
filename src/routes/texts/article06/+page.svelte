@@ -2,7 +2,7 @@
     import "../+texts_style.css"
 </script>
 <div class='txt-container'>
-    <h2 class="txt-title">메모 2020</h2><br><br>
+    <h2 class="txt-title">메모 2020</h2><br>
     <p class='sub-title'>오은</p><br>
     <div class='p-container'>
     <p class="text">&nbsp;궁지에 몰린 예술은 어떤 모습일까? 이번 작업을 준비하면서 나는 계속해서 사면초가에 빠진 예술에 대해 생각했다. 나아가지도 못하고 돌아가지도 못하는 상황의 예술, 미술에 대해 생각할수록 자꾸만 배수진을 치고 전투에 임하는 장수들이 떠올랐다. 2020년이라는 괴상한 해에 우리는 대체 뭘 할 수 있을까? 무엇이 최선일까? 나는 계속해서 전쟁사에만 관심이 갔다.<br><br> 

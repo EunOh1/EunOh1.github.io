@@ -2,7 +2,7 @@
     import "../+texts_style.css"
 </script>
 <div class='txt-container'>
-    <h2 class="txt-title">메모 2016</h2><br><br>
+    <h2 class="txt-title">메모 2016</h2><br>
     <p class='sub-title'>오은</p><br>
     <div class='p-container'>
     <p class="text">오늘날 과거의 힘은 그 어느 때 보다도 강력해졌다. 실재는 이제 한갓 데이터가 되어 증기처럼 둥둥 떠다니고, 오래된 것들, 이미 죽었어야 마땅한 것들이 주는 충격과 경의는 계속해서 강해지며 오늘을 지배하고 있다. 실제로 겪어보지도 못한 과거가 마치 직접 경험한 것처럼 노스탤지어를 유발하고, 문화/예술에서 20세기적 템플릿은 끝없이 되살아나며 오늘을 옥죄어 온다.<br><br>

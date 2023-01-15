@@ -91,7 +91,7 @@
 </script>
 <!-- Header -->
 <div class="header">
-    <h1 class="nope">아직 없어요 {':)'}</h1>
+    <h3 class="nope">아직 없어요 {':)'}</h3>
   </div>
 
 <!-- Photo Grid -->
@@ -119,7 +119,7 @@
 	            <div class="modal-image">
 	                <img class="m-image" src={selected} alt="random img"/>
 	            </div>
-                <p class="text">{selectedTxt}</p>
+                <p class="caption">{selectedTxt}</p>
                 </div>
             {/if}
     {/each}

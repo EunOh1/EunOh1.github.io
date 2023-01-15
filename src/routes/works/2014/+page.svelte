@@ -7,27 +7,27 @@
         {
             value: 0,
             src: "/assets/s-14-1.jpg",
-            txt: "설명이거든???? 1"
+            txt: "s-14-1_2014_1650*1300*250_fabric products"
         },
         {
             value: 1,
             src: "/assets/s-14-2.jpg",
-            txt: "설명이거든???? 2"
+            txt: "s-14-2_2014_1622*1303*25_pigment print on canvas"
         },
         {
             value: 2,
             src: "/assets/s-14-3-8.jpg",
-            txt: "설명이거든???? 2"
+            txt: "s-14-3~8_2014_500*650*25(each)_putty, UV print on woodpanel"
         },
         {
             value: 3,
             src: "/assets/s-14-9.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-14-9_2014_530*300*30_acrylic, pigment print on canvas"
         },
         {
             value: 4,
             src: "/assets/s-14-10.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-14-10_2014_170*180*222_3d Print"
         },
     ];
     function laoadData(images_data){
@@ -69,7 +69,7 @@
 	            <div class="modal-image">
 	                <img class="m-image" src={selected} alt="random img"/>
 	            </div>
-                <p class="text">{selectedTxt}</p>
+                <p class="caption">{selectedTxt}</p>
                 </div>
             {/if}
 </div>

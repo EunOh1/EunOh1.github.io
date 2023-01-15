@@ -7,47 +7,47 @@
         {
             value: 0,
             src: "/assets/17-4.jpg",
-            txt: "설명이거든???? 1"
+            txt: "17#4_2017_535*220*250_plaster, watercolor, acrylic"
         },
         {
             value: 1,
             src: "/assets/17-5.jpg",
-            txt: "설명이거든???? 2"
+            txt: "17#5_2017_770*240*230_cement, wood, epoxy, clay, polystyrene foam"
         },
         {
             value: 2,
             src: "/assets/17-6-9.jpg",
-            txt: "설명이거든???? 3"
+            txt: "17#6~9_2017_530*300*30(each)_oil, acrylic, woodpanel, hemp"
         },
         {
             value: 3,
             src: "/assets/17-11.jpg",
-            txt: "설명이거든???? 3"
+            txt: "17#11_2017_1000*990*580_steel, polystrene foam, resin"
         },
         {
             value: 4,
             src: "/assets/17-16.jpg",
-            txt: "설명이거든???? 3"
+            txt: "17#16_2017_1370*420*360_steel, cement, epoxy, polystrene foam, resin"
         },
         {
             value: 5,
             src: "/assets/17-18.jpg",
-            txt: "설명이거든???? 3"
+            txt: "17#18_2017_350*160*200_clay, wood, acrylic"
         },
         {
             value: 6,
             src: "/assets/17-19.jpg",
-            txt: "설명이거든???? 3"
+            txt: "17#19_2017_310*160*200_clay, wood, acrylic"
         },
         {
             value: 7,
             src: "/assets/17-20.jpg",
-            txt: "설명이거든???? 3"
+            txt: "17#20_2017_500*260*240_clay, wood, steel, polystyrene foam, acrylic"
         },
         {
             value: 8,
             src: "/assets/17-21.jpg",
-            txt: "설명이거든???? 3"
+            txt: "17#21_2017_590*350*330_clay, epoxy, steel, wood, acrylic"
         },
     ];
     function laoadData(images_data){
@@ -89,7 +89,7 @@
 	            <div class="modal-image">
 	                <img class="m-image" src={selected} alt="random img"/>
 	            </div>
-                <p class="text">{selectedTxt}</p>
+                <p class="caption">{selectedTxt}</p>
                 </div>
             {/if}
 </div>

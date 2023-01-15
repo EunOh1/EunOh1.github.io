@@ -7,122 +7,122 @@
         {
             value: 0,
             src: "/assets/19-1.jpg",
-            txt: "설명이거든???? 1"
+            txt: "19#1_2019_1260*570*190_resin, oil, polystyrene foam, steel, cement, epoxy"
         },
         {
             value: 1,
             src: "/assets/19-2.jpg",
-            txt: "설명이거든???? 2"
+            txt: "19#2_2019_500*180*190_clay, oil, polystyrene foam, steel, resin, wood, acrylic"
         },
         {
             value: 2,
             src: "/assets/19-3.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#3_2019_1440*300*320_resin, oil, polystyrene foam, steel, wood, acrylic"
         },
         {
             value: 3,
             src: "/assets/19-4.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#4_2019_1660*400*400_resin, oil, polystyrene foam, steel"
         },
         {
             value: 4,
             src: "/assets/19-6.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#6_2019_540*260*240_plaster"
         },
         {
             value: 5,
             src: "/assets/19-7.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#7_2019_610*500_oil on canvas"
         },
         {
             value: 6,
             src: "/assets/19-10.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#10_2019_430*250*280_plaster"
         },
         {
             value: 7,
             src: "/assets/19-13.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#13_2019_520*300*250_plaster"
         },
         {
             value: 8,
             src: "/assets/19-15.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#15_2019_1615*1305*30_acrylic, oil on hemp"
         },
         {
             value: 9,
             src: "/assets/19-16.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#16_2019_305*430*80_polystyrene foam, plaster, paperclay"
         },
         {
             value: 10,
             src: "/assets/19-19.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#19_2019_320*190*260_plaster"
         },
         {
             value: 11,
             src: "/assets/19-20.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#20_2019_310*170*180_plaster"
         },
         {
             value: 12,
             src: "/assets/19-21.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#21_2019_280*160*240_plaster"
         },
         {
             value: 13,
             src: "/assets/19-23.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#23_2019_420*330*330_polystyrene foam, resin, acrylic"
         },
         {
             value: 14,
             src: "/assets/19-24.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#24_2019_360*190*280_plaster"
         },
         {
             value: 15,
             src: "/assets/19-25.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#25_2019_490*300*280_plaster"
         },
         {
             value: 16,
             src: "/assets/19-26.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#26_2019_340*200*280_plaster"
         },
         {
             value: 17,
             src: "/assets/19-27.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#27_2019_1450*1115_resin, acrylic, oil on canvas"
         },
         {
             value: 18,
             src: "/assets/19-28.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#28_2019_1540*350*240_steel, resin, polystyrene foam, epoxy"
         },
         {
             value: 19,
             src: "/assets/19-29.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#29_2019_870*300*200_plaster"
         },
         {
             value: 20,
             src: "/assets/19-32.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#32_2019_510*240*240_polystyrene foam, oilclay, epoxy"
         },
         {
             value: 21,
             src: "/assets/19-33.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#33_2019_1730*1080*410_polystyene foam, resin"
         },
         {
             value: 22,
             src: "/assets/19-34.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#34_2019_1840*600*510_polystyene foam, resin"
         },
         {
             value: 23,
             src: "/assets/19-35.jpg",
-            txt: "설명이거든???? 3"
+            txt: "19#35_2019_1020*580*380_polystyene foam, resin"
         },
     ];
     function laoadData(images_data){
@@ -164,7 +164,7 @@
 	            <div class="modal-image">
 	                <img class="m-image" src={selected} alt="random img"/>
 	            </div>
-                <p class="text">{selectedTxt}</p>
+                <p class="caption">{selectedTxt}</p>
                 </div>
             {/if}
 </div>

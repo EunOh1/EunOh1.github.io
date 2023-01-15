@@ -7,57 +7,57 @@
         {
             value: 0,
             src: "/assets/18-1.jpg",
-            txt: "설명이거든???? 1"
+            txt: "18#1_2018_1650*390*370_steel, cement, epoxy, polystrene foam, resin"
         },
         {
             value: 1,
             src: "/assets/18-2.jpg",
-            txt: "설명이거든???? 2"
+            txt: "18#2_2018_1700*500*300_steel, cement, epoxy, polystrene foam, resin"
         },
         {
             value: 2,
             src: "/assets/18-3.jpg",
-            txt: "설명이거든???? 3"
+            txt: "18#3_2018_500*270*180_clay, wood, polystrene foam, acrylic"
         },
         {
             value: 3,
             src: "/assets/18-4.jpg",
-            txt: "설명이거든???? 3"
+            txt: "18#4_2018_450*250*160_clay, wood, polystrene foam, acrylic"
         },
         {
             value: 4,
             src: "/assets/18-5.jpg",
-            txt: "설명이거든???? 3"
+            txt: "18#5_2018_550*380*230_clay, polystrene foam, acrylic"
         },
         {
             value: 5,
             src: "/assets/18-6.jpg",
-            txt: "설명이거든???? 3"
+            txt: "18#6_2018_1460*380*380_steel, cement, epoxy, resin"
         },
         {
             value: 6,
             src: "/assets/18-7.jpg",
-            txt: "설명이거든???? 3"
+            txt: "18#7_2018_560*460*220_steel, resin, ink"
         },
         {
             value: 7,
             src: "/assets/18-8.jpg",
-            txt: "설명이거든???? 3"
+            txt: "18#8_2018_1630*270*260_polystrene foam, resin"
         },
         {
             value: 8,
             src: "/assets/18-9.jpg",
-            txt: "설명이거든???? 3"
+            txt: "18#9_2018_1620*1080*80_resin on cotton, wood"
         },
         {
             value: 9,
             src: "/assets/18-10.jpg",
-            txt: "설명이거든???? 3"
+            txt: "18#10_2018_600*900*130_polystrene foam, resin, wood"
         },
         {
             value: 10,
             src: "/assets/18-11.jpg",
-            txt: "설명이거든???? 3"
+            txt: "18#11_2018_510*240*260_clay, wood, steel, polystyrene foam"
         },
     ];
     function laoadData(images_data){
@@ -99,7 +99,7 @@
 	            <div class="modal-image">
 	                <img class="m-image" src={selected} alt="random img"/>
 	            </div>
-                <p class="text">{selectedTxt}</p>
+                <p class="caption">{selectedTxt}</p>
                 </div>
             {/if}
 </div>

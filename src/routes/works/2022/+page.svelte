@@ -7,78 +7,78 @@
         {
             value: 0,
             src: "/assets/22-1.jpg",
-            txt: "설명이거든???? 1"
+            txt: "WH_2022_photogrammatry"
         },
         {
             value: 1,
             src: "/assets/22-2.jpg",
-            txt: "설명이거든???? 2"
+            txt: "WP_2022_photogrammatry"
         },
         {
             value: 2,
             src: "/assets/22-3.jpg",
-            txt: "설명이거든???? 3"
+            txt: "yongjun_2022_photogrammatry"
         },
         {
             value: 3,
             src: "/assets/22-4.jpg",
-            txt: "설명이거든???? 4"
+            txt: "blownhead_2022_photogrammatry"
 
         },
         {
             value: 4,
             src: "/assets/22-5.jpg",
-            txt: "설명이거든???? 5"
+            txt: "dubuffet_2022_photogrammatry"
         },
         {
             value: 5,
             src: "/assets/22-6.jpg",
-            txt: "설명이거든???? 6"
+            txt: "head06_2022_photogrammatry"
         },
         {
             value: 6,
             src: "/assets/22-7.jpg",
-            txt: "설명이거든???? 7"
+            txt: "head07_2022_photogrammatry"
         },
         {
             value: 7,
             src: "/assets/22-8.jpg",
-            txt: "설명이거든???? 8"
+            txt: "headstower_2022_photogrammatry"
         },
         {
             value: 8,
             src: "/assets/22-9.jpg",
-            txt: "설명이거든???? 9"
+            txt: "jinkyu_2022_photogrammatry"
         },
         {
             value: 9,
             src: "/assets/22-10.jpg",
-            txt: "설명이거든???? 10"
+            txt: "kooning_2022_photogrammatry"
         },
         {
             value: 10,
             src: "/assets/22-11.jpg",
-            txt: "설명이거든???? 11"
+            txt: "kooning02_2022_photogrammatry"
         },
         {
             value: 11,
             src: "/assets/22-12.jpg",
-            txt: "설명이거든???? 12"
+            txt: "misun_2022_photogrammatry"
         },
         {
             value: 12,
             src: "/assets/22-13.jpg",
-            txt: "설명이거든???? 12"
+            txt: "ryuin_2022_photogrammatry"
         },
         {
             value: 13,
             src: "/assets/22-14.jpg",
-            txt: "설명이거든???? 12"
+            txt: "ufan_2022_photogrammatry"
         },
         {
             value: 14,
             src: "/assets/22-15.jpg",
-            txt: "설명이거든???? 12"
+            txt: "pink_2022_photogrammatry"
         }
     ];
     function laoadData(images_data){
@@ -119,7 +119,7 @@
 	            <div class="modal-image">
 	                <img class="m-image" src={selected} alt="random img"/>
 	            </div>
-                <p class="text">{selectedTxt}</p>
+                <p class="caption">{selectedTxt}</p>
                 </div>
             {/if}
 </div>

@@ -2,7 +2,7 @@
     import "../+texts_style.css"
 </script>
 <div class='txt-container'>
-    <h2 class="txt-title">거슬러 오늘로 향하는 법 : “기도하는” 조형의 원리</h2><br><br>
+    <h2 class="txt-title">거슬러 오늘로 향하는 법 : “기도하는” 조형의 원리</h2><br>
     <p class='sub-title'>황재민</p><br>
     <div class='p-container'>
     <p class="text">       

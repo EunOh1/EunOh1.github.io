@@ -7,77 +7,77 @@
         {
             value: 0,
             src: "/assets/s-16-2.jpg",
-            txt: "설명이거든???? 1"
+            txt: "s-16-2_2016_650*880*100_gesso, pencil, polystyrene foam, putty"
         },
         {
             value: 1,
             src: "/assets/s-16-3.jpg",
-            txt: "설명이거든???? 2"
+            txt: "s-16-3_2016_440*440*240_acrylic, polystyrene foam, polyurethane foam"
         },
         {
             value: 2,
             src: "/assets/s-16-5.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-5_2016_140*570*150_wood, acrylic"
         },
         {
             value: 3,
             src: "/assets/s-16-6.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-6_2016_600*600*20_acrylic on linen, korean paper"
         },
         {
             value: 4,
             src: "/assets/s-16-8.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-8_2016_900*900*180_polystyrene foam, acrylic, putty"
         },
         {
             value: 5,
             src: "/assets/s-16-9.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-9_2016_300*300*1000_polystyrene foam, putty, acrylic, wood"
         },
         {
             value: 6,
             src: "/assets/s-16-10.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-10_2016_300*700*250_polystyrene foam, putty"
         },
         {
             value: 7,
             src: "/assets/s-16-11.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-11_2016_528*728*100_acrylic on hemp cloth and korean paper"
         },
         {
             value: 8,
             src: "/assets/s-16-12.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-12_2016_410*410*80_resin, clay, polysterene foam, ink"
         },
         {
             value: 9,
             src: "/assets/s-16-13.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-13_2016_1170*940*140_wood, resin, acrylic, polystyrene foam"
         },
         {
             value: 10,
             src: "/assets/s-16-14.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-14-2016_1220*250*350_paper clay, polysterene foam"
         },
         {
             value: 11,
             src: "/assets/s-16-15.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-15_2016_1220x1020x400_resin, acrylic, polystyrene foam, silicone"
         },
         {
             value: 12,
             src: "/assets/s-16-18.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-18_2016_1460*280*320_wood, acrylic, resin, polysterene foam, clay"
         },
         {
             value: 13,
             src: "/assets/s-16-19.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-19_2016_820*630*310_clay, polystrene foam, epoxy"
         },
         {
             value: 14,
             src: "/assets/s-16-21.jpg",
-            txt: "설명이거든???? 3"
+            txt: "s-16-21_2016_840*440*270_polystrene foam, wood, ink, cement"
         },
     ];
     function laoadData(images_data){
@@ -119,7 +119,7 @@
 	            <div class="modal-image">
 	                <img class="m-image" src={selected} alt="random img"/>
 	            </div>
-                <p class="text">{selectedTxt}</p>
+                <p class="caption">{selectedTxt}</p>
                 </div>
             {/if}
 </div>

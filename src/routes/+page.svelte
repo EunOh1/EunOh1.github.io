@@ -20,67 +20,64 @@
 </svelte:head>
 <!-- <h1>스벨트로 만들어보고 싶어요!</h1> -->
 <div id="container">
-<div id="mainitems">
-    <model-viewer class="mainitem_1" src={mainitem_data[0]} camera-controls auto-rotate shadow-intensity="1"></model-viewer>
-    <model-viewer class="mainitem_2" src={mainitem_data[1]} camera-controls auto-rotate shadow-intensity="1"></model-viewer>
+<div class="mainitems">
+    <model-viewer class="mainitem_1" src={mainitem_data[0]} poster="/assets/17-20.jpg" camera-controls auto-rotate shadow-intensity="1"></model-viewer>
+    <model-viewer class="mainitem_2" src={mainitem_data[1]} poster="/assets/17-19.jpg" camera-controls auto-rotate shadow-intensity="1"></model-viewer>
 </div>
 </div>
 <style>
-    *{
-        margin: 0;
-    }
 @media only screen and (min-width: 1281px){
     #container {
-        align-items: center;
-        justify-items: center;
-        justify-content: center;
-        align-content: center;
-        height: calc(100vh - 100px);
+        position: relative;
+        top: 20vh;
+        height: calc(100vh - 140px);
     }
-    #mainitems{
+    .mainitems{
         box-sizing: border-box;
-        display:grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: minmax(auto);
-        padding: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
         align-items: center;
         justify-items: center;
         justify-content: center;
         align-content: center;
         overflow: hidden;
+        margin-top: -16px;
     }
-    #mainitems model-viewer {
-        height: 760px;
-        width: 300px;
-        padding: 0 auto;
+    .mainitems model-viewer {
+        display: flex;
+        position: relative;
+        height: 45vh;
+        width: 45vh;
         overflow-x: hidden;
     }
     .mainitem_1 {
-        margin-right: -20% ;
+        display: flex;
+        grid-column-start: 1;
     }
     .mainitem_2 {
-        margin-left: -20% ;
-    }
+        display: flex;
+        grid-column-start: 2;
+    } 
 }
     @media only screen and (min-width: 320px) and (max-width: 767px) {
         #container{
-        height: calc(100vh - 120px);
+        height: calc(100vh - 180px);
         }
 
-        #mainitems{
+        .mainitems{
         height: 100%;
         box-sizing: border-box;
         display:grid;
         grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: minmax(auto);
         align-items: center;
         justify-items: center;
         justify-content: center;
         align-content: center;
+        margin-top: -16px;
     }
-        #mainitems model-viewer {
-        height: 460px;
-        width: 320px;
+        .mainitems model-viewer {
+        height: 40vh;
+        width: 40vh;
         padding: 0 auto;
         overflow-x: hidden;
     }
@@ -94,26 +91,26 @@
 
     @media only screen and (min-width: 320px) and (max-width: 767px) and (orientation:landscape){
         #container {
-        height: calc(100vh - 70px);
+        height: calc(100vh - 100px);
         align-items: center;
         justify-items: center;
         justify-content: center;
         align-content: center;
     }
-        #mainitems{
+        .mainitems{
         height: 100%;
         box-sizing: border-box;
         display:grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: minmax(auto);
         align-items: center;
         justify-items: center;
         justify-content: center;
         align-content: center;
+        margin-top: -16px;
     }
-        #mainitems model-viewer {
-        height: 280px;
-        width: 340px;
+        .mainitems model-viewer {
+        height: 40vh;
+        width: 40vh;
         overflow-x: hidden;
     }
         .mainitem_1 {
@@ -127,26 +124,26 @@
 
     @media only screen and (min-width: 768px) and (max-width: 1024px){
         #container {
-        height: calc(100vh - 180px);
+        height: calc(100vh - 260px);
         align-items: center;
         justify-items: center;
         justify-content: center;
         align-content: center;
     }
-        #mainitems{
+        .mainitems{
         height: 100%;
         box-sizing: border-box;
         display:grid;
         grid-template-columns: repeat(1 , 1fr);
-        grid-template-rows: minmax(auto);
         align-items: center;
         justify-items: center;
         justify-content: center;
         align-content: center;
+        margin-top: -16px;
     }
-        #mainitems model-viewer {
-        height: 560px;
-        width: 700px;
+        .mainitems model-viewer {
+        height: 440px;
+        width: 440px;
         margin: 0 0 0 0;
         overflow-x: hidden;
     }
@@ -159,26 +156,26 @@
     }
     @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape){
         #container {
-        height: calc(100vh - 90px);
+        height: calc(100vh - 140px);
         align-items: center;
         justify-items: center;
         justify-content: center;
         align-content: center;
     }
-        #mainitems{
+        .mainitems{
         height: 100%;
         box-sizing: border-box;
         display:grid;
         grid-template-columns: repeat(2 , 1fr);
-        grid-template-rows: minmax(auto);
         align-items: center;
         justify-items: center;
         justify-content: center;
         align-content: center;
+        margin-top: -16px;
     }
-        #mainitems model-viewer {
-        height: 300px;
-        width: 360px;
+        .mainitems model-viewer {
+        width: 40vh;
+        height: 40vh;
         overflow-x: hidden;
     }
         .mainitem_1 {
@@ -190,13 +187,13 @@
     }
     @media only screen and (min-width: 1025px) and (max-width: 1280px) and (orientation:landscape){
         #container {
-        height: calc(100vh - 90px);
+        height: calc(100vh - 180px);
         align-items: center;
         justify-items: center;
         justify-content: center;
         align-content: center;
     }
-        #mainitems{
+        .mainitems{
         height: 100%;
         box-sizing: border-box;
         display:grid;
@@ -206,11 +203,12 @@
         justify-items: center;
         justify-content: center;
         align-content: center;
+        margin-top: -16px;
     }
-        #mainitems model-viewer {
+        .mainitems model-viewer {
         height: 400px;
         width: 600px;
-        margin: 20% 0 0 0;
+        margin: 0 0 0 0;
         overflow-x: hidden;
     }
         .mainitem_1 {

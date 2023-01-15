@@ -10,7 +10,7 @@
         height:auto;
         max-height: 680px;
     }
-  .text {
+  .caption {
         font-size: 1rem;
         position: relative;
         text-align: center;
@@ -37,8 +37,8 @@
     .modal-image {
         margin: 0 auto;
         display: block;
-        width: 100%;
-        max-width: 100%;
+        width: 90%;
+        max-width: 90%;
         text-align: center;	
     }
     .modal {

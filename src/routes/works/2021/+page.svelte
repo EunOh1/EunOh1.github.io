@@ -7,17 +7,17 @@
         {
             value: 0,
             src: "/assets/21-1.jpg",
-            txt: "설명이거든???? 1"
+            txt: "21#1_2021_1600*550*670_polystyrene foam, resin, acrylic"
         },
         {
             value: 1,
             src: "/assets/21-2.jpg",
-            txt: "설명이거든???? 2"
+            txt: "21#2_2021_1210*360*390_polystyrene foam, resin, acrylic"
         },
         {
             value: 2,
             src: "/assets/21-3.jpg",
-            txt: "설명이거든???? 3"
+            txt: "21#3_2021_660*300*120_polystyrene foam, acrylic (from <Auto>)"
         }
     ];
     function laoadData(images_data){
@@ -59,7 +59,7 @@
 	            <div class="modal-image">
 	                <img class="m-image" src={selected} alt="random img"/>
 	            </div>
-                <p class="text">{selectedTxt}</p>
+                <p class="caption">{selectedTxt}</p>
                 </div>
             {/if}
 </div>
@@ -90,6 +90,7 @@
         justify-content: center;
         justify-items: center;
         cursor: pointer;
+        gap: 2vh;
 	}
 /* Responsive layout - makes a two column-layout instead of four columns */
   @media screen and (max-width: 1024px) {
@@ -114,8 +115,8 @@
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
     .column {
-      grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
     }
   }
 </style>

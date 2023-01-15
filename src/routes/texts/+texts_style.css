@@ -19,23 +19,23 @@ h2 {
 @media screen and (max-width: 1024px) {
 .txt-container {
     font-size: 3vh;
-    padding: 10vh 6vh 20vh 6vh;
+    padding: 10vh 6vh 15vh 6vh;
 }
 }
 @media screen and (max-width: 915px) {
 .txt-container {
     font-size: 3vh;
-    padding: 10vh 5vh 20vh 5vh;
+    padding: 5vh 5vh 8vh 5vh;
 }
 .p-container {
-    column-count: 1;
+    column-count: 2;
     column-width: 20vh;
 }
 }
 @media screen and (max-width: 820px) {  
 .txt-container {
-    font-size: 3vh;
-    padding: 10vh 5vh 20vh 5vh;
+    font-size: 2vh;
+    padding: 5vh 5vh 5vh 5vh;
 }
 .p-container {
     column-count: 1;
@@ -44,8 +44,8 @@ h2 {
 }
 @media screen and (max-width: 800px) {
 .txt-container {
-    font-size: 3vh;
-    padding: 10vh 4vh 20vh 4vh;
+    font-size: 2vh;
+    padding: 5vh 4vh 5vh 4vh;
 }
 .p-container {
     column-count: 1;
@@ -54,8 +54,8 @@ h2 {
 }  
 @media screen and (max-width: 740px) {
 .txt-container {
-    font-size: 3vh;
-    padding: 10vh 3vh 10vh 3vh;
+    font-size: 2vh;
+    padding: 5vh 3vh 5vh 3vh;
 }
 .p-container {
     column-count: 1;
@@ -64,8 +64,8 @@ h2 {
 }
 @media screen and (max-width: 600px) {
 .txt-container {
-    font-size: 3vh;
-    padding: 10vh 3vh 10vh 3vh;
+    font-size: 2vh;
+    padding: 5vh 3vh 5vh 3vh;
 }
 .p-container {
     column-count: 1;

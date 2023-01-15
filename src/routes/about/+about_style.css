@@ -1,8 +1,21 @@
+h2{
+    margin: 0;
+}
 .about_container{
+    margin-top: 0vh;
     margin-left: 50vh;
 }
+a:link, a:visited{
+    color:black;
+    text-decoration:none;
+    transition: 0.5s ease-in; 
+}
+a:hover, a:focus{
+    color:rgb(255, 100, 100);
+    background-color: #fff;
+}
 .top{
-    padding: 3vh 20vh 3vh 20vh;
+    padding: 1vh 20vh 0.5vh 20vh;
     font-size: 2vh;
 }
 .name{
@@ -20,7 +33,7 @@
         margin-left: 10vh;
     }
     .top{
-        padding: 3vh 8vh 3vh 8vh;
+        padding: 1vh 8vh 0.5vh 8vh;
         font-size: 2vh;
     }
     .name{
@@ -39,7 +52,7 @@
         margin-left: 10vh;
     }
     .top{
-        padding: 3vh 2vh 3vh 2vh;
+        padding: 1vh 2vh 0.5vh 2vh;
         font-size: 2vh;
     }
     .name{
@@ -58,7 +71,7 @@
         margin-left: 10vh;
     }
     .top{
-        padding: 3vh 2vh 3vh 2vh;
+        padding: 1vh 2vh 0.5vh 2vh;
         font-size: 4vh;
     }
     .name{
@@ -77,7 +90,7 @@
         margin-left: 10vh;
     }
     .top{
-        padding: 3vh 2vh 3vh 2vh;
+        padding: 1vh 2vh 0.5vh 2vh;
         font-size: 2.7vh;
     }
     .name{
@@ -96,7 +109,7 @@
         margin-left: 10vh;
     }
     .top{
-        padding: 3vh 2vh 3vh 2vh;
+        padding: 1vh 2vh 0.5vh 2vh;
         font-size: 2.7vh;
     }
     .name{
@@ -115,7 +128,7 @@
         margin-left: 10vh;
     }
     .top{
-        padding: 3vh 2vh 3vh 2vh;
+        padding: 1vh 2vh 0.5vh 2vh;
         font-size: 4vh;
     }
     .name{
@@ -134,15 +147,15 @@
         margin-left: 10vh;
     }
     .top{
-        padding: 3vh 2vh 3vh 2vh;
-        font-size: 1.8vh;
+        padding: 1vh 2vh 0.5vh 2vh;
+        font-size: 1.6vh;
     }
     .name{
         font-size: 2.7vh;
     }
     .bottom{
         padding: 0vh 2vh 5vh 2vh;
-        font-size: 1.8vh;
+        font-size: 1.6vh;
     }
     .title{
         font-size: 2.2vh;
@@ -153,15 +166,15 @@
         margin-left: 10vh;
     }
     .top{
-        padding: 3vh 2vh 3vh 2vh;
-        font-size: 1.7vh;
+        padding: 1vh 2vh 0.5vh 2vh;
+        font-size: 1.6vh;
     }
     .name{
-        font-size: 2.7vh;
+        font-size: 2.6vh;
     }
     .bottom{
         padding: 0vh 2vh 5vh 2vh;
-        font-size: 1.7vh;
+        font-size: 1.6vh;
     }
     .title{
         font-size: 2.2vh;
@@ -172,36 +185,36 @@
         margin-left: 10vh;
     }
     .top{
-        padding: 3vh 3vh 3vh 3vh;
-        font-size: 2vh;
+        padding: 1vh 3vh 0.5vh 3vh;
+        font-size: 1.6vh;
     }
     .name{
-        font-size: 3vh;
+        font-size: 2.5vh;
     }
     .bottom{
         padding: 0vh 3vh 5vh 3vh;
-        font-size: 2vh;
+        font-size: 1.6vh;
     }
     .title{
-        font-size: 2.5vh;
+        font-size: 2.2vh;
     }
 }
 @media screen and (max-width: 360px) {
     .about_container{
-        margin-left: 10vh;
+        margin-left: 8vh;
     }
     .top{
-        padding: 3vh 3vh 3vh 3vh;
-        font-size: 1.8vh;
+        padding: 1vh 3vh 0.5vh 3vh;
+        font-size: 1.6vh;
     }
     .name{
-        font-size: 3vh;
+        font-size: 2.5vh;
     }
     .bottom{
         padding: 0vh 3vh 5vh 3vh;
-        font-size: 1.8vh;
+        font-size: 1.6vh;
     }
     .title{
-        font-size: 2.5vh;
+        font-size: 2.2vh;
     }
 }

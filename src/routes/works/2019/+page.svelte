@@ -156,7 +156,7 @@
 <div class="grid-container">
 <div class="column">
     {#each images_data as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} src={image.src}> 
+        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} src={image.src} loading='lazy'> 
         {/each}    
             {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>

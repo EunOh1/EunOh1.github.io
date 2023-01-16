@@ -7,78 +7,78 @@
         {
             value: 0,
             src: "/assets/22-1.jpg",
-            txt: "WH_2022_photogrammatry"
+            txt: "WH_2022_photogrammetry"
         },
         {
             value: 1,
             src: "/assets/22-2.jpg",
-            txt: "WP_2022_photogrammatry"
+            txt: "WP_2022_photogrammetry"
         },
         {
             value: 2,
             src: "/assets/22-3.jpg",
-            txt: "yongjun_2022_photogrammatry"
+            txt: "yongjun_2022_glb"
         },
         {
             value: 3,
             src: "/assets/22-4.jpg",
-            txt: "blownhead_2022_photogrammatry"
+            txt: "blownhead_2022_photogrammetry"
 
         },
         {
             value: 4,
             src: "/assets/22-5.jpg",
-            txt: "dubuffet_2022_photogrammatry"
+            txt: "dubuffet_2022_photogrammetry"
         },
         {
             value: 5,
             src: "/assets/22-6.jpg",
-            txt: "head06_2022_photogrammatry"
+            txt: "head06_2022_glb"
         },
         {
             value: 6,
             src: "/assets/22-7.jpg",
-            txt: "head07_2022_photogrammatry"
+            txt: "head07_2022_glb"
         },
         {
             value: 7,
             src: "/assets/22-8.jpg",
-            txt: "headstower_2022_photogrammatry"
+            txt: "headstower_2022_photogrammetry"
         },
         {
             value: 8,
             src: "/assets/22-9.jpg",
-            txt: "jinkyu_2022_photogrammatry"
+            txt: "jinkyu_2022_glb"
         },
         {
             value: 9,
             src: "/assets/22-10.jpg",
-            txt: "kooning_2022_photogrammatry"
+            txt: "kooning_2022_glb"
         },
         {
             value: 10,
             src: "/assets/22-11.jpg",
-            txt: "kooning02_2022_photogrammatry"
+            txt: "kooning02_2022_glb"
         },
         {
             value: 11,
             src: "/assets/22-12.jpg",
-            txt: "misun_2022_photogrammatry"
+            txt: "misun_2022_photogrammetry"
         },
         {
             value: 12,
             src: "/assets/22-13.jpg",
-            txt: "ryuin_2022_photogrammatry"
+            txt: "ryuin_2022_glb"
         },
         {
             value: 13,
             src: "/assets/22-14.jpg",
-            txt: "ufan_2022_photogrammatry"
+            txt: "ufan_2022_photogrammetry"
         },
         {
             value: 14,
             src: "/assets/22-15.jpg",
-            txt: "pink_2022_photogrammatry"
+            txt: "pink_2022_photogrammetry"
         }
     ];
     function laoadData(images_data){
@@ -126,51 +126,49 @@
 <style>
     .image {
         display: flex;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
         cursor: pointer;
 		width:100%;
         height: auto;
-		max-width:400px;
+		max-width:360px;
 	    max-height:800px;
-      	transition: 0.125s;
+        padding: 0 0 0 0;
     }
 /* Create four equal columns that sits next to each other */
     .column {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-rows: repeat(4, fit-content(100vh));
         padding: 2vh 0;
         align-items: center;
         justify-content: center;
         justify-items: center;
-        cursor: pointer;
+        gap: 1vh;
 	}
 /* Responsive layout - makes a two column-layout instead of four columns */
   @media screen and (max-width: 1024px) {
     .column {
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
+      grid-template-rows: repeat(4, fit-content(100vh));
     }
   }
   @media screen and (max-width: 915px) {
     .column {
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(5, 1fr);
+      grid-template-rows: repeat(5, fit-content(100vh));
     }
   }
   /* Responsive layout - makes a two column-layout instead of four columns */
   @media screen and (max-width: 800px) {
     .column {
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(8, 1fr);
+      grid-template-rows: repeat(8, fit-content(100vh));
     }
   }
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
     .column {
       grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(8, fit-content(100vh));
     }
   }
 </style>

@@ -48,28 +48,26 @@
   title="Eun Oh's website"
 	titleTemplate = '%s | Svelte Meta Tags'
   description="This is Eun Oh's website"
-  canonical="https://eunoh1.github.io/"
+  canonical="https://eunoh.pages.dev/"
   openGraph={{
-    url: 'https://eunoh1.github.io/',
-    title: "Eun Oh' website",
+    url: 'https://eunoh.pages.dev/',
+    title: "Eun Oh's website",
     description: "This is Eun Oh's website",
     images: [
       {
-        url: 'https://github.com/EunOh1/public/blob/f66e0067229129127878b70adb58304fcbabd6db/balzac.jpg',
+        url: 'https://raw.githubusercontent.com/EunOh1/public/f66e0067229129127878b70adb58304fcbabd6db/balzac.jpg',
         width: 800,
         height: 600,
         alt: 'Og Image Alt'
-      },
-      {
-        url: 'https://github.com/EunOh1/public/blob/f66e0067229129127878b70adb58304fcbabd6db/balzac.jpg',
-        width: 900,
-        height: 800,
-        alt: 'Og Image Alt Second'
-      },
-      { url: 'https://github.com/EunOh1/public/blob/f66e0067229129127878b70adb58304fcbabd6db/balzac.jpg' },
-      { url: 'https://github.com/EunOh1/public/blob/f66e0067229129127878b70adb58304fcbabd6db/balzac.jpg' }
+      }
     ],
     site_name: "Eun Oh's Website"
+  }}
+  twitter={{
+    cardType: 'summary_large_image',
+    title: "Eun Oh's website",
+    description: 'Twitter',
+    image: 'https://raw.githubusercontent.com/EunOh1/public/f66e0067229129127878b70adb58304fcbabd6db/balzac.jpg',
   }}
 />
 <JsonLd
@@ -77,7 +75,7 @@ schema={{
     '@type': 'Article',
     mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': 'https://eunoh1.github.io/works'
+        '@id': 'https://eunoh.pages.dev/works'
     },
     headline: 'Works',
     image: [
@@ -94,12 +92,15 @@ schema={{
         name: 'screen',
         logo: {
             '@type': 'ImageObject',
-            url: 'https://eunoh1.github.io/works'
+            url: 'https://screenxyz.net/wp-content/uploads/2022/03/221204_simbol.png'
         }
     }
 }}
 />
 <svelte:head>
+<meta itemprop="name" content="Eun Oh's Website">
+<meta itemprop="description" content="This is Eun Oh's website">
+<meta itemprop="image" content="https://raw.githubusercontent.com/EunOh1/public/f66e0067229129127878b70adb58304fcbabd6db/balzac.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Rubik+Bubbles&display=swap" rel="stylesheet">

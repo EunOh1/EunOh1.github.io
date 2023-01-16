@@ -150,53 +150,49 @@
     }
     .image {
         display: flex;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(5, 1fr);
         cursor: pointer;
 		width:100%;
         height: auto;
 		max-width:360px;
 	    max-height:800px;
-        padding: 0 1vw 0 1vw;
-        gap: 2vh;
+        padding: 0 0vw 0 0vw;
     }
 /* Create four equal columns that sits next to each other */
     .column {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        gap: 2vh;
+        grid-template-rows: repeat(5, fit-content(100vh));
+        gap: 1vh;
         padding: 2vh 0;
         align-items: center;
         justify-content: center;
         justify-items: center;
-        cursor: pointer;
 	}
 /* Responsive layout - makes a two column-layout instead of four columns */
   @media screen and (max-width: 1024px) {
     .column {
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(5, 1fr);
+      grid-template-rows: repeat(5, fit-content(100vh));
     }
   }
   @media screen and (max-width: 915px) {
     .column {
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(5, 1fr);
+      grid-template-rows: repeat(5, fit-content(100vh));
     }
   }
   /* Responsive layout - makes a two column-layout instead of four columns */
   @media screen and (max-width: 800px) {
     .column {
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(10, 1fr);
+      grid-template-rows: repeat(10, fit-content(100vh));
     }
   }
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
     .column {
       grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-rows: repeat(10, fit-content(100vh));
     }
   }
 </style>

@@ -2,6 +2,7 @@
     import {fade, slide} from 'svelte/transition';
     // import { tick } from 'svelte';
     import "../+works_style.css";
+    import {lazyLoad} from '../lazyload.js'
 
     let images_data = [
         {
@@ -91,7 +92,7 @@
 <div class="grid-container">
 <div class="column">
     {#each images_data as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} src={image.src} loading='lazy'> 
+        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} loading='lazy'> 
         {/each}    
             {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>
@@ -116,6 +117,8 @@
 		max-width:360px;
 	    max-height:800px;
         padding: 0 0 0 0;
+        opacity: 0;
+		transition: all 2s ease;
         }
 /* Create four equal columns that sits next to each other */
     .column {

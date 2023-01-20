@@ -7,17 +7,17 @@
     let images_data = [
         {
             value: 0,
-            src: "/assets/21-1.jpg",
+            src: "/assets/21-1.webp",
             txt: "21#1_2021_1600*550*670_polystyrene foam, resin, acrylic"
         },
         {
             value: 1,
-            src: "/assets/21-2.jpg",
+            src: "/assets/21-2.webp",
             txt: "21#2_2021_1210*360*390_polystyrene foam, resin, acrylic"
         },
         {
             value: 2,
-            src: "/assets/21-3.jpg",
+            src: "/assets/21-3.webp",
             txt: "21#3_2021_660*300*120_polystyrene foam, acrylic (from <Auto>)"
         }
     ];
@@ -52,7 +52,7 @@
 <div class="grid-container">
 <div class="column">
     {#each images_data as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} loading='lazy'> 
+        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} decoding="async" loading='lazy'> 
           {/each}    
             {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>

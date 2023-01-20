@@ -7,97 +7,97 @@
     let images_data = [
         {
             value: 0,
-            src: "/assets/s-15-1.jpg",
+            src: "/assets/s-15-1.webp",
             txt: "s-15-1_2015_727*550_putty, acrylic, UV print, wood panel"
         },
         {
             value: 1,
-            src: "/assets/s-15-2-10.jpg",
+            src: "/assets/s-15-2-10.webp",
             txt: "s-15-2~10_2015_300*300*25(each)_acrylic, digital print"
         },
         {
             value: 2,
-            src: "/assets/s-15-11.jpg",
+            src: "/assets/s-15-11.webp",
             txt: "s-15-11_2015_220*273*25_wood panel, curtain lace, acrylic"
         },
         {
             value: 3,
-            src: "/assets/s-15-12.jpg",
+            src: "/assets/s-15-12.webp",
             txt: "s-15-12_2015_1500*1000*30_woodpanel, Putty, urethane varnish"
         },
         {
             value: 4,
-            src: "/assets/s-15-13.jpg",
+            src: "/assets/s-15-13.webp",
             txt: "s-15-13_2015_415*860*10_gesso, UV print on acrylic board(found objet)"
         },
         {
             value: 5,
-            src: "/assets/s-15-14.jpg",
+            src: "/assets/s-15-14.webp",
             txt: "s-15-14_2015_330*440*40_putty, UV print on styrofoam(found objet)"
         },
         {
             value: 6,
-            src: "/assets/s-15-15.jpg",
+            src: "/assets/s-15-15.webp",
             txt: "s-15-15_2015_810*560*20_UV print on frame(found objet)"
         },
         {
             value: 7,
-            src: "/assets/s-15-16.jpg",
+            src: "/assets/s-15-16.webp",
             txt: "s-15-16_2015_400*400*60_oil and watercolor on styrofoam, putty, epoxy"
         },
         {
             value: 8,
-            src: "/assets/s-15-33.jpg",
+            src: "/assets/s-15-33.webp",
             txt: "s-15-33_2015_440*650*150_linen, polystyrene foam, stretcher, acrylic"
         },
         {
             value: 9,
-            src: "/assets/s-15-34.jpg",
+            src: "/assets/s-15-34.webp",
             txt: "s-15-34_2015_710*1100*80_linen, stretcher, acrylic"
         },
         {
             value: 10,
-            src: "/assets/s-15-35.jpg",
+            src: "/assets/s-15-35.webp",
             txt: "s-15-35_2015_660*380*50_linen, stretcher, gluegun, acrylic"
         },
         {
             value: 11,
-            src: "/assets/s-15-36-8.jpg",
+            src: "/assets/s-15-36-8.webp",
             txt: "s-15-36~8_2015_360*360*80, 520*680*80, 680*820*80_linen, acrylic"
         },
         {
             value: 12,
-            src: "/assets/s-15-42.jpeg",
+            src: "/assets/s-15-42.webp",
             txt: "s-15-42_2015_100*50*250_acrylic, digital print, polystyrene foam"
         },
         {
             value: 13,
-            src: "/assets/s-15-44.jpg",
+            src: "/assets/s-15-44.webp",
             txt: "s-15-44_2015_400*400*450_polystyrene foam, acrylic"
         },
         {
             value: 14,
-            src: "/assets/s-15-45.jpeg",
+            src: "/assets/s-15-45.webp",
             txt: "s-15-45_2015_300*530*30_acrylic, korean paper, woodpanel"
         },
         {
             value: 15,
-            src: "/assets/s-15-47.jpg",
+            src: "/assets/s-15-47.webp",
             txt: "s-15-47_2015_550*750*40_wood(found objet), UV print"
         },
         {
             value: 16,
-            src: "/assets/s-15-48.jpg",
+            src: "/assets/s-15-48.webp",
             txt: "s-15-48_2015_550*750*40_wood(found objeet), UV print"
         },
         {
             value: 17,
-            src: "/assets/s-15-49.jpg",
+            src: "/assets/s-15-49.webp",
             txt: "s-15-49_2015_320*450*40_polystyrene foam(found objet), putty, UV print"
         },
         {
             value: 18,
-            src: "/assets/s-15-50.jpg",
+            src: "/assets/s-15-50.webp",
             txt: "s-15-50_2015_600*800*200_polystyrene foam, stretcher, acrylic"
         },
     ];
@@ -132,7 +132,7 @@
 <div class="grid-container">
 <div class="column">
     {#each images_data as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} loading='lazy'> 
+        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} decoding="async" loading='lazy'> 
         {/each}    
             {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>

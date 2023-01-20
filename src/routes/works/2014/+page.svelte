@@ -7,27 +7,27 @@
     let images_data = [
         {
             value: 0,
-            src: "/assets/s-14-1.jpg",
+            src: "/assets/s-14-1.webp",
             txt: "s-14-1_2014_1650*1300*250_fabric products"
         },
         {
             value: 1,
-            src: "/assets/s-14-2.jpg",
+            src: "/assets/s-14-2.webp",
             txt: "s-14-2_2014_1622*1303*25_pigment print on canvas"
         },
         {
             value: 2,
-            src: "/assets/s-14-3-8.jpg",
+            src: "/assets/s-14-3-8.webp",
             txt: "s-14-3~8_2014_500*650*25(each)_putty, UV print on woodpanel"
         },
         {
             value: 3,
-            src: "/assets/s-14-9.jpg",
+            src: "/assets/s-14-9.webp",
             txt: "s-14-9_2014_530*300*30_acrylic, pigment print on canvas"
         },
         {
             value: 4,
-            src: "/assets/s-14-10.jpg",
+            src: "/assets/s-14-10.webp",
             txt: "s-14-10_2014_170*180*222_3d Print"
         },
     ];
@@ -62,7 +62,7 @@
 <div class="grid-container">
 <div class="column">
     {#each images_data as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} loading='lazy'> 
+        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} decoding="async" loading='lazy'> 
         {/each}    
           {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>

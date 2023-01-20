@@ -7,47 +7,47 @@
     let images_data = [
         {
             value: 0,
-            src: "/assets/17-4.jpg",
+            src: "/assets/17-4.webp",
             txt: "17#4_2017_535*220*250_plaster, watercolor, acrylic"
         },
         {
             value: 1,
-            src: "/assets/17-5.jpg",
+            src: "/assets/17-5.webp",
             txt: "17#5_2017_770*240*230_cement, wood, epoxy, clay, polystyrene foam"
         },
         {
             value: 2,
-            src: "/assets/17-6-9.jpg",
+            src: "/assets/17-6-9.webp",
             txt: "17#6~9_2017_530*300*30(each)_oil, acrylic, woodpanel, hemp"
         },
         {
             value: 3,
-            src: "/assets/17-11.jpg",
+            src: "/assets/17-11.webp",
             txt: "17#11_2017_1000*990*580_steel, polystrene foam, resin"
         },
         {
             value: 4,
-            src: "/assets/17-16.jpg",
+            src: "/assets/17-16.webp",
             txt: "17#16_2017_1370*420*360_steel, cement, epoxy, polystrene foam, resin"
         },
         {
             value: 5,
-            src: "/assets/17-18.jpg",
+            src: "/assets/17-18.webp",
             txt: "17#18_2017_350*160*200_clay, wood, acrylic"
         },
         {
             value: 6,
-            src: "/assets/17-19.jpg",
+            src: "/assets/17-19.webp",
             txt: "17#19_2017_310*160*200_clay, wood, acrylic"
         },
         {
             value: 7,
-            src: "/assets/17-20.jpg",
+            src: "/assets/17-20.webp",
             txt: "17#20_2017_500*260*240_clay, wood, steel, polystyrene foam, acrylic"
         },
         {
             value: 8,
-            src: "/assets/17-21.jpg",
+            src: "/assets/17-21.webp",
             txt: "17#21_2017_590*350*330_clay, epoxy, steel, wood, acrylic"
         },
     ];
@@ -82,7 +82,7 @@
 <div class="grid-container">
 <div class="column">
     {#each images_data as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} loading='lazy'> 
+        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} decoding="async" loading='lazy'> 
         {/each}   
             {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>

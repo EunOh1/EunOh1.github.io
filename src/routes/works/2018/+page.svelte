@@ -7,57 +7,57 @@
     let images_data = [
         {
             value: 0,
-            src: "/assets/18-1.jpg",
+            src: "/assets/18-1.webp",
             txt: "18#1_2018_1650*390*370_steel, cement, epoxy, polystrene foam, resin"
         },
         {
             value: 1,
-            src: "/assets/18-2.jpg",
+            src: "/assets/18-2.webp",
             txt: "18#2_2018_1700*500*300_steel, cement, epoxy, polystrene foam, resin"
         },
         {
             value: 2,
-            src: "/assets/18-3.jpg",
+            src: "/assets/18-3.webp",
             txt: "18#3_2018_500*270*180_clay, wood, polystrene foam, acrylic"
         },
         {
             value: 3,
-            src: "/assets/18-4.jpg",
+            src: "/assets/18-4.webp",
             txt: "18#4_2018_450*250*160_clay, wood, polystrene foam, acrylic"
         },
         {
             value: 4,
-            src: "/assets/18-5.jpg",
+            src: "/assets/18-5.webp",
             txt: "18#5_2018_550*380*230_clay, polystrene foam, acrylic"
         },
         {
             value: 5,
-            src: "/assets/18-6.jpg",
+            src: "/assets/18-6.webp",
             txt: "18#6_2018_1460*380*380_steel, cement, epoxy, resin"
         },
         {
             value: 6,
-            src: "/assets/18-7.jpg",
+            src: "/assets/18-7.webp",
             txt: "18#7_2018_560*460*220_steel, resin, ink"
         },
         {
             value: 7,
-            src: "/assets/18-8.jpg",
+            src: "/assets/18-8.webp",
             txt: "18#8_2018_1630*270*260_polystrene foam, resin"
         },
         {
             value: 8,
-            src: "/assets/18-9.jpg",
+            src: "/assets/18-9.webp",
             txt: "18#9_2018_1620*1080*80_resin on cotton, wood"
         },
         {
             value: 9,
-            src: "/assets/18-10.jpg",
+            src: "/assets/18-10.webp",
             txt: "18#10_2018_600*900*130_polystrene foam, resin, wood"
         },
         {
             value: 10,
-            src: "/assets/18-11.jpg",
+            src: "/assets/18-11.webp",
             txt: "18#11_2018_510*240*260_clay, wood, steel, polystyrene foam"
         },
     ];
@@ -92,7 +92,7 @@
 <div class="grid-container">
 <div class="column">
     {#each images_data as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} loading='lazy'> 
+        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} decoding="async" loading='lazy'> 
         {/each}    
             {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>

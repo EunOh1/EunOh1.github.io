@@ -7,67 +7,67 @@
     let images_data = [
         {
             value: 0,
-            src: "/assets/20-3.jpg",
+            src: "/assets/20-3.webp",
             txt: "20#3_2020_920*300*300_polystyrene foam, acrylic"
         },
         {
             value: 1,
-            src: "/assets/20-4.jpg",
+            src: "/assets/20-4.webp",
             txt: "20#4_2020_900*620*400_polystyrene foam, acrylic"
         },
         {
             value: 2,
-            src: "/assets/20-5.jpg",
+            src: "/assets/20-5.webp",
             txt: "20#5_2020_470*560*460_polystyrene foam, acrylic, laquer, resin"
         },
         {
             value: 3,
-            src: "/assets/20-6.jpg",
+            src: "/assets/20-6.webp",
             txt: "20#6_2020_550*800*400_polystyrene foam, laquer"
         },
         {
             value: 4,
-            src: "/assets/20-7.jpg",
+            src: "/assets/20-7.webp",
             txt: "20#7_2020_520*210*140_polystyrene foam, urethane"
         },
         {
             value: 5,
-            src: "/assets/20-8.jpg",
+            src: "/assets/20-8.webp",
             txt: "20#8_2020_1820*250*300_polystyrene foam, acrylic"
         },
         {
             value: 6,
-            src: "/assets/20-11.jpg",
+            src: "/assets/20-11.webp",
             txt: "20#11_2020_910*400*160_polystyrene foam, wood, cement, oil"
         },
         {
             value: 7,
-            src: "/assets/20-12.jpg",
+            src: "/assets/20-12.webp",
             txt: "20#12_2020_870*410*120_polystyrene foam, wood, oil, acrylic"
         },
         {
             value: 8,
-            src: "/assets/20-13.jpg",
+            src: "/assets/20-13.webp",
             txt: "20#13_2020_780*290*120_polystyrene foam, wood, oil, acrylic"
         },
         {
             value: 9,
-            src: "/assets/20-14.jpg",
+            src: "/assets/20-14.webp",
             txt: "20#14_2020_1000*900*140_polystyrene foam, stretcher, epoxy"
         },
         {
             value: 10,
-            src: "/assets/20-15.jpg",
+            src: "/assets/20-15.webp",
             txt: "20#15_2020_1100*900*140_polystyrene foam, stretcher, epoxy"
         },
         {
             value: 11,
-            src: "/assets/20-17.jpg",
+            src: "/assets/20-17.webp",
             txt: "20#17_2020_1800*820*440_polystyrene foam, resin, clay, epoxy, iron"
         },
         {
             value: 12,
-            src: "/assets/20-18.jpg",
+            src: "/assets/20-18.webp",
             txt: "20#18_2020_660*500_paper, oil on canvas"
         },
     ];
@@ -102,7 +102,7 @@
 <div class="grid-container">
 <div class="column">
     {#each images_data as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} loading='lazy'> 
+        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} decoding="async" loading='lazy'> 
         {/each}   
             {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>

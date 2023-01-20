@@ -7,78 +7,78 @@
     let images_data = [
         {
             value: 0,
-            src: "/assets/22-1.jpg",
+            src: "/assets/22-1.webp",
             txt: "WH_2022_photogrammetry"
         },
         {
             value: 1,
-            src: "/assets/22-2.jpg",
+            src: "/assets/22-2.webp",
             txt: "WP_2022_photogrammetry"
         },
         {
             value: 2,
-            src: "/assets/22-3.jpg",
+            src: "/assets/22-3.webp",
             txt: "yongjun_2022_glb"
         },
         {
             value: 3,
-            src: "/assets/22-4.jpg",
+            src: "/assets/22-4.webp",
             txt: "blownhead_2022_photogrammetry"
 
         },
         {
             value: 4,
-            src: "/assets/22-5.jpg",
+            src: "/assets/22-5.webp",
             txt: "dubuffet_2022_photogrammetry"
         },
         {
             value: 5,
-            src: "/assets/22-6.jpg",
+            src: "/assets/22-6.webp",
             txt: "head06_2022_glb"
         },
         {
             value: 6,
-            src: "/assets/22-7.jpg",
+            src: "/assets/22-7.webp",
             txt: "head07_2022_glb"
         },
         {
             value: 7,
-            src: "/assets/22-8.jpg",
+            src: "/assets/22-8.webp",
             txt: "headstower_2022_photogrammetry"
         },
         {
             value: 8,
-            src: "/assets/22-9.jpg",
+            src: "/assets/22-9.webp",
             txt: "jinkyu_2022_glb"
         },
         {
             value: 9,
-            src: "/assets/22-10.jpg",
+            src: "/assets/22-10.webp",
             txt: "kooning_2022_glb"
         },
         {
             value: 10,
-            src: "/assets/22-11.jpg",
+            src: "/assets/22-11.webp",
             txt: "kooning02_2022_glb"
         },
         {
             value: 11,
-            src: "/assets/22-12.jpg",
+            src: "/assets/22-12.webp",
             txt: "misun_2022_photogrammetry"
         },
         {
             value: 12,
-            src: "/assets/22-13.jpg",
+            src: "/assets/22-13.webp",
             txt: "ryuin_2022_glb"
         },
         {
             value: 13,
-            src: "/assets/22-14.jpg",
+            src: "/assets/22-14.webp",
             txt: "ufan_2022_photogrammetry"
         },
         {
             value: 14,
-            src: "/assets/22-15.jpg",
+            src: "/assets/22-15.webp",
             txt: "pink_2022_photogrammetry"
         }
     ];
@@ -112,7 +112,7 @@
 <!-- Photo Grid -->
 <div class="column">
     {#each images_data as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} loading='lazy'> 
+        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} decoding="async" loading='lazy'> 
         {/each}    
         {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>

@@ -7,77 +7,77 @@
     let images_data = [
         {
             value: 0,
-            src: "/assets/s-16-2.jpg",
+            src: "/assets/s-16-2.webp",
             txt: "s-16-2_2016_650*880*100_gesso, pencil, polystyrene foam, putty"
         },
         {
             value: 1,
-            src: "/assets/s-16-3.jpg",
+            src: "/assets/s-16-3.webp",
             txt: "s-16-3_2016_440*440*240_acrylic, polystyrene foam, polyurethane foam"
         },
         {
             value: 2,
-            src: "/assets/s-16-5.jpg",
+            src: "/assets/s-16-5.webp",
             txt: "s-16-5_2016_140*570*150_wood, acrylic"
         },
         {
             value: 3,
-            src: "/assets/s-16-6.jpg",
+            src: "/assets/s-16-6.webp",
             txt: "s-16-6_2016_600*600*20_acrylic on linen, korean paper"
         },
         {
             value: 4,
-            src: "/assets/s-16-8.jpg",
+            src: "/assets/s-16-8.webp",
             txt: "s-16-8_2016_900*900*180_polystyrene foam, acrylic, putty"
         },
         {
             value: 5,
-            src: "/assets/s-16-9.jpg",
+            src: "/assets/s-16-9.webp",
             txt: "s-16-9_2016_300*300*1000_polystyrene foam, putty, acrylic, wood"
         },
         {
             value: 6,
-            src: "/assets/s-16-10.jpg",
+            src: "/assets/s-16-10.webp",
             txt: "s-16-10_2016_300*700*250_polystyrene foam, putty"
         },
         {
             value: 7,
-            src: "/assets/s-16-11.jpg",
+            src: "/assets/s-16-11.webp",
             txt: "s-16-11_2016_528*728*100_acrylic on hemp cloth and korean paper"
         },
         {
             value: 8,
-            src: "/assets/s-16-12.jpg",
+            src: "/assets/s-16-12.webp",
             txt: "s-16-12_2016_410*410*80_resin, clay, polysterene foam, ink"
         },
         {
             value: 9,
-            src: "/assets/s-16-13.jpg",
+            src: "/assets/s-16-13.webp",
             txt: "s-16-13_2016_1170*940*140_wood, resin, acrylic, polystyrene foam"
         },
         {
             value: 10,
-            src: "/assets/s-16-14.jpg",
+            src: "/assets/s-16-14.webp",
             txt: "s-16-14-2016_1220*250*350_paper clay, polysterene foam"
         },
         {
             value: 11,
-            src: "/assets/s-16-15.jpg",
+            src: "/assets/s-16-15.webp",
             txt: "s-16-15_2016_1220x1020x400_resin, acrylic, polystyrene foam, silicone"
         },
         {
             value: 12,
-            src: "/assets/s-16-18.jpg",
+            src: "/assets/s-16-18.webp",
             txt: "s-16-18_2016_1460*280*320_wood, acrylic, resin, polysterene foam, clay"
         },
         {
             value: 13,
-            src: "/assets/s-16-19.jpg",
+            src: "/assets/s-16-19.webp",
             txt: "s-16-19_2016_820*630*310_clay, polystrene foam, epoxy"
         },
         {
             value: 14,
-            src: "/assets/s-16-21.jpg",
+            src: "/assets/s-16-21.webp",
             txt: "s-16-21_2016_840*440*270_polystrene foam, wood, ink, cement"
         },
     ];
@@ -112,7 +112,7 @@
 <div class="grid-container">
 <div class="column">
     {#each images_data as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} loading='lazy'> 
+        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} decoding="async" loading='lazy'> 
         {/each}    
             {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>

@@ -134,13 +134,13 @@
     let images = laoadData(images_data);
     
     function getImgValue(value){
-         let srcc = images.filter(img => img.value == value)[0];
-         return srcc.src;
+        let srcc = images.filter(img => img.value == value)[0];
+        return srcc.src;
     };
     
     function getTxtValue(value){
-         let srcc = images.filter(img => img.value == value)[0];
-         return srcc.txt;
+        let srcc = images.filter(img => img.value == value)[0];
+        return srcc.txt;
     };
 
     let click;
@@ -161,10 +161,10 @@
         {/each}    
             {#if clicked}
                 <div class="modal" transition:fade={{duration: 100}}>
-	            <div on:click={()=>{clicked = !clicked}} on:keydown={()=>{clicked = !clicked}} class="close">x</div>
-	            <div class="modal-image">
-	                <img class="m-image" src={selected} alt="random img"/>
-	            </div>
+                    <div on:click={()=>{clicked = !clicked}} on:keydown={()=>{clicked = !clicked}} class="close">x</div>
+                    <div class="modal-image">
+                        <img class="m-image" src={selected} alt="random img"/>
+                    </div>
                 <p class="caption">{selectedTxt}</p>
                 </div>
             {/if}
@@ -177,7 +177,7 @@
     .image {
         display: flex;
         cursor: pointer;
-		width:100%;
+		width: 90%;
         height: auto;
 		max-width:360px;
 	    max-height:800px;
@@ -197,30 +197,30 @@
         justify-items: center;
 	}
 /* Responsive layout - makes a two column-layout instead of four columns */
-  @media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .column {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(6, fit-content(100vh));
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, fit-content(100vh));
     }
-  }
-  @media screen and (max-width: 915px) {
+}
+@media screen and (max-width: 915px) {
     .column {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(6, fit-content(100vh));
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, fit-content(100vh));
     }
-  }
+}
   /* Responsive layout - makes a two column-layout instead of four columns */
-  @media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) {
     .column {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(12, fit-content(100vh));
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(12, fit-content(100vh));
     }
-  }
+}
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .column {
-      grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(12, fit-content(100vh));
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(12, fit-content(100vh));
     }
-  }
+}
 </style>

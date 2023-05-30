@@ -7,7 +7,8 @@
 <slot></slot>
 <style>
   .selector {
-    padding: 0.1vh 0 0 0;
+    box-sizing: border-box;
+    padding: 1vh 0 0 0;
     text-align: center;
   }
   .selector a:link, .selector a:visited{
@@ -19,6 +20,12 @@
     color:rgb(255, 100, 100);
     background-color: #fff;
   }
+  @media screen and (max-width: 915px) {
+    .selector{
+      font-size: 2.4vh;
+    }
+  }
+
   @media screen and (max-width: 740px) {
     .selector{
       font-size: 1.6vh;

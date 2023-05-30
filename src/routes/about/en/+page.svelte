@@ -1,8 +1,42 @@
 <script>
   import "../+about_style.css"
+  import { onMount } from "svelte";
+  import { tick } from 'svelte';
+
+  let innerH;
+    onMount(async()=>{
+      await tick();
+      innerH = 500;
+      let top = document.querySelector('.top');
+      let bottom = document.querySelector('.bottom');
+      let selector = document.querySelector('.selector');
+      let footer = document.querySelector('footer');
+      if(window.innerWidth > window.innerHeight){
+        await tick();
+
+        innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
+      }else{
+        await tick();
+
+            innerH = window.innerHeight - header.offsetHeight - selector.clientHeight - footer.clientHeight;
+      }
+
+        window.addEventListener('resize', async ()=>{
+            await tick();
+            if(window.innerWidth > window.innerHeight){
+              await tick();
+
+              innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
+            }else{
+              await tick();
+
+              innerH = window.innerHeight - header.offsetHeight - selector.clientHeight - footer.clientHeight;
+            }
+        })
+    })
 </script>
 <!-- Header -->
-<div id="about_container">
+<div id="about_container" style="height: {innerH}px;">
 <div class="top">
   <p class="name"><strong>Eun OH</strong></p>
   <p>b.1989, Incheon, KR<br>lives and works in Seoul, KR<br>+82 10-6375-4876<br>bdohhhhh@gmail.com</p>

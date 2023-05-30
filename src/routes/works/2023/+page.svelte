@@ -1,142 +1,154 @@
 <script>
-    // import {fade, slide} from 'svelte/transition';
-    // import { tick } from 'svelte';
+    import { fade } from 'svelte/transition';
+    import { onMount } from "svelte";
+    import { tick } from 'svelte';
     import "../+works_style.css";
+    let items = [
+        {
+            label: "works-viewer",
+            value: 1,
+            href:"/works-viewer"
+		}
+    ];
+    let innerH;
+    onMount(async()=>{
+        let header = document.querySelector('.top-menu');
+        let innerMenu = document.querySelector('.ul-tab-menu');
+        let footer = document.querySelector('footer');
 
-    // let images_data = [
-    //     {
-    //         value: 0,
-    //         src: "/assets/balzac.jpg",
-    //         txt: "설명이거든???? 1"
-    //     },
-    //     {
-    //         value: 1,
-    //         src: "/assets/test2.jpg",
-    //         txt: "설명이거든???? 2"
-    //     },
-    //     {
-    //         value: 2,
-    //         src: "/assets/misun.jpg",
-    //         txt: "설명이거든???? 3"
-    //     },
-    //     {
-    //         value: 3,
-    //         src: "/assets/chicken.jpg",
-    //         txt: "설명이거든???? 4"
+        innerH = 500;
+        await tick();
+            innerH = window.innerHeight - header.offsetHeight - innerMenu.clientHeight - footer.clientHeight;
 
-    //     },
-    //     {
-    //         value: 4,
-    //         src: "/assets/dubuffet.jpg",
-    //         txt: "설명이거든???? 5"
-    //     },
-    //     {
-    //         value: 5,
-    //         src: "/assets/index_image.jpg",
-    //         txt: "설명이거든???? 6"
-    //     },
-    //     {
-    //         value: 6,
-    //         src: "/assets/head01.jpg",
-    //         txt: "설명이거든???? 7"
-    //     },
-    //     {
-    //         value: 7,
-    //         src: "/assets/head02.jpg",
-    //         txt: "설명이거든???? 8"
-    //     },
-    //     {
-    //         value: 8,
-    //         src: "/assets/head03.jpg",
-    //         txt: "설명이거든???? 9"
-    //     },
-    //     {
-    //         value: 9,
-    //         src: "/assets/head04.jpg",
-    //         txt: "설명이거든???? 10"
-    //     },
-    //     {
-    //         value: 10,
-    //         src: "/assets/head05.jpg",
-    //         txt: "설명이거든???? 11"
-    //     },
-    //     {
-    //         value: 11,
-    //         src: "/assets/head06.jpg",
-    //         txt: "설명이거든???? 12"
-    //     }
-    // ];
-    // function laoadData(images_data){
-    //     images_data.forEach(img => {    
-    //     });
-    //     return images_data;
-    // }
-    // let images = laoadData(images_data);
+        window.addEventListener('resize', async ()=>{
+            await tick();
+            innerH = window.innerHeight - header.offsetHeight - innerMenu.clientHeight - footer.clientHeight;
+        })
+    })
     
-    // function getImgValue(value){
-    //      let srcc = images.filter(img => img.value == value)[0];
-    //      return srcc.src;
-    // };
-    
-    // function getTxtValue(value){
-    //      let srcc = images.filter(img => img.value == value)[0];
-    //      return srcc.txt;
-    // };
-
-    // let click;
-	// let clicked = click ? true : false;	
-
-    // let selected;
-    // let selectedTxt;
 </script>
 <!-- Header -->
 <div class="header">
-    <h3 class="nope">아직 없어요 {':)'}</h3>
-  </div>
+</div>
 
-<!-- Photo Grid -->
-<!-- <div class="row"> 
-    <div class="column">
-    {#each images_data.slice(0,5) as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} src={image.src}> 
-            {#if clicked}
-                <div class="modal" transition:fade={{duration: 100}}>
-	            <div on:click={()=>{clicked = !clicked}} on:keydown={()=>{clicked = !clicked}} class="close">x</div>
-	            <div class="modal-image">
-	                <img class="m-image" src={selected} alt="random img"/>
-	            </div>
-                <p class="text">{selectedTxt}</p>
-                </div>
-            {/if}
-    {/each}
-    </div>
-    <div class="column">
-    {#each images_data.slice(6,11) as image, value}
-        <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value + 6), selectedTxt = getTxtValue(value + 6), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} src={image.src}> 
-            {#if clicked}
-                <div class="modal" transition:fade={{duration: 100}}>
-	            <div on:click={()=>{clicked = !clicked}} on:keydown={()=>{clicked = !clicked}} class="close">x</div>
-	            <div class="modal-image">
-	                <img class="m-image" src={selected} alt="random img"/>
-	            </div>
-                <p class="caption">{selectedTxt}</p>
-                </div>
-            {/if}
-    {/each}
-    </div>  
-    <div class="column">
-        {#each images_data.slice(0,5) as img}
-        <img src={img.src} alt="what?">
+<div class="min-main" style="height:{innerH}px">
+    <div class="column" transition:fade={{duration: 300}}>
+        {#each items as item} 
+        <a href={item.href}>
+            <div class="image">
+                    <h3 class="nope">works-viewer</h3>
+            </div>
+        </a>
         {/each}
     </div>
-    <div class="column">
-        {#each images_data.slice(6,11) as img}
-        <img src={img.src} alt="what?">
-        {/each}
-    </div>
-</div> -->
-<style>
-    .nope{
-        margin: 30vh 5vw 30vh 5vw;
+</div>
+<!-- <a href={item.href}><h3 class="nope">아직 없어요 {':)'}</h3></a> -->
+<style>   
+    a{
+        text-decoration: none;
+        color: black;
     }
+    a:visited {
+        color: black;
+        text-decoration: none;
+        transition: all 0.2s linear;
+    }
+    a:hover{
+        color: rgb(255, 100, 100);
+        /* background-color: #fff; */
+        transition: all 0.2s linear;
+    }
+    .nope{
+        margin: 0;
+    }
+    .image {
+        display: flex;
+        cursor: pointer;
+		width: 8.5rem;
+        height: 8.5rem;
+        /* height: auto; */
+		max-width:360px;
+        max-height:800px;
+        border: 1px solid #6e6e6e;
+        padding: 0 0 0 0;
+        /* opacity: 0; */
+        justify-content: center;
+        align-items: center;
+		transition: all 0.2s linear;
+    }
+    .image:hover, a:active, a:visited{
+        outline: 1.2px solid #6e6e6e;
+        outline-offset: 2px;
+        opacity: 1;
+    }
+/* Create four equal columns that sits next to each other */
+    .column {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* grid-template-rows: repeat(4, fit-content(100vh)); */
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        gap: 1vh 0.5vh;
+	}
+    .min-main{
+        width: 100vw;
+        box-sizing: border-box;
+        padding: 2vh 0;
+    }
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 1024px) {
+    .column {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, fit-content(100vh));
+        justify-items: flex-start;
+        padding-left: 2vw;
+    }
+    .image {
+        width: 6rem;
+        height: 6rem;
+        font-size: 0.7rem;
+    }
+}
+@media screen and (max-width: 915px) {
+    .column {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, fit-content(100vh));
+        justify-items: flex-start;
+        padding-left: 2vw;
+    }
+    .image {
+        width: 6rem;
+        height: 6rem;
+        font-size: 0.7rem;
+    }
+}
+  /* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, fit-content(100vh));
+        justify-items: flex-start;
+        padding-left: 2vw;
+    }
+    .image {
+        width: 6rem;
+        height: 6rem;
+        font-size: 0.7rem;
+    }
+}
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, fit-content(100vh));
+    }
+    .image {
+        width: 6rem;
+        height: 6rem;
+        font-size: 0.7rem;
+    }
+}
+    
 </style>

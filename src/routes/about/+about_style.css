@@ -1,9 +1,8 @@
 h2{
     margin: 0;
 }
-.about_container{
-    margin-top: 0vh;
-    margin-left: 50vh;
+#about_container{
+    transition: all 0.3s linear;
 }
 a:link, a:visited{
     color:black;
@@ -19,7 +18,7 @@ a:hover, a:focus{
     font-size: 2vh;
 }
 .name{
-    font-size: 3vh;
+    font-size: 2.9vh;
 }
 .bottom{
     padding: 0vh 20vh 5vh 20vh;
@@ -29,15 +28,12 @@ a:hover, a:focus{
     font-size: 2.5vh;
 }
 @media screen and (max-width: 1180px) {
-    .about_container{
-        margin-left: 10vh;
-    }
     .top{
         padding: 1vh 8vh 0.5vh 8vh;
         font-size: 2vh;
     }
     .name{
-        font-size: 3vh;
+        font-size: 2.7vh;
     }
     .bottom{
         padding: 0vh 8vh 5vh 8vh;
@@ -48,15 +44,12 @@ a:hover, a:focus{
     }
 }
 @media screen and (max-width: 1024px) {
-    .about_container{
-        margin-left: 10vh;
-    }
     .top{
         padding: 1vh 2vh 0.5vh 2vh;
         font-size: 2vh;
     }
     .name{
-        font-size: 3vh;
+        font-size: 2.7vh;
     }
     .bottom{
         padding: 0vh 2vh 5vh 2vh;
@@ -67,9 +60,6 @@ a:hover, a:focus{
     }
 }
 @media screen and (max-width: 915px) {
-    .about_container{
-        margin-left: 10vh;
-    }
     .top{
         padding: 1vh 2vh 0.5vh 2vh;
         font-size: 4vh;
@@ -86,9 +76,6 @@ a:hover, a:focus{
     }
 }
 @media screen and (max-width: 820px) {
-    .about_container{
-        margin-left: 10vh;
-    }
     .top{
         padding: 1vh 2vh 0.5vh 2vh;
         font-size: 2.7vh;
@@ -105,9 +92,6 @@ a:hover, a:focus{
     }
 }
 @media screen and (max-width: 800px) {
-    .about_container{
-        margin-left: 10vh;
-    }
     .top{
         padding: 1vh 2vh 0.5vh 2vh;
         font-size: 2.7vh;
@@ -124,9 +108,6 @@ a:hover, a:focus{
     }
 }
 @media screen and (max-width: 740px) {
-    .about_container{
-        margin-left: 10vh;
-    }
     .top{
         padding: 1vh 2vh 0.5vh 2vh;
         font-size: 4vh;
@@ -142,10 +123,25 @@ a:hover, a:focus{
         font-size: 5vh;
     }
 }
-@media screen and (max-width: 600px) {
-    .about_container{
-        margin-left: 10vh;
+
+@media screen and (max-width: 740px) and (orientation:portrait){
+    .top{
+        padding: 1vh 2vh 0.5vh 2vh;
+        font-size: 2vh;
     }
+    .name{
+        font-size: 2.2vh;
+    }
+    .bottom{
+        padding: 0vh 2vh 5vh 2vh;
+        font-size: 2vh;
+    }
+    .title{
+        font-size: 2vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
     .top{
         padding: 1vh 2vh 0.5vh 2vh;
         font-size: 1.6vh;
@@ -162,15 +158,12 @@ a:hover, a:focus{
     }
 }
 @media screen and (max-width: 412px) {
-    .about_container{
-        margin-left: 10vh;
-    }
     .top{
         padding: 1vh 2vh 0.5vh 2vh;
         font-size: 1.6vh;
     }
     .name{
-        font-size: 2.6vh;
+        font-size: 2.4vh;
     }
     .bottom{
         padding: 0vh 2vh 5vh 2vh;
@@ -181,9 +174,6 @@ a:hover, a:focus{
     }
 }
 @media screen and (max-width: 375px) {
-    .about_container{
-        margin-left: 10vh;
-    }
     .top{
         padding: 1vh 3vh 0.5vh 3vh;
         font-size: 1.6vh;
@@ -200,9 +190,6 @@ a:hover, a:focus{
     }
 }
 @media screen and (max-width: 360px) {
-    .about_container{
-        margin-left: 8vh;
-    }
     .top{
         padding: 1vh 3vh 0.5vh 3vh;
         font-size: 1.6vh;

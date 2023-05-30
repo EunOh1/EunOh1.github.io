@@ -102,7 +102,7 @@
     .image {
         display: flex;
         cursor: pointer;
-		width:100%;
+		width: 90%;
         height: auto;
 		max-width:360px;
 	    max-height:800px;

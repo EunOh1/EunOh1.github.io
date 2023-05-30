@@ -54,7 +54,6 @@
     let activeTabValue = 0;
 
     const handleClick = tabValue => () => (activeTabValue = tabValue);
-
 </script>
 
 <!-- Years Grid -->
@@ -72,12 +71,15 @@
 </div>
 <style>
     .ul-tab-menu {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding: 2vh 0 2vh 0;
         box-sizing: border-box;
         display:grid;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(2, 5vh);
-        margin: 2vh 0 2vh 0;
-        padding: 0;
+        /* margin: 2vh 0 2vh 0; */
+        /* padding: 0; */
         list-style:none;
         background-color:#ffffff;
         align-items: center;
@@ -147,7 +149,7 @@
         grid-template-rows: repeat(2, 6vh);
     }
     .ul-tab-menu li {
-        font-size: 3.5vh;
+        font-size: 2.5vh;
     }
 }
 @media screen and (max-width: 600px) {

@@ -49,7 +49,7 @@
     };
 
     let click;
-	let clicked = click ? true : false;	
+    let clicked = click ? true : false;	
 
     let selected;
     let selectedTxt;
@@ -82,7 +82,7 @@
     .image {
         display: flex;
         cursor: pointer;
-	    	width:100%;
+	    	width:80%;
         height: auto;
 	    	max-width:360px;
 	      max-height:800px;

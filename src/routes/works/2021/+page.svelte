@@ -29,13 +29,13 @@
     let images = laoadData(images_data);
     
     function getImgValue(value){
-         let srcc = images.filter(img => img.value == value)[0];
-         return srcc.src;
+        let srcc = images.filter(img => img.value == value)[0];
+        return srcc.src;
     };
     
     function getTxtValue(value){
-         let srcc = images.filter(img => img.value == value)[0];
-         return srcc.txt;
+        let srcc = images.filter(img => img.value == value)[0];
+        return srcc.txt;
     };
 
     let click;
@@ -108,14 +108,22 @@
   @media screen and (max-width: 800px) {
     .column {
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, fit-content(100vh));
+      grid-template-rows: repeat(2, 1fr);
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      height: 60vh;
     }
   }
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {
     .column {
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, fit-content(100vh));
+      grid-template-rows: repeat(2, 1fr);
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      height: 60vh;
     }
   }
 </style>

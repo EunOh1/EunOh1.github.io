@@ -4,6 +4,7 @@
   import { tick } from 'svelte';
 
   let innerH;
+  let temproral;
     onMount(async()=>{
       await tick();
       innerH = 500;
@@ -11,17 +12,25 @@
       let bottom = document.querySelector('.bottom');
       let selector = document.querySelector('.selector');
       let footer = document.querySelector('footer');
+      let header = document.querySelector('header');
+      innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
+      temproral = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
 
       if(window.innerWidth > window.innerHeight){    
         await tick();
-        innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
+        if(innerH === temproral){
+          console.log('같음')
+        }else{
+          innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
+        }
       }else{
         await tick();
         if(window.innerHeight === innerH){
           innerH;
         }else{
           innerH = window.innerHeight - header.offsetHeight - selector.clientHeight - footer.clientHeight;
-        }      }
+        }      
+      }
 
         window.addEventListener('resize', async ()=>{
             await tick();

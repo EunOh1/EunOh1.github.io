@@ -12,6 +12,7 @@
     ];
     let innerH;
     onMount(async()=>{
+        delCache();
         let header = document.querySelector('.top-menu');
         let innerMenu = document.querySelector('.ul-tab-menu');
         let footer = document.querySelector('footer');
@@ -24,7 +25,16 @@
             await tick();
             innerH = window.innerHeight - header.offsetHeight - innerMenu.clientHeight - footer.clientHeight;
         })
-    })
+    });
+
+    function delCache(){
+        caches.keys().then(function(keyList) {
+            return Promise.all(keyList.map(function(key) {
+                return caches.delete(key);
+            }));
+        });
+        console.log('캐시삭제완료')
+    }
     
 </script>
 <!-- Header -->
@@ -34,7 +44,7 @@
 <div class="min-main" style="height:{innerH}px">
     <div class="column" transition:fade={{duration: 300}}>
         {#each items as item} 
-        <a href={item.href}>
+        <a href={item.href} on:click={()=>delCache()}>
             <div class="image">
                     <h3 class="nope">works-viewer</h3>
             </div>

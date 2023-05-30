@@ -674,17 +674,34 @@ function modelLoad(model){
         }, 
         ( error ) => { console.error( error );}
     );
+    
+    // console.log(scene.children);
+    // if (performance) {
+    //     console.log(performance.memory);
+    // }
 }
 
 function modelDispose(){
-    // console.log(scene.children)
     scene.children.forEach((e)=>{
         if(typeof e.number === 'number' ){
-            scene.remove(e)
+            scene.remove(e);
+            // console.log(e.children[0])
+            // console.log('모델폐기')
+            if (e.children[0].geometry) {
+                // console.log('지오 폐기')
+                e.children[0].geometry.dispose();
+            }
+            if (e.children[0].material) {
+                // console.log('메터리얼 폐기')
+                e.children[0].material.dispose();
+            }
+            if (e.children[0].texture) {
+                // console.log('텍스처 폐기')
+                e.children[0].texture.dispose();
+            }
+            renderer.dispose()
+            renderer.renderLists.dispose()
         }       
-        // if(e.isGroup === true){
-        //     scene.remove(e)
-        // }
     })
     // console.log(myReq)
     if(reqCounter === myReq){
@@ -696,6 +713,12 @@ function modelDispose(){
         startStop = false;
         animateStoped();
     }
+    // function removeModel(scene, model) {
+    //     scene.remove(model);
+    //     if (model.geometry) model.geometry.dispose();
+    //     if (model.material) model.material.dispose();
+    //     if (model.texture) model.texture.dispose();
+    // }
 }
 
 function initAnimate(){

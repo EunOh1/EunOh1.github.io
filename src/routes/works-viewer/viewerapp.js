@@ -266,6 +266,7 @@ swipe.addEventListener('click', (e)=>{
         } else {
             // console.log(dataSet)
             modelDispose();
+            delCache(); // del cache
             modelLoad(workDb[dataSet]);
             initAnimate();
             rotateIcon.classList.remove('xyzon');
@@ -315,6 +316,7 @@ midBox.addEventListener('click', (e)=>{
             rotateIcon.classList.add('xyzon');
 
             modelDispose();
+            delCache(); // del cache
             modelLoad(workDb[curr - 1]);
             initAnimate();
 
@@ -356,6 +358,7 @@ midBox.addEventListener('click', (e)=>{
             rotateIcon.classList.add('xyzon');
 
             modelDispose();
+            delCache(); // del cache
             modelLoad(workDb[curr + 1]);
             initAnimate();
 
@@ -619,6 +622,15 @@ function setLightPosition(position, light) {
         }
     }
 }
+function delCache(){
+    caches.keys().then(function(keyList) {
+        return Promise.all(keyList.map(function(key) {
+            return caches.delete(key);
+        }));
+    });
+    console.log('캐시삭제완료')
+}
+
 function modelLoad(model){
     loader.load(      
         model.obj,       

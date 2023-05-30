@@ -161,7 +161,7 @@
     @media screen and (max-width: 375px) {
         .ul-txt-list {
             /* margin: 5vh 1vh 29vh 1vh; */
-            grid-template-rows: repeat(3, 3.3rem);
+            grid-template-rows: repeat(3, 3.1rem);
         }
         .ul-txt-list li {
             font-size: 2.2vh;

@@ -6,7 +6,7 @@ body{
     position: fixed;
     width: 100vw;
     height: 100vh;
-    /* height: calc(var(--vh, 1vh) * 100); */
+    height: calc(var(--vh, 1vh) * 100);
     top:0;
     pointer-events: auto;
     overflow: hidden;
@@ -20,8 +20,8 @@ body{
 .gui-wrapper-3d{
     position: absolute;
     width: 100vw;
-    height: 100%;
-    /* height: calc(var(--vh, 1vh) * 100); */
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     display: flex;
     flex-direction: column;
     -webkit-touch-callout: none;
@@ -189,7 +189,7 @@ body{
     font-weight: 800;
     font-style: normal;
     color: black;
-    font-size: 1.8rem;  /* Preferred icon size */
+    font-size: 1.6rem;  /* Preferred icon size */
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -215,6 +215,9 @@ body{
     color: rgb(255, 100, 100);
     background-color: rgba(0,0,0,0);
     transition: all 0.2s linear;
+}
+.material-icons-outlined.less{
+    width: 1.85rem;
 }
 .xyzon{
     color: #ff6666;

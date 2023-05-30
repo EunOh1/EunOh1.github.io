@@ -75,7 +75,7 @@
 
         <div class="btm-3d">
             <div class="btm-left-3d">
-                <span class="material-icons-outlined">expand_less</span>   
+                <span class="material-icons-outlined less">expand_less</span>   
                     <span class="material-icons-outlined que" 
                         on:click={(e)=> {
                             !clicked ? e.currentTarget.style.color = "#ff6666" : e.currentTarget.style.color = "black";

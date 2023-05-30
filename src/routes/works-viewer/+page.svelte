@@ -9,7 +9,6 @@
     let clicked = click ? true : false;	
     let activeTabValue = new Number(0);
     let curr = new Number(0);
-    let swipe;
 
     const handleClick = (e) => {
         activeTabValue = e.target.dataset.num !== null && e.target.dataset.num !== undefined ? Number(e.target.dataset.num) : activeTabValue;
@@ -38,13 +37,22 @@
         viewerApp();
     });      
 
+    function delCache(){
+        caches.keys().then(function(keyList) {
+            return Promise.all(keyList.map(function(key) {
+                return caches.delete(key);
+            }));
+        });
+        console.log('캐시삭제완료')
+    }
+
 </script>
 <div class="gui-main-3d">      
 
     <div class="gui-wrapper-3d">
 
         <div class="top-3d">
-            <a href="/works/2023"><span class="material-icons-outlined">clear</span></a>
+            <a on:click={()=> delCache()} href="/works/2023"><span class="material-icons-outlined">clear</span></a>
         </div>
 
         <div class="mid-3d {clicked === true ? 'mid-change' : ''}">

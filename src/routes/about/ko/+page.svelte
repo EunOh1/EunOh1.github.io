@@ -17,8 +17,11 @@
         innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
       }else{
         await tick();
-        innerH = window.innerHeight - header.offsetHeight - selector.clientHeight - footer.clientHeight;
-      }
+        if(window.innerHeight === innerH){
+          innerH;
+        }else{
+          innerH = window.innerHeight - header.offsetHeight - selector.clientHeight - footer.clientHeight;
+        }      }
 
         window.addEventListener('resize', async ()=>{
             await tick();

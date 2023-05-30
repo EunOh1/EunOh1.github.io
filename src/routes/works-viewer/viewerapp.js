@@ -6,11 +6,16 @@ import WebGL from 'three/addons/capabilities/WebGL.js';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import workDb from './models.js';
+import { reloadCounter, selected } from '../store.js'
 "use strict";
 
 function viewerApp(){
-const guiTop = document.querySelector('.gui-main-3d');
+
+let reloadCount = 0;
 let loadCounter = 0;
+let currentSelected = 0;
+
+const guiTop = document.querySelector('.gui-main-3d');
 const isMobile = () => {
 	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 }; // =========> mobile device check function
@@ -199,7 +204,36 @@ let reqCounter = 0;
 let startStop = true;
 let curr = 0;
 let name = '';
-modelLoad(workDb[0]);
+
+reloadCounter.subscribe((value)=>{
+    reloadCount = value;
+    // console.log(reloadCount);
+
+    if(reloadCount === 10){
+        localStorage.setItem('selected', 0);
+        window.location.reload();
+    }
+})
+
+let pullSelected = localStorage.getItem('selected');
+if( Number(pullSelected) > 0 ){
+    delCache()
+    modelLoad(workDb[pullSelected]);
+}
+selected.subscribe((value)=>{
+    currentSelected = value;
+    // console.log(currentSelected, 'in subscribe');
+
+    let pullSelected = localStorage.getItem('selected');
+    if( pullSelected === undefined || pullSelected === null ){
+        // console.log('first visit');
+        delCache();
+        modelLoad(workDb[0]);
+    }else if( Number(pullSelected) > 0 ){
+        // console.log(localStorage.getItem('selected'), 'this is localstorage');
+    }
+    
+})
 initAnimate();
 
 /************* apps ***************/
@@ -632,6 +666,7 @@ function delCache(){
 }
 
 function modelLoad(model){
+    // if(reloadCounter === 10) window.location.reload(); // force reload
     loader.load(      
         model.obj,       
         (gltf)=>{
@@ -659,6 +694,7 @@ function modelLoad(model){
             gltf.scene.number = model.num;
 
             scene.add(gltf.scene);
+
             startStop = true;
         }, 
         ( xhr ) => {
@@ -670,6 +706,9 @@ function modelLoad(model){
 
             if(loadCounter === 100){
                 loadDiv.remove();
+                reloadCounter.update(n => n + 1);
+                selected.set(model.num);
+                localStorage.setItem('selected', currentSelected)
             }
         }, 
         ( error ) => { console.error( error );}

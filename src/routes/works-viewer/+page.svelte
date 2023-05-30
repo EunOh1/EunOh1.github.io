@@ -3,12 +3,17 @@
     import viewerApp from './viewerapp.js';
     import "./+viewer_style.css";
     import workDb from './models.js';
-	import { each } from 'svelte/internal';
+    import { enterCounter } from '../store.js'
     
     let click;
     let clicked = click ? true : false;	
     let activeTabValue = new Number(0);
     let curr = new Number(0);
+    let enterCount = new Number(0);
+    
+    enterCounter.subscribe((value)=>{
+        enterCount = value;
+    })
 
     const handleClick = (e) => {
         activeTabValue = e.target.dataset.num !== null && e.target.dataset.num !== undefined ? Number(e.target.dataset.num) : activeTabValue;
@@ -44,7 +49,15 @@
             }));
         });
         console.log('캐시삭제완료')
-    }
+    };
+
+    function counting() {
+        if(enterCount >= 5){
+            enterCounter.set(0)
+        }else{
+            enterCounter.update(n => n + 1);
+        }
+    };
 
 </script>
 <div class="gui-main-3d">      
@@ -52,7 +65,11 @@
     <div class="gui-wrapper-3d">
 
         <div class="top-3d">
-            <a on:click={()=> delCache()} href="/works/2023"><span class="material-icons-outlined">clear</span></a>
+            <a on:click={()=> {
+                    delCache(); 
+                    counting();
+                    localStorage.removeItem('selected');
+                }} href="/works/2023"><span class="material-icons-outlined">clear</span></a>
         </div>
 
         <div class="mid-3d {clicked === true ? 'mid-change' : ''}">

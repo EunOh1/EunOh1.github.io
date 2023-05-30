@@ -3,6 +3,13 @@
     import { onMount } from "svelte";
     import { tick } from 'svelte';
     import "../+works_style.css";
+    import { enterCounter } from '../../store.js'
+
+    let enterCount = new Number(0);
+    enterCounter.subscribe((value)=>{
+        enterCount = value;
+    });
+
     let items = [
         {
             label: "works-viewer",
@@ -13,6 +20,7 @@
     let innerH;
     onMount(async()=>{
         delCache();
+        if(enterCount >= 1) window.location.reload()
         let header = document.querySelector('.top-menu');
         let innerMenu = document.querySelector('.ul-tab-menu');
         let footer = document.querySelector('footer');

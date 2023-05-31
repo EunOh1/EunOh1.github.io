@@ -227,9 +227,10 @@ let name = '';
 reloadCounter.subscribe(async (value)=>{
     reloadCount = value;
     // console.log(reloadCount);
-    if(isAnd() & reloadCount === 4){
-        window.location.reload();
-    }else if(reloadCount === 7){
+    // if(isAnd() & reloadCount === 4){
+    //     window.location.reload();
+    // }else 
+    if(reloadCount === 10){
         // localStorage.setItem('selected', 0);
         window.location.reload();
     }
@@ -764,8 +765,6 @@ async function modelDispose(){
     scene.children.forEach((e)=>{
         if(typeof e.number === 'number' ){
             scene.remove(e);
-            // console.log(e.children[0])
-            // console.log('모델폐기')
             if (e.children[0].geometry) {
                 // console.log('지오 폐기')
                 e.children[0].geometry.dispose();
@@ -774,12 +773,13 @@ async function modelDispose(){
                 // console.log('메터리얼 폐기')
                 e.children[0].material.dispose();
             }
-            if (e.children[0].texture) {
+            if (e.children[0].material.map) {
                 // console.log('텍스처 폐기')
-                e.children[0].texture.dispose();
+                e.children[0].material.map.dispose();
             }
-            renderer.dispose()
-            renderer.renderLists.dispose()
+            // renderer.dispose();
+            // renderer.renderLists.dispose();
+            // console.log(renderer.info);
         }       
     })
     // console.log(myReq)
@@ -792,12 +792,6 @@ async function modelDispose(){
         startStop = false;
         animateStoped();
     }
-    // function removeModel(scene, model) {
-    //     scene.remove(model);
-    //     if (model.geometry) model.geometry.dispose();
-    //     if (model.material) model.material.dispose();
-    //     if (model.texture) model.texture.dispose();
-    // }
 }
 
 function initAnimate(){

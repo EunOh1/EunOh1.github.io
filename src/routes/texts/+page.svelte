@@ -4,6 +4,7 @@
     import { tick } from 'svelte';
     import { activeTabValue } from '../store.js';
 
+    // modify store.js
     // let activeTabValue = 0;
     let innerH;
     let selNum;

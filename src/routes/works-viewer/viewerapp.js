@@ -38,7 +38,6 @@ const overlay = document.createElement("div");
     overlay.style.pointerEvents = "none";
     overlay.style.display = "block";
 
-const btmRightSpans = document.querySelectorAll('.btm-right-3d span');
 const lightControl = document.querySelector('.btm-right-control');
 const xyzCanvas = document.querySelector('.xyz-canvas');
 const canvas = document.querySelector('canvas');
@@ -144,7 +143,7 @@ composer.addPass( renderPass );
 /************* lights ***************/
 
 const colors = {
-    sun : 0xffffed,
+    sun : 0xfdfdf4,
     ired : 0xdcf6fe,
     bulb : 0xffe4c3,
     pin : 0xffffff
@@ -153,7 +152,7 @@ const colors = {
 const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444, 0.3 );
 hemiLight.position.set( 0, 20, -20 );
 
-const ambLight = new THREE.AmbientLight(0x444444, 0.01);
+const ambLight = new THREE.AmbientLight(0xfdfdf4, 0.6);
 
 const pointLight = new THREE.PointLight( 0xffffff, 0.3, 80 );
 pointLight.position.set( 0, 20, 13 );
@@ -232,9 +231,12 @@ reloadCounter.subscribe((value)=>{
 
 let pullSelected = localStorage.getItem('selected');
 if( Number(pullSelected) > 0 ){
-    delCache()
+    delCache();
+    modelDispose();
     modelLoad(workDb[pullSelected]);
+    swipe.classList.remove('xyzhide');
     swipeAll[pullSelected].style.outline = '1px solid #b6b6b6';
+    scrollStart();
 }
 
 selected.subscribe((value)=>{
@@ -245,6 +247,7 @@ selected.subscribe((value)=>{
     if( pullSelected === undefined || pullSelected === null ){
         // console.log('first visit');
         delCache();
+        modelDispose();
         modelLoad(workDb[0]);
     }else if( Number(pullSelected) > 0 ){
         // console.log(localStorage.getItem('selected'), 'this is localstorage');
@@ -372,8 +375,7 @@ midBox.addEventListener('click', (e)=>{
             initAnimate();
 
             swipeAll.forEach((ev)=>{
-                ev.style.outline = 'none';
-                
+                ev.style.outline = 'none';     
             });
             swipeAll[curr -1].style.outline = '1px solid #b6b6b6'
 
@@ -727,6 +729,7 @@ function modelLoad(model){
                 selected.set(model.num);
                 localStorage.setItem('selected', currentSelected);
                 overlay.style.opacity = "0";
+                overlay.style.display = 'none';
             }
         }, 
         ( error ) => { 
@@ -806,6 +809,14 @@ function animateStoped() {
     controls.autoRotate = false;
     controls.update();
     composer.render()
+}
+
+function scrollStart(){
+    let center = window.innerWidth / 2
+    const swipeAll = document.querySelectorAll('.gui-swipe-each');
+    let pullSelected = localStorage.getItem('selected');
+    let rect = swipeAll[pullSelected].getBoundingClientRect();
+    scrollSmoothly(rect.left - center, 0)
 }
 }
 export default viewerApp

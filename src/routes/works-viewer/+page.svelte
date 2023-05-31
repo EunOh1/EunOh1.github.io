@@ -44,14 +44,14 @@
     }
 
     onMount(async () => { 
-        let header = document.querySelector('header');
-        let footer = document.querySelector('footer');
-        if(header && footer) {
-            header.style.display = 'none';
-            footer.style.display = 'none';
-        }
+        await hiding();
         viewerApp();
     });      
+
+    async function hiding(){
+        document.querySelector('header').style.display = 'none';
+        document.querySelector('footer').style.display = 'none';  
+    }
 
     function scrollStart(){
         let center = window.innerWidth / 2
@@ -157,3 +157,5 @@
     </div>
     <div class="xyz-canvas"></div>
 </div>
+<style>
+</style>

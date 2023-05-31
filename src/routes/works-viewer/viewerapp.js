@@ -208,18 +208,19 @@ let name = '';
 reloadCounter.subscribe((value)=>{
     reloadCount = value;
     // console.log(reloadCount);
-
     if(reloadCount === 10){
-        localStorage.setItem('selected', 0);
+        // localStorage.setItem('selected', 0);
         window.location.reload();
     }
-})
+});
 
 let pullSelected = localStorage.getItem('selected');
 if( Number(pullSelected) > 0 ){
     delCache()
     modelLoad(workDb[pullSelected]);
+    swipeAll[pullSelected].style.outline = '1px solid #b6b6b6';
 }
+
 selected.subscribe((value)=>{
     currentSelected = value;
     // console.log(currentSelected, 'in subscribe');
@@ -232,18 +233,17 @@ selected.subscribe((value)=>{
     }else if( Number(pullSelected) > 0 ){
         // console.log(localStorage.getItem('selected'), 'this is localstorage');
     }
-    
 })
 initAnimate();
 
 /************* apps ***************/
-
 function setScreenSize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
 
     renderer.setSize( window.innerWidth, window.innerHeight );
 };
+
 function scrollSmoothly(x, y) {
     const startTime = performance.now();
     const duration = 300; 
@@ -262,6 +262,7 @@ function scrollSmoothly(x, y) {
     }
     requestAnimationFrame(animate); // 첫 번째 프레임 요청
 }
+
 swipe.addEventListener('click', (e)=>{
 
     // console.log(e.target.dataset.name)
@@ -312,16 +313,16 @@ swipe.addEventListener('click', (e)=>{
 
             if(center <= rect.left){
                 if(curr >= workDb.length -3){
-                    console.log('dont scroll next')
+                    // console.log('dont scroll next')
                 }else{
-                    console.log('swipe click scroll next')
+                    // console.log('swipe click scroll next')
                     scrollSmoothly(rect.left - center, 0)
                 }
             }else if(center >= rect.left){
                 if(curr <= 3){
-                    console.log('dont scroll before')
+                    // console.log('dont scroll before')
                 }else{
-                    console.log('swipe click scroll before')
+                    // console.log('swipe click scroll before')
                     scrollSmoothly(rect.left - center, 0)
                 }
             }
@@ -364,9 +365,9 @@ midBox.addEventListener('click', (e)=>{
     
             if(center >= rect.left){
                 if(curr <= 3){
-                    console.log('dont scroll before')
+                    // console.log('dont scroll before')
                 }else{
-                    console.log('nav click scroll before')
+                    // console.log('nav click scroll before')
                     scrollSmoothly(rect.left - center, 0)
                 }
             }else if(rect.right >= 2000){
@@ -404,9 +405,9 @@ midBox.addEventListener('click', (e)=>{
             let rect = swipeAll[curr + 1].getBoundingClientRect();
             if(center <= rect.left){
                 if(curr >= workDb.length -3){
-                    console.log('dont scroll next')
+                    // console.log('dont scroll next')
                 }else{
-                    console.log('nav click scroll next')
+                    // console.log('nav click scroll next')
                     scrollSmoothly(rect.left - center, 0)
                 }
             }else if(rect.left < 0){
@@ -441,22 +442,22 @@ rightBox.addEventListener('click', (e)=>{
         case 'wb_sunny' :
                 onOff(e.target);
                 lightModeChange(e.target.innerHTML);
-                console.log('basic light')
+                // console.log('basic light')
             break;
         case 'wb_iridescent' :
                 onOff(e.target);
                 lightModeChange(e.target.innerHTML);
-                console.log('iredescent');
+                // console.log('iredescent');
             break;
         case 'lightbulb' :
                 onOff(e.target);
                 lightModeChange(e.target.innerHTML);
-                console.log('lightbulb');
+                // console.log('lightbulb');
             break;
         case 'highlight' :
                 onOff(e.target);
                 lightModeChange(e.target.innerHTML);
-                console.log('highlight');
+                // console.log('highlight');
             break;
     }
     
@@ -662,7 +663,7 @@ function delCache(){
             return caches.delete(key);
         }));
     });
-    console.log('캐시삭제완료')
+    // console.log('캐시삭제완료')
 }
 
 function modelLoad(model){

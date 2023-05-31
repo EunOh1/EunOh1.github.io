@@ -1,6 +1,5 @@
 <script>
     import { txts_data } from "./txt_data.js";
-    import { onMount } from 'svelte'; 
     import { activeTabValue } from '../store.js';
     
     // let activeTabValue = 0;
@@ -11,18 +10,6 @@
     })
     const handleClick = tabValue => () => activeTabValue.set(tabValue);
 
-    onMount(async () => { 
-        console.log(window.location.pathname.slice(window.location.pathname.length - 1, window.location.pathname.length))
-
-        let txtNum = document.querySelectorAll('.txt-numbering');
-        let res = txtNum.forEach((e)=>{
-            // console.log(e.children[0].innerHTML)
-            return e.children[0].innerHTML === selNum;
-        })   
-    });
-
-
-    
 </script>
 <slot></slot>
 <nav class="numbering">

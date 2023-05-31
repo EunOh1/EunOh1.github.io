@@ -41,7 +41,7 @@
                 return caches.delete(key);
             }));
         });
-        console.log('캐시삭제완료')
+        // console.log('캐시삭제완료')
     }
     
 </script>

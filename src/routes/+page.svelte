@@ -26,7 +26,6 @@
             innerH = window.innerHeight - header.clientHeight - footer.clientHeight;
         })
     });
-    
 
 </script>
 <svelte:head>

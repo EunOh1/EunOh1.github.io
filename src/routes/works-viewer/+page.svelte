@@ -3,14 +3,19 @@
     import viewerApp from './viewerapp.js';
     import "./+viewer_style.css";
     import workDb from './models.js';
-    import { enterCounter } from '../store.js'
+    import { enterCounter, selected } from '../store.js'
     
     let click;
     let clicked = click ? true : false;	
     let activeTabValue = new Number(0);
     let curr = new Number(0);
     let enterCount = new Number(0);
-    
+    let selectedNow = 0;
+
+    selected.subscribe((value)=>{
+        selectedNow = value;
+    });
+
     enterCounter.subscribe((value)=>{
         enterCount = value;
     })
@@ -42,13 +47,40 @@
         viewerApp();
     });      
 
+    function scrollStart(){
+        let center = window.innerWidth / 2
+        const swipeAll = document.querySelectorAll('.gui-swipe-each');
+        let rect = swipeAll[selectedNow].getBoundingClientRect();
+        scrollSmoothly(rect.left - center, 0)
+    }
+
+    function scrollSmoothly(x, y) {
+        const swipe = document.querySelector('.gui-swipe-3d');
+        const startTime = performance.now();
+        const duration = 300; 
+        const startX = swipe.scrollLeft;
+        const startY = swipe.scrollTop;
+
+        function animate(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1); // 0부터 1까지의 진행 상황
+        
+            swipe.scrollTo(startX + x * progress, startY + y * progress);
+        
+            if (elapsedTime < duration) {
+            requestAnimationFrame(animate); // 다음 프레임 요청
+            }
+        }
+        requestAnimationFrame(animate); // 첫 번째 프레임 요청
+    }
+
     function delCache(){
         caches.keys().then(function(keyList) {
             return Promise.all(keyList.map(function(key) {
                 return caches.delete(key);
             }));
         });
-        console.log('캐시삭제완료')
+        // console.log('캐시삭제완료')
     };
 
     function counting() {
@@ -61,7 +93,6 @@
 
 </script>
 <div class="gui-main-3d">      
-
     <div class="gui-wrapper-3d">
 
         <div class="top-3d">
@@ -92,13 +123,13 @@
 
         <div class="btm-3d">
             <div class="btm-left-3d">
-                <span class="material-icons-outlined less">expand_less</span>   
-                    <span class="material-icons-outlined que" 
-                        on:click={(e)=> {
-                            !clicked ? e.currentTarget.style.color = "#ff6666" : e.currentTarget.style.color = "black";
-                            clicked = !clicked
-                        }} 
-                        on:keydown={()=> clicked = !clicked}>question_mark</span>         
+                <span class="material-icons-outlined less" on:click={()=>scrollStart()} on:keydown={()=> scrollStart()}>expand_less</span>   
+                <span class="material-icons-outlined que" 
+                    on:click={(e)=> {
+                        !clicked ? e.currentTarget.style.color = "#ff6666" : e.currentTarget.style.color = "black";
+                        clicked = !clicked;
+                    }} 
+                    on:keydown={()=> clicked = !clicked}>question_mark</span>         
             </div>
             <div class="btm-right-3d">
                 <span class="material-icons-outlined xyzon">360</span>

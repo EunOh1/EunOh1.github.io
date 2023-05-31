@@ -1,6 +1,15 @@
 <script>
     import { MetaTags, JsonLd } from 'svelte-meta-tags';
+    import { onMount, afterUpdate } from 'svelte';
+    import "./+layout_style.css";  
 
+    afterUpdate(()=>{
+      // console.log('updated')
+      let link =  document.location.href.split('/');
+        if(link[link.length -1] !== 'works-viewer'){
+          removeLs()
+        }
+    })
 //     twitter={{
 //     handle: '@handle',
 //     site: '@site',
@@ -38,11 +47,13 @@
 
     const handleClick = tabValue => () => (activeTabValue = tabValue);
     const eunohClick = tabValue => () => (activeTabValue = 99);
-    // let def_menu = 'def-menu';
-    // let selected = 'selected';
-    // let isTrue = false;
-    // let myActiveClass = 'selected';
-    import "./+layout_style.css";
+    
+    function removeLs(){
+        let pullSelected = localStorage.getItem('selected');
+        if(pullSelected){
+            localStorage.removeItem('selected');
+        }
+    }
 </script>
 <MetaTags
   title="Eun Oh's website"

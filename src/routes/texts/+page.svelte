@@ -2,7 +2,7 @@
     import { txts_data } from "./txt_data.js";
     import { onMount } from 'svelte'; 
     import { tick } from 'svelte';
-    import { activeTabValue } from '../store.js';
+    import { activeTabValue } from './store.js';
 
     // let activeTabValue = 0;
     let innerH;
@@ -24,7 +24,6 @@
             await tick();
             innerH = window.innerHeight - header.clientHeight - footer.clientHeight - lowSelector.clientHeight - back.clientHeight;
         })
-
     });
     function select(value) {
         activeTabValue.set(value);

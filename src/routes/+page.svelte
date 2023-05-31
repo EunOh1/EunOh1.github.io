@@ -14,7 +14,7 @@
         let vw = window.innerWidth * 0.01;
         document.documentElement.style.setProperty('--vw', `${vw}px`);
 
-        let header = document.querySelector('.top-menu');
+        let header = document.querySelector('header');
         let footer = document.querySelector('footer');
         
         innerH = 500;
@@ -42,7 +42,7 @@
 @media only screen and (min-width: 1281px){
     #container {
         position: relative;
-        width: 100vw;
+        /* width: 100vw; */
         display: flex;
         justify-content: center;
         align-items: center;

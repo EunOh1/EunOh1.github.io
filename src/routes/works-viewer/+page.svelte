@@ -44,6 +44,12 @@
     }
 
     onMount(async () => { 
+        let header = document.querySelector('header');
+        let footer = document.querySelector('footer');
+        if(header && footer) {
+            header.style.display = 'none';
+            footer.style.display = 'none';
+        }
         viewerApp();
     });      
 

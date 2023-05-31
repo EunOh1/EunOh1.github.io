@@ -208,7 +208,7 @@ let name = '';
 reloadCounter.subscribe((value)=>{
     reloadCount = value;
     // console.log(reloadCount);
-    if(reloadCount === 10){
+    if(reloadCount === 7){
         // localStorage.setItem('selected', 0);
         window.location.reload();
     }
@@ -712,7 +712,13 @@ function modelLoad(model){
                 localStorage.setItem('selected', currentSelected)
             }
         }, 
-        ( error ) => { console.error( error );}
+        ( error ) => { 
+            loadDiv.innerHTML = `error ocurred! restart page!`;
+            loadDiv.style.fontSize = '1rem';
+            const mid3d = document.querySelector('.mid-3d');
+                mid3d.insertAdjacentElement('beforeend', loadDiv);
+            console.error( error );
+        }
     );
     
     // console.log(scene.children);

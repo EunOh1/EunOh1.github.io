@@ -3,6 +3,7 @@ body{
     box-sizing: border-box;
 }
 .gui-main-3d{
+    z-index: 9000;
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -224,7 +225,7 @@ body{
     background-color: rgba(0, 0, 0, 0);
 }
 .xyz-loading{
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: #ff6666;
     display: flex;

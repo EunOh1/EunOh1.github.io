@@ -45,7 +45,7 @@
 
     onMount(async () => { 
         await hiding();
-        viewerApp();
+        await viewerApp();
     });      
 
     async function hiding(){
@@ -119,11 +119,11 @@
         </div>
 
         <div class="mid-info {clicked === true ? 'active' : ''}">
-            <svelte:element this='p'>{workDb[activeTabValue].title}</svelte:element>
-            <svelte:element this='p'>{workDb[activeTabValue].author}</svelte:element>
-            <svelte:element this='p'>{workDb[activeTabValue].year}</svelte:element>
-            <svelte:element this='p'>{workDb[activeTabValue].size}</svelte:element>
-            <svelte:element this='p'>{workDb[activeTabValue].material}</svelte:element>                
+            <svelte:element this='p'>{workDb[selectedNow].title}</svelte:element>
+            <svelte:element this='p'>{workDb[selectedNow].author}</svelte:element>
+            <svelte:element this='p'>{workDb[selectedNow].year}</svelte:element>
+            <svelte:element this='p'>{workDb[selectedNow].size}</svelte:element>
+            <svelte:element this='p'>{workDb[selectedNow].material}</svelte:element>                
         </div>
         
 

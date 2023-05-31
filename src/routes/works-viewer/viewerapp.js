@@ -9,12 +9,13 @@ import workDb from './models.js';
 import { reloadCounter, selected } from '../store.js'
 "use strict";
 
-function viewerApp(){
+async function viewerApp(){
 
 let reloadCount = 0;
 let loadCounter = 0;
 let currentSelected = 0;
 let expandCount = true;
+let nowLoading = 1;
 
 const guiTop = document.querySelector('.gui-main-3d');
 const isMobile = () => {
@@ -233,19 +234,22 @@ reloadCounter.subscribe((value)=>{
 let pullSelected = localStorage.getItem('selected');
 if( Number(pullSelected) > 0 ){
     let guiDownArrow = document.querySelectorAll('.gui-down-arrow');
+    let toggleBtn = document.querySelector('.less');
     delCache();
-    modelDispose();
+    await modelDispose();
     modelLoad(workDb[pullSelected]);
     swipe.classList.remove('xyzhide');
     swipeAll[pullSelected].style.outline = '1px solid #b6b6b6';
+    toggleBtn.innerHTML = 'expand_more';
+    toggleBtn.classList.add('xyzon');
+    expandCount = !expandCount;
     guiDownArrow.forEach((e)=>{
         e.classList.add('xyzafter-on');
-        expandCount = !expandCount;
     })
     scrollStart();
 }
 
-selected.subscribe((value)=>{
+selected.subscribe(async (value)=>{
     currentSelected = value;
     // console.log(currentSelected, 'in subscribe');
 
@@ -253,7 +257,7 @@ selected.subscribe((value)=>{
     if( pullSelected === undefined || pullSelected === null ){
         // console.log('first visit');
         delCache();
-        modelDispose();
+        await modelDispose();
         modelLoad(workDb[0]);
     }else if( Number(pullSelected) > 0 ){
         // console.log(localStorage.getItem('selected'), 'this is localstorage');
@@ -288,7 +292,7 @@ function scrollSmoothly(x, y) {
     requestAnimationFrame(animate); // 첫 번째 프레임 요청
 }
 
-swipe.addEventListener('click', (e)=>{
+swipe.addEventListener('click', async (e)=>{
 
     // console.log(e.target.dataset.name)
     let eachSwipe = document.querySelectorAll('.gui-swipe-each');
@@ -325,7 +329,7 @@ swipe.addEventListener('click', (e)=>{
             console.log('same');
         } else {
             // console.log(dataSet)
-            modelDispose();
+            await modelDispose();
             delCache(); // del cache
             modelLoad(workDb[dataSet]);
             initAnimate();
@@ -360,91 +364,93 @@ swipe.addEventListener('click', (e)=>{
     }
     // console.log(Number(e.target.dataset.num) )
 })
-
-midBox.addEventListener('click', (e)=>{
+midBox.addEventListener('click', async (e)=>{
     let center = window.innerWidth / 2
+    if(nowLoading <= 0 || e.detail >= 2){
+        alert('좀 천천히하셈');
+    } else {
+        if(e.target.innerHTML === 'navigate_before'){
+            scene.children.forEach((e)=>{
+                if(typeof e.number === 'number' ){
+                    curr = e.number;
+                    name = e.name;
+                }
+            }); // can change with store.js ??
+            if(curr > 0 && curr <= workDb.length -1){
+                rotateIcon.classList.remove('xyzon');
+                rotateIcon.classList.add('xyzon');
 
-    if(e.target.innerHTML === 'navigate_before'){
-        scene.children.forEach((e)=>{
-            if(typeof e.number === 'number' ){
-                curr = e.number;
-                name = e.name;
-            }
-        });
-        if(curr > 0 && curr <= workDb.length -1){
-            rotateIcon.classList.remove('xyzon');
-            rotateIcon.classList.add('xyzon');
+                await modelDispose();
+                delCache(); // del cache
+                modelLoad(workDb[curr - 1]);
+                initAnimate();
 
-            modelDispose();
-            delCache(); // del cache
-            modelLoad(workDb[curr - 1]);
-            initAnimate();
+                swipeAll.forEach((ev)=>{
+                    ev.style.outline = 'none';     
+                });
+                swipeAll[curr -1].style.outline = '1px solid #b6b6b6'
 
-            swipeAll.forEach((ev)=>{
-                ev.style.outline = 'none';     
-            });
-            swipeAll[curr -1].style.outline = '1px solid #b6b6b6'
-
-            let rect = swipeAll[curr -1].getBoundingClientRect();
-    
-            if(center >= rect.left){
-                if(curr <= 3){
-                    // console.log('dont scroll before')
-                }else{
-                    // console.log('nav click scroll before')
+                let rect = swipeAll[curr -1].getBoundingClientRect();
+        
+                if(center >= rect.left){
+                    if(curr <= 3){
+                        // console.log('dont scroll before')
+                    }else{
+                        // console.log('nav click scroll before')
+                        scrollSmoothly(rect.left - center, 0)
+                    }
+                }else if(rect.right >= 2000){
                     scrollSmoothly(rect.left - center, 0)
                 }
-            }else if(rect.right >= 2000){
-                scrollSmoothly(rect.left - center, 0)
-            }
 
-        } else if(curr === 0){
-            console.log('is first')
-        } 
-        e.target.style.color = `#ff6666`
-        setTimeout(() => {
-            e.target.style.color = `black`
-        }, 100);
-    } else if(e.target.innerHTML === 'navigate_next'){
-        scene.children.forEach((e)=>{
-            if(typeof e.number === 'number' ){
-                curr = e.number;
-                name = e.name;
-            }
-        });
-        if(curr >= 0 && curr <= workDb.length -2){
-            rotateIcon.classList.remove('xyzon');
-            rotateIcon.classList.add('xyzon');
-
-            modelDispose();
-            delCache(); // del cache
-            modelLoad(workDb[curr + 1]);
-            initAnimate();
-
-            swipeAll.forEach((ev)=>{
-                ev.style.outline = 'none';
+            } else if(curr === 0){
+                console.log('is first')
+            } 
+            e.target.style.color = `#ff6666`
+            setTimeout(() => {
+                e.target.style.color = `black`
+            }, 100);
+        } else if(e.target.innerHTML === 'navigate_next'){
+            scene.children.forEach((e)=>{
+                if(typeof e.number === 'number' ){
+                    curr = e.number;
+                    name = e.name;
+                }
             });
-            swipeAll[curr +1].style.outline = '1px solid #b6b6b6';
+            if(curr >= 0 && curr <= workDb.length -2){
+                rotateIcon.classList.remove('xyzon');
+                rotateIcon.classList.add('xyzon');
 
-            let rect = swipeAll[curr + 1].getBoundingClientRect();
-            if(center <= rect.left){
-                if(curr >= workDb.length -3){
-                    // console.log('dont scroll next')
-                }else{
-                    // console.log('nav click scroll next')
+                await modelDispose();
+                delCache(); // del cache
+                modelLoad(workDb[curr + 1]);
+                initAnimate();
+
+                swipeAll.forEach((ev)=>{
+                    ev.style.outline = 'none';
+                });
+                swipeAll[curr +1].style.outline = '1px solid #b6b6b6';
+
+                let rect = swipeAll[curr + 1].getBoundingClientRect();
+                if(center <= rect.left){
+                    if(curr >= workDb.length -3){
+                        // console.log('dont scroll next')
+                    }else{
+                        // console.log('nav click scroll next')
+                        scrollSmoothly(rect.left - center, 0)
+                    }
+                }else if(rect.left < 0){
                     scrollSmoothly(rect.left - center, 0)
                 }
-            }else if(rect.left < 0){
-                scrollSmoothly(rect.left - center, 0)
-            }
 
-        } else if(curr === workDb.length -1){
-            console.log('is last')
-        } 
-        e.target.style.color = `#ff6666`
-        setTimeout(() => {
-            e.target.style.color = `black`
-        }, 100);
+            } else if(curr === workDb.length -1){
+                console.log('is last')
+            } 
+            e.target.style.color = `#ff6666`
+            setTimeout(() => {
+                e.target.style.color = `black`
+            }, 100);
+        }
     }
 })
 
@@ -729,12 +735,15 @@ function modelLoad(model){
             // console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
             overlay.style.transition = `opacity ${ loadCounter / 100 }s ease-out ${ loadCounter / 100 }s`;
             if(loadCounter === 100){
+                nowLoading = 1;
                 loadDiv.remove();
                 reloadCounter.update(n => n + 1);
                 selected.set(model.num);
                 localStorage.setItem('selected', currentSelected);
                 overlay.style.opacity = "0";
                 overlay.style.display = 'none';
+            }else if(loadCounter < 100){
+                nowLoading = 0;
             }
         }, 
         ( error ) => { 
@@ -747,7 +756,7 @@ function modelLoad(model){
     );
 }
 
-function modelDispose(){
+async function modelDispose(){
     scene.children.forEach((e)=>{
         if(typeof e.number === 'number' ){
             scene.remove(e);

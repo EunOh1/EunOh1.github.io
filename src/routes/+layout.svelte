@@ -7,7 +7,7 @@
       // console.log('updated')
       let link =  document.location.href.split('/');
         if(link[link.length -1] !== 'works-viewer'){
-          removeLs()
+          removeLs();
         }
     })
 //     twitter={{
@@ -117,6 +117,7 @@ schema={{
 <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Rubik+Bubbles&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <title>Eun Oh's Home</title>
+<!-- <html lang="ko"> -->
 </svelte:head>
 <header style="box-sizing: border-box; padding-top: 0.4vh;">
     <nav class="eun-header">

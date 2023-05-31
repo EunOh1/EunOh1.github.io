@@ -21,7 +21,9 @@ const guiTop = document.querySelector('.gui-main-3d');
 const isMobile = () => {
 	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 }; // =========> mobile device check function
-
+const isAnd = () => {
+    return /Android/i.test(navigator.userAgent);
+}
 
 /************* create elements ***************/
 let loadDiv = document.createElement('div');
@@ -222,10 +224,12 @@ let startStop = true;
 let curr = 0;
 let name = '';
 
-reloadCounter.subscribe((value)=>{
+reloadCounter.subscribe(async (value)=>{
     reloadCount = value;
     // console.log(reloadCount);
-    if(reloadCount === 7){
+    if(isAnd() & reloadCount === 4){
+        window.location.reload();
+    }else if(reloadCount === 7){
         // localStorage.setItem('selected', 0);
         window.location.reload();
     }
@@ -235,8 +239,8 @@ let pullSelected = localStorage.getItem('selected');
 if( Number(pullSelected) > 0 ){
     let guiDownArrow = document.querySelectorAll('.gui-down-arrow');
     let toggleBtn = document.querySelector('.less');
-    delCache();
     await modelDispose();
+    await delCache();
     modelLoad(workDb[pullSelected]);
     swipe.classList.remove('xyzhide');
     swipeAll[pullSelected].style.outline = '1px solid #b6b6b6';
@@ -256,8 +260,8 @@ selected.subscribe(async (value)=>{
     let pullSelected = localStorage.getItem('selected');
     if( pullSelected === undefined || pullSelected === null ){
         // console.log('first visit');
-        delCache();
         await modelDispose();
+        await delCache();
         modelLoad(workDb[0]);
     }else if( Number(pullSelected) > 0 ){
         // console.log(localStorage.getItem('selected'), 'this is localstorage');
@@ -330,7 +334,7 @@ swipe.addEventListener('click', async (e)=>{
         } else {
             // console.log(dataSet)
             await modelDispose();
-            delCache(); // del cache
+            await delCache(); // del cache
             modelLoad(workDb[dataSet]);
             initAnimate();
             rotateIcon.classList.remove('xyzon');
@@ -381,7 +385,7 @@ midBox.addEventListener('click', async (e)=>{
                 rotateIcon.classList.add('xyzon');
 
                 await modelDispose();
-                delCache(); // del cache
+                await delCache(); // del cache
                 modelLoad(workDb[curr - 1]);
                 initAnimate();
 
@@ -422,7 +426,7 @@ midBox.addEventListener('click', async (e)=>{
                 rotateIcon.classList.add('xyzon');
 
                 await modelDispose();
-                delCache(); // del cache
+                await delCache(); // del cache
                 modelLoad(workDb[curr + 1]);
                 initAnimate();
 
@@ -686,7 +690,7 @@ function setLightPosition(position, light) {
         }
     }
 }
-function delCache(){
+async function delCache(){
     caches.keys().then(function(keyList) {
         return Promise.all(keyList.map(function(key) {
             return caches.delete(key);

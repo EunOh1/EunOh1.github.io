@@ -24,6 +24,19 @@ const isMobile = () => {
 /************* create elements ***************/
 let loadDiv = document.createElement('div');
 loadDiv.setAttribute('class', 'xyz-loading');
+const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.height = "calc(var(--vh, 1vh) * 100)";
+    overlay.style.zIndex = 10000; 
+    overlay.style.background = "rgba(0, 0, 0, 0.1)";
+    overlay.style.pointerEvents = "none";
+    overlay.style.display = "none";
+
+const topMain = document.querySelector('.gui-main-3d');
 const btmRightSpans = document.querySelectorAll('.btm-right-3d span');
 const lightControl = document.querySelector('.btm-right-control');
 const xyzCanvas = document.querySelector('.xyz-canvas');
@@ -34,6 +47,8 @@ const rotateIcon = document.querySelector('.btm-right-3d span');
 const rightIcon = document.querySelectorAll('.xyzright');
 const midBox = document.querySelector('.mid-3d');
 const rightBox = document.querySelector('.btm-right-3d');
+
+topMain.appendChild(overlay);
 
 let blankPage = document.createElement('div');
     blankPage.setAttribute('class', 'xyz-none-landscape');
@@ -704,12 +719,13 @@ function modelLoad(model){
             const mid3d = document.querySelector('.mid-3d');
                 mid3d.insertAdjacentElement('beforeend', loadDiv);
             // console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
+            overlay.style.display = "block"; // overlay 보이게 설정
             if(loadCounter === 100){
                 loadDiv.remove();
                 reloadCounter.update(n => n + 1);
                 selected.set(model.num);
-                localStorage.setItem('selected', currentSelected)
+                localStorage.setItem('selected', currentSelected);
+                overlay.style.display = "none";
             }
         }, 
         ( error ) => { 
@@ -720,11 +736,6 @@ function modelLoad(model){
             console.error( error );
         }
     );
-    
-    // console.log(scene.children);
-    // if (performance) {
-    //     console.log(performance.memory);
-    // }
 }
 
 function modelDispose(){

@@ -275,9 +275,6 @@ body{
         z-index: 10;
         transition: bottom 0.15s linear 0.15s;
         bottom: -5.41em;
-
-        /* transform: translate(0, calc(100vh - 1033%));
-        z-index: 10; */
     }
     .xyzafter{
         height: 5.41em;
@@ -285,7 +282,6 @@ body{
         z-index: 10;
         transition: bottom 0.15s linear 0.15s;
         bottom: -5.41em;
-        /* transform: translate(calc(100vw - 30px), calc(100vh - 1045%)); */
     }
     .xyzafter-on{
         bottom: 0;

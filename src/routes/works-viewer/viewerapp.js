@@ -14,6 +14,7 @@ function viewerApp(){
 let reloadCount = 0;
 let loadCounter = 0;
 let currentSelected = 0;
+let expandCount = true;
 
 const guiTop = document.querySelector('.gui-main-3d');
 const isMobile = () => {
@@ -231,11 +232,16 @@ reloadCounter.subscribe((value)=>{
 
 let pullSelected = localStorage.getItem('selected');
 if( Number(pullSelected) > 0 ){
+    let guiDownArrow = document.querySelectorAll('.gui-down-arrow');
     delCache();
     modelDispose();
     modelLoad(workDb[pullSelected]);
     swipe.classList.remove('xyzhide');
     swipeAll[pullSelected].style.outline = '1px solid #b6b6b6';
+    guiDownArrow.forEach((e)=>{
+        e.classList.add('xyzafter-on');
+        expandCount = !expandCount;
+    })
     scrollStart();
 }
 
@@ -495,7 +501,6 @@ lightControl.addEventListener('click', (e)=>{
     }, 100);
 })
 
-let expandCount = true;
 expand[0].addEventListener('click', (e)=>{
     let guiDownArrow = document.querySelectorAll('.gui-down-arrow');
     if(expandCount === true){

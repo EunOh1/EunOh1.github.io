@@ -227,10 +227,9 @@ let name = '';
 reloadCounter.subscribe(async (value)=>{
     reloadCount = value;
     // console.log(reloadCount);
-    // if(isAnd() & reloadCount === 4){
-    //     window.location.reload();
-    // }else 
-    if(reloadCount === 10){
+    if(isAnd() && reloadCount === 5){
+        window.location.reload();
+    }else if(reloadCount === 8){
         // localStorage.setItem('selected', 0);
         window.location.reload();
     }

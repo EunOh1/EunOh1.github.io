@@ -341,8 +341,8 @@ swipe.addEventListener('click', async (e)=>{
             await delCache(); // del cache
             modelLoad(workDb[dataSet]);
             // initAnimate();
-            rotateIcon.classList.remove('xyzon');
-            rotateIcon.classList.add('xyzon');
+            // rotateIcon.classList.remove('xyzon');
+            // rotateIcon.classList.add('xyzon');
 
             let center = window.innerWidth / 2
             let rect = e.target.getBoundingClientRect();

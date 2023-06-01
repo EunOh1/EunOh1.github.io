@@ -118,54 +118,54 @@
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 1024px) {
     .column {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, fit-content(100vh));
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
         justify-items: flex-start;
         padding-left: 2vw;
     }
     .image {
-        width: 6rem;
-        height: 6rem;
+        width: 7rem;
+        height: 7rem;
         font-size: 0.7rem;
     }
 }
 @media screen and (max-width: 915px) {
     .column {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(5, fit-content(100vh));
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
         justify-items: flex-start;
         padding-left: 2vw;
     }
     .image {
-        width: 6rem;
-        height: 6rem;
-        font-size: 0.7rem;
+        width: 7rem;
+        height: 7rem;
+        font-size: 0.9rem;
     }
 }
   /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
     .column {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(8, fit-content(100vh));
+        grid-template-rows: repeat(1, 1fr);
         justify-items: flex-start;
         padding-left: 2vw;
     }
     .image {
-        width: 6rem;
-        height: 6rem;
-        font-size: 0.7rem;
+        width: 7rem;
+        height: 7rem;
+        font-size: 0.9rem;
     }
 }
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
     .column {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(8, fit-content(100vh));
+        grid-template-rows: repeat(1, 1fr);
     }
     .image {
-        width: 6rem;
-        height: 6rem;
-        font-size: 0.7rem;
+        width: 7rem;
+        height: 7rem;
+        font-size: 0.9rem;
     }
 }
     

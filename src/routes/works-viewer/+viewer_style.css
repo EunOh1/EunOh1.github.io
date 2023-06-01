@@ -37,7 +37,7 @@ body{
     height: 5%;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-start;
 }
 .top-3d a{
     text-decoration: none;
@@ -139,7 +139,7 @@ body{
     height: 0vh;
 }
 /* .gui-swipe-arrow-box{
-    height: 100%;
+    transition: all 0.15s linear 0.15s;
 } */
 .gui-swipe-each-box{
     height: 100%;
@@ -155,20 +155,28 @@ body{
     /* transform: translateY(calc(var(--vh, 1vh) * 100)); */
     display: none;
     position: fixed;
+    bottom: -16.5vh;
     height: 16.5vh;
     /* top: 88.5vh; */
     display: flex;
     align-items: center;
     background: #f0f0f0;
-    transition: all 0.2s linear 0.2s;
+    transition: all 0.15s linear 0.15s;
 }
 .xyzfixed{
     transform: translateY(0);
     display: flex;
 }
+/* .xyzbefore{
+    transition: all 0.4s linear 0.6s;
+} */
 .xyzafter{
     right: 0%;
     z-index: 10;
+}
+.xyzafter-on{
+    bottom: 0;
+    transition: all 0.15s linear 0.15s;
 }
 .gui-swipe-each{
     box-sizing: border-box;

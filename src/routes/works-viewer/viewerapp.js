@@ -273,6 +273,8 @@ initAnimate();
 
 /************* apps ***************/
 function setScreenSize() {
+    let vh = window.innerHeight * 0.01; 
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
 

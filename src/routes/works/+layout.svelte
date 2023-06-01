@@ -113,7 +113,7 @@
         grid-template-rows: repeat(2, 7vh);
     }
     .ul-tab-menu li {
-        font-size: 3vh;
+        font-size: 2.5vh;
     }
 }
 @media screen and (max-width: 915px) {
@@ -131,7 +131,7 @@
         grid-template-rows: repeat(2, 5vh);
     }
     .ul-tab-menu li {
-        font-size: 2.5vh;
+        font-size: 2vh;
     }
 }
 @media screen and (max-width: 800px) {
@@ -140,7 +140,7 @@
         grid-template-rows: repeat(2, 5vh);
     }
     .ul-tab-menu li {
-        font-size: 2.5vh;
+        font-size: 2vh;
     }
 }
 @media screen and (max-width: 740px) {
@@ -149,7 +149,7 @@
         grid-template-rows: repeat(2, 6vh);
     }
     .ul-tab-menu li {
-        font-size: 2.5vh;
+        font-size: 2vh;
     }
 }
 @media screen and (max-width: 600px) {

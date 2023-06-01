@@ -16,6 +16,7 @@ let loadCounter = 0;
 let currentSelected = 0;
 let expandCount = true;
 let nowLoading = 1;
+let idleTime = 0;
 
 const guiTop = document.querySelector('.gui-main-3d');
 const isMobile = () => {
@@ -44,7 +45,6 @@ const overlay = document.createElement("div");
 
 const lightControl = document.querySelector('.btm-right-control');
 const xyzCanvas = document.querySelector('.xyz-canvas');
-const canvas = document.querySelector('canvas');
 const expand = document.querySelectorAll('.btm-left-3d span');
 const swipe = document.querySelector('.gui-swipe-3d');
 const rotateIcon = document.querySelector('.btm-right-3d span');
@@ -61,7 +61,7 @@ let warn = document.createElement('h3');
     blankPage.insertAdjacentElement('beforeend', warn);
 
 guiTop.insertAdjacentElement('afterbegin', blankPage);
-guiTop.insertAdjacentElement('afterbegin',overlay);
+guiTop.insertAdjacentElement('afterbegin', overlay);
 
 let eachBox = document.createElement('div');
     eachBox.setAttribute('class', 'gui-swipe-each-box');
@@ -100,8 +100,8 @@ window.addEventListener("orientationchange", () => window.dispatchEvent(new Even
 const fixedWidth = window.innerWidth; 
 const fixedHeight = window.innerHeight;
 
-let halfWidth = fixedWidth / 2;
-let halfHeight = fixedHeight / 2;
+// let halfWidth = fixedWidth / 2;
+// let halfHeight = fixedHeight / 2;
 
 /************* scene ***************/
 const scene = new THREE.Scene();
@@ -109,7 +109,7 @@ scene.background = new THREE.Color(0xc7c7c7);
 scene.fog = new THREE.Fog( 0xc7c7c7, 10, 50 );
 
 /************* renderer ***************/
-const renderer = new THREE.WebGLRenderer({ cavas: canvas, antialias: true }); //canvas : canvas,
+const renderer = new THREE.WebGLRenderer({ antialias: true }); //canvas : canvas,
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( fixedWidth, fixedHeight);
 renderer.setClearColor(0xffffff, 1);
@@ -118,11 +118,13 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-xyzCanvas.insertAdjacentElement('beforeend', renderer.domElement );
+// xyzCanvas.insertAdjacentElement('beforeend', renderer.domElement );
+xyzCanvas.appendChild(renderer.domElement );
+
 
 /************* camera ***************/
-const cameraOrtho = new THREE.OrthographicCamera(- halfWidth, halfWidth, halfHeight, - halfHeight, - 10000, 10000);
-cameraOrtho.position.z = 100;
+// const cameraOrtho = new THREE.OrthographicCamera(- halfWidth, halfWidth, halfHeight, - halfHeight, - 10000, 10000);
+// cameraOrtho.position.z = 100;
 
 const camera = new THREE.PerspectiveCamera(
     85, // FOV
@@ -136,12 +138,13 @@ isMobile() ? camera.position.set(0,2,17) : camera.position.set(0,2,11);
 
 /************* controls ***************/
 const controls = new OrbitControls( camera, renderer.domElement );
+controls.autoRotate = true;
 controls.update();
 
 /************* effects ***************/
-const composer = new EffectComposer( renderer );
-const renderPass = new RenderPass( scene, camera );
-composer.addPass( renderPass );
+// const composer = new EffectComposer( renderer );
+// const renderPass = new RenderPass( scene, camera );
+// composer.addPass( renderPass );
 // composer.addPass( glitchPass );
 
 /************* lights ***************/
@@ -217,23 +220,21 @@ dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
 loader.setDRACOLoader( dracoLoader );
 
 let myReq;
-let myReq_2;
 let lightMode = 'sun';
-let reqCounter = 0;
 let startStop = true;
 let curr = 0;
 let name = '';
 
-reloadCounter.subscribe(async (value)=>{
-    reloadCount = value;
-    // console.log(reloadCount);
-    if(isAnd() && reloadCount === 5){
-        window.location.reload();
-    }else if(reloadCount === 8){
-        // localStorage.setItem('selected', 0);
-        window.location.reload();
-    }
-});
+// reloadCounter.subscribe(async (value)=>{
+//     reloadCount = value;
+//     // console.log(reloadCount);
+//     if(isAnd() && reloadCount === 5){
+//         window.location.reload();
+//     }else if(reloadCount === 8){
+//         // localStorage.setItem('selected', 0);
+//         window.location.reload();
+//     }
+// });
 
 let pullSelected = localStorage.getItem('selected');
 if( Number(pullSelected) > 0 ){
@@ -269,6 +270,7 @@ selected.subscribe(async (value)=>{
 })
 initAnimate();
 
+
 /************* apps ***************/
 function setScreenSize() {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -295,6 +297,8 @@ function scrollSmoothly(x, y) {
     }
     requestAnimationFrame(animate); // 첫 번째 프레임 요청
 }
+
+document.body.addEventListener('click',()=> idleTime = 0)
 
 swipe.addEventListener('click', async (e)=>{
 
@@ -336,7 +340,7 @@ swipe.addEventListener('click', async (e)=>{
             await modelDispose();
             await delCache(); // del cache
             modelLoad(workDb[dataSet]);
-            initAnimate();
+            // initAnimate();
             rotateIcon.classList.remove('xyzon');
             rotateIcon.classList.add('xyzon');
 
@@ -381,13 +385,13 @@ midBox.addEventListener('click', async (e)=>{
                 }
             }); // can change with store.js ??
             if(curr > 0 && curr <= workDb.length -1){
-                rotateIcon.classList.remove('xyzon');
-                rotateIcon.classList.add('xyzon');
+                // rotateIcon.classList.remove('xyzon');
+                // rotateIcon.classList.add('xyzon');
 
                 await modelDispose();
                 await delCache(); // del cache
                 modelLoad(workDb[curr - 1]);
-                initAnimate();
+                // initAnimate();
 
                 swipeAll.forEach((ev)=>{
                     ev.style.outline = 'none';     
@@ -422,13 +426,13 @@ midBox.addEventListener('click', async (e)=>{
                 }
             });
             if(curr >= 0 && curr <= workDb.length -2){
-                rotateIcon.classList.remove('xyzon');
-                rotateIcon.classList.add('xyzon');
+                // rotateIcon.classList.remove('xyzon');
+                // rotateIcon.classList.add('xyzon');
 
                 await modelDispose();
                 await delCache(); // del cache
                 modelLoad(workDb[curr + 1]);
-                initAnimate();
+                // initAnimate();
 
                 swipeAll.forEach((ev)=>{
                     ev.style.outline = 'none';
@@ -464,12 +468,20 @@ rightBox.addEventListener('click', (e)=>{
                 rotateIcon.classList.toggle('xyzon');
                 if(startStop === true){
                     cancelAnimationFrame(myReq);
-                    reqCounter = myReq;
                     animateStoped();
+                    // controls.autoRotate = false;
+                    // controls.update();
+                    // autoRotating = false;
+                    // reqCounter = myReq;
+                    // animateStoped();
                     startStop = false;
                 } else {
-                    cancelAnimationFrame(myReq_2)
-                    initAnimate();
+                    cancelAnimationFrame(myReq)
+                    initAnimate()
+                    // cancelAnimationFrame(myReq_2)
+                    // controls.autoRotate = true;
+                    // controls.update();
+                    // initAnimate();
                     startStop = true;
                 }
             break;
@@ -729,7 +741,7 @@ function modelLoad(model){
 
             scene.add(gltf.scene);
 
-            startStop = true;
+            // startStop = true;
         }, 
         ( xhr ) => {
             loadCounter = ( xhr.loaded / xhr.total * 100 );
@@ -741,13 +753,19 @@ function modelLoad(model){
             if(loadCounter === 100){
                 nowLoading = 1;
                 loadDiv.remove();
-                reloadCounter.update(n => n + 1);
+                //reloadCounter.update(n => n + 1);
                 selected.set(model.num);
                 localStorage.setItem('selected', currentSelected);
                 overlay.style.opacity = "0";
                 overlay.style.display = 'none';
+                document.querySelector('.mid-left-3d span').style.pointerEvents = 'auto';
+                document.querySelector('.mid-right-3d span').style.pointerEvents = 'auto';
+                swipe.style.pointerEvents = 'auto';
             }else if(loadCounter < 100){
                 nowLoading = 0;
+                document.querySelector('.mid-left-3d span').style.pointerEvents = 'none';
+                document.querySelector('.mid-right-3d span').style.pointerEvents = 'none';
+                swipe.style.pointerEvents = 'none';
             }
         }, 
         ( error ) => { 
@@ -778,19 +796,25 @@ async function modelDispose(){
             }
             // renderer.dispose();
             // renderer.renderLists.dispose();
+            // console.log(myReq)
+            // console.log(myReq_2)
             // console.log(renderer.info);
+            // console.log(renderer);
+
+
         }       
     })
-    // console.log(myReq)
-    if(reqCounter === myReq){
-        console.log('stopped')
-    } else {
-        // console.log('회전중임');
-        cancelAnimationFrame(myReq);
-        reqCounter = myReq;
-        startStop = false;
-        animateStoped();
-    }
+    // // console.log(myReq)
+    // if(reqCounter === myReq){
+    //     console.log('stopped')
+    // } else {
+    //     // console.log('회전중임');
+    //     // cancelAnimationFrame(myReq);
+    //     // autoRotating = false;
+    //     reqCounter = myReq;
+    //     startStop = false;
+    //     // animateStoped();
+    // }
 }
 
 function initAnimate(){
@@ -805,21 +829,17 @@ function initAnimate(){
 
 function animate() {
     myReq = requestAnimationFrame( animate );
-
     controls.autoRotate = true;
-    // required if controls.enableDamping or controls.autoRotate are set to true
     controls.update();
-
-    // gltf.scene.rotation.y += 0.002;
-    // renderer.render( scene, camera );
-    composer.render()
+    renderer.render(scene, camera);
 }
 
 function animateStoped() {
-    myReq_2 = requestAnimationFrame( animateStoped );
+    myReq = requestAnimationFrame( animateStoped );
     controls.autoRotate = false;
     controls.update();
-    composer.render()
+    renderer.render(scene, camera);
+
 }
 
 function scrollStart(){
@@ -829,6 +849,17 @@ function scrollStart(){
     let rect = swipeAll[pullSelected].getBoundingClientRect();
     scrollSmoothly(rect.left - center, 0)
 }
+
+setInterval(()=>{
+    idleTime = idleTime + 1;
+    if (idleTime >= 2) { // 2 minutes
+        alert('자리비우지마셈')
+        window.location.href = "/";
+    }
+}, 60000)
+
+
+
 }
 export default viewerApp
 // npx vite

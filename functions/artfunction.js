@@ -15,7 +15,7 @@ export async function onRequest(context) {
             data, // arbitrary space for passing data between middlewares
         } = context;
 
-        const KV = context.env.art_history;
+        const KV = context.env.artHistory;
 
         // Handle OPTIONS method for CORS preflight
         if (request.method === 'OPTIONS') {

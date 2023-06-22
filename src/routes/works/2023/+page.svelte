@@ -167,6 +167,9 @@
         height: 7rem;
         font-size: 0.9rem;
     }
+    .nope{
+        font-size: 1rem;
+    }
 }
     
 </style>

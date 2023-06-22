@@ -33,10 +33,10 @@
 </svelte:head>
 <!-- <h1>스벨트로 만들어보고 싶어요!</h1> -->
 <div id="container" style="height:{innerH}px">
-<div class="mainitems">
-    <model-viewer class="mainitem_1" src={mainitem_data[0]} poster="/assets/17-20.webp" camera-controls auto-rotate shadow-intensity="1"></model-viewer>
-    <model-viewer class="mainitem_2" src={mainitem_data[1]} poster="/assets/17-19.webp" camera-controls auto-rotate shadow-intensity="1"></model-viewer>
-</div>
+    <div class="mainitems">
+        <model-viewer class="mainitem_1" src={mainitem_data[0]} poster="/assets/17-20.webp" camera-controls auto-rotate shadow-intensity="1"></model-viewer>
+        <model-viewer class="mainitem_2" src={mainitem_data[1]} poster="/assets/17-19.webp" camera-controls auto-rotate shadow-intensity="1"></model-viewer>
+    </div>
 </div>
 <style>
 @media only screen and (min-width: 1281px){

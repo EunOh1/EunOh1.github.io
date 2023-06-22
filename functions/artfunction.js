@@ -46,7 +46,7 @@ export async function onRequest(context) {
             // response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
             // response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
 
-            return new Response(store || '', {status: 200});
+            return new Response(JSON.stringify(store) || '', {status: 200});
 
         } else {
             return new Response(`Method not supported.`, {status: 405})

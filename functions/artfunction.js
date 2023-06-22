@@ -1,6 +1,6 @@
-// addEventListener('fetch', event => {
-//     event.respondWith(handleRequest(event.request))
-// })
+addEventListener('fetch', event => {
+    event.respondWith(onRequest(event.request))
+})
 
 export async function onRequest(request) {
 
@@ -14,7 +14,7 @@ export async function onRequest(request) {
         let key = url.searchParams.get("key");
         let store = await art_history.get(key);
         return new Response(store || '', {status: 200});
-        
+
     } else {
         return new Response(`Method not supported.`, {status: 405})
     }

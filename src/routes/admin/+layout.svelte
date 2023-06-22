@@ -12,7 +12,7 @@
       key: toGet
     });
 
-    fetch(`https://eunoh.pages.dev/artfunction?${params.toString()}`,{
+    fetch(`/artfunction?${params.toString()}`,{
       method: 'GET',
     })
       .then(response => {
@@ -29,7 +29,7 @@
       return;
     }
 
-    const response = await fetch('https://eunoh.pages.dev/artfunction', {
+    const response = await fetch('/artfunction', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

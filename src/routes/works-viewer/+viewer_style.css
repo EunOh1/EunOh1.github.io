@@ -15,8 +15,14 @@ body{
 .xyz-none-landscape{
     width: 100vw;
     height: 100vh;
-    background: #f0f0f0;
+    background: #bfbfbf;
     display: none;
+}
+.xyz-none-landscape h3{
+    font-size: 2rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    color: #fff;
 }
 .gui-wrapper-3d{
     position: absolute;
@@ -228,6 +234,10 @@ body{
 .material-icons-outlined.less{
     width: 1.85rem;
 }
+.material-icons-outlined.xyz-share{
+    font-size: 1.3rem;
+    line-height: 1.2;
+}
 .xyzon{
     color: #ff6666;
     background-color: rgba(0, 0, 0, 0);
@@ -244,6 +254,17 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     transition: all 0.5s;
+}
+.xyz-copied{
+    background-color: rgb(255, 255, 255);
+    color: #88fd93;
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width : 575px) and (orientation:portrait){

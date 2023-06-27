@@ -171,5 +171,10 @@
         font-size: 1rem;
     }
 }
+@media screen and (max-width: 475px) {
+    .nope{
+        font-size: 0.7rem;
+    }
+}
     
 </style>

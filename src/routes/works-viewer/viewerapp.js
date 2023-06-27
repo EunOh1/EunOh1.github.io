@@ -159,7 +159,7 @@ const colors = {
 const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444, 0.3 );
 hemiLight.position.set( 0, 20, -20 );
 
-const ambLight = new THREE.AmbientLight(0xfdfdf4, 0.6);
+const ambLight = new THREE.AmbientLight(0xfdfdf4, 0.45);
 
 const pointLight = new THREE.PointLight( 0xffffff, 0.3, 80 );
 pointLight.position.set( 0, 20, 13 );
@@ -175,7 +175,7 @@ pointLight.shadow.camera.focus = 1;
 const sunLight = new THREE.DirectionalLight(colors.sun, 1.1);
 sunLight.position.set( 0, 20, 30 );
 
-const iredLight = new THREE.DirectionalLight(colors.ired, 1.2);
+const iredLight = new THREE.DirectionalLight(colors.ired, 1.6);
 iredLight.position.set( 0, 20, 30 );
 
 const bulbLight = new THREE.DirectionalLight(colors.bulb, 1.7);
@@ -236,37 +236,45 @@ let name = '';
 //     }
 // });
 
-let pullSelected = localStorage.getItem('selected');
-if( Number(pullSelected) > 0 ){
-    let guiDownArrow = document.querySelectorAll('.gui-down-arrow');
-    let toggleBtn = document.querySelector('.less');
-    await modelDispose();
-    await delCache();
-    modelLoad(workDb[pullSelected]);
-    swipe.classList.remove('xyzhide');
-    swipeAll[pullSelected].style.outline = '1px solid #b6b6b6';
-    toggleBtn.innerHTML = 'expand_more';
-    toggleBtn.classList.add('xyzon');
-    expandCount = !expandCount;
-    guiDownArrow.forEach((e)=>{
-        e.classList.add('xyzafter-on');
-    })
-    scrollStart();
-}
+// let pullSelected = localStorage.getItem('selected');
+// if( Number(pullSelected) > 0 ){
+//     let guiDownArrow = document.querySelectorAll('.gui-down-arrow');
+//     let toggleBtn = document.querySelector('.less');
+//     await modelDispose();
+//     await delCache();
+//     modelLoad(workDb[pullSelected]);
+//     swipe.classList.remove('xyzhide');
+//     swipeAll[pullSelected].style.outline = '1px solid #b6b6b6';
+//     toggleBtn.innerHTML = 'expand_more';
+//     toggleBtn.classList.add('xyzon');
+//     expandCount = !expandCount;
+//     guiDownArrow.forEach((e)=>{
+//         e.classList.add('xyzafter-on');
+//     })
+//     scrollStart();
+// }
 
 selected.subscribe(async (value)=>{
     currentSelected = value;
     // console.log(currentSelected, 'in subscribe');
 
-    let pullSelected = localStorage.getItem('selected');
-    if( pullSelected === undefined || pullSelected === null ){
+    // let pullSelected = localStorage.getItem('selected');
+    // if( pullSelected === undefined || pullSelected === null ){
         // console.log('first visit');
-        await modelDispose();
-        await delCache();
-        modelLoad(workDb[0]);
-    }else if( Number(pullSelected) > 0 ){
-        // console.log(localStorage.getItem('selected'), 'this is localstorage');
-    }
+
+        if(currentSelected === 0){
+            await modelDispose();
+            await delCache();
+            modelLoad(workDb[0]);
+        }else{
+            await modelDispose();
+            await delCache();
+            modelLoad(workDb[currentSelected]);
+        }
+        
+    // }else if( Number(pullSelected) > 0 ){
+    //     // console.log(localStorage.getItem('selected'), 'this is localstorage');
+    // }
 })
 initAnimate();
 
@@ -379,90 +387,102 @@ midBox.addEventListener('click', async (e)=>{
     if(nowLoading <= 0 || e.detail >= 2){
         alert('좀 천천히하셈');
     } else {
-        if(e.target.innerHTML === 'navigate_before'){
-            scene.children.forEach((e)=>{
-                if(typeof e.number === 'number' ){
-                    curr = e.number;
-                    name = e.name;
-                }
-            }); // can change with store.js ??
-            if(curr > 0 && curr <= workDb.length -1){
-                // rotateIcon.classList.remove('xyzon');
-                // rotateIcon.classList.add('xyzon');
-
-                await modelDispose();
-                await delCache(); // del cache
-                modelLoad(workDb[curr - 1]);
-                // initAnimate();
-
-                swipeAll.forEach((ev)=>{
-                    ev.style.outline = 'none';     
-                });
-                swipeAll[curr -1].style.outline = '1px solid #b6b6b6'
-
-                let rect = swipeAll[curr -1].getBoundingClientRect();
-        
-                if(center >= rect.left){
-                    if(curr <= 3){
-                        // console.log('dont scroll before')
-                    }else{
-                        // console.log('nav click scroll before')
-                        scrollSmoothly(rect.left - center, 0)
-                    }
-                }else if(rect.right >= 2000){
-                    scrollSmoothly(rect.left - center, 0)
-                }
-
-            } else if(curr === 0){
-                console.log('is first')
-            } 
-            e.target.style.color = `#ff6666`
-            setTimeout(() => {
-                e.target.style.color = `black`
-            }, 100);
-        } else if(e.target.innerHTML === 'navigate_next'){
-            scene.children.forEach((e)=>{
-                if(typeof e.number === 'number' ){
-                    curr = e.number;
-                    name = e.name;
-                }
-            });
-            if(curr >= 0 && curr <= workDb.length -2){
-                // rotateIcon.classList.remove('xyzon');
-                // rotateIcon.classList.add('xyzon');
-
-                await modelDispose();
-                await delCache(); // del cache
-                modelLoad(workDb[curr + 1]);
-                // initAnimate();
-
-                swipeAll.forEach((ev)=>{
-                    ev.style.outline = 'none';
-                });
-                swipeAll[curr +1].style.outline = '1px solid #b6b6b6';
-
-                let rect = swipeAll[curr + 1].getBoundingClientRect();
-                if(center <= rect.left){
-                    if(curr >= workDb.length -3){
-                        // console.log('dont scroll next')
-                    }else{
-                        // console.log('nav click scroll next')
-                        scrollSmoothly(rect.left - center, 0)
-                    }
-                }else if(rect.left < 0){
-                    scrollSmoothly(rect.left - center, 0)
-                }
-
-            } else if(curr === workDb.length -1){
-                console.log('is last')
-            } 
-            e.target.style.color = `#ff6666`
-            setTimeout(() => {
-                e.target.style.color = `black`
-            }, 100);
-        }
+        midboxAction(e, center);
     }
-})
+});
+midBox.addEventListener('touchstart', async (e)=>{
+    let center = window.innerWidth / 2
+    if(nowLoading <= 0 || e.detail >= 2){
+        alert('좀 천천히하셈');
+    } else {
+        midboxAction(e, center);
+    }
+});
+
+async function midboxAction(e, center){
+    if(e.target.innerHTML === 'navigate_before'){
+        scene.children.forEach((e)=>{
+            if(typeof e.number === 'number' ){
+                curr = e.number;
+                name = e.name;
+            }
+        }); // can change with store.js ??
+        if(curr > 0 && curr <= workDb.length -1){
+            // rotateIcon.classList.remove('xyzon');
+            // rotateIcon.classList.add('xyzon');
+
+            await modelDispose();
+            await delCache(); // del cache
+            modelLoad(workDb[curr - 1]);
+            // initAnimate();
+
+            swipeAll.forEach((ev)=>{
+                ev.style.outline = 'none';     
+            });
+            swipeAll[curr -1].style.outline = '1px solid #b6b6b6'
+
+            let rect = swipeAll[curr -1].getBoundingClientRect();
+    
+            if(center >= rect.left){
+                if(curr <= 3){
+                    // console.log('dont scroll before')
+                }else{
+                    // console.log('nav click scroll before')
+                    scrollSmoothly(rect.left - center, 0)
+                }
+            }else if(rect.right >= 2000){
+                scrollSmoothly(rect.left - center, 0)
+            }
+
+        } else if(curr === 0){
+            console.log('is first')
+        } 
+        e.target.style.color = `#ff6666`
+        setTimeout(() => {
+            e.target.style.color = `black`
+        }, 100);
+    } else if(e.target.innerHTML === 'navigate_next'){
+        scene.children.forEach((e)=>{
+            if(typeof e.number === 'number' ){
+                curr = e.number;
+                name = e.name;
+            }
+        });
+        if(curr >= 0 && curr <= workDb.length -2){
+            // rotateIcon.classList.remove('xyzon');
+            // rotateIcon.classList.add('xyzon');
+
+            await modelDispose();
+            await delCache(); // del cache
+            modelLoad(workDb[curr + 1]);
+            // initAnimate();
+
+            swipeAll.forEach((ev)=>{
+                ev.style.outline = 'none';
+            });
+            swipeAll[curr +1].style.outline = '1px solid #b6b6b6';
+
+            let rect = swipeAll[curr + 1].getBoundingClientRect();
+            if(center <= rect.left){
+                if(curr >= workDb.length -3){
+                    // console.log('dont scroll next')
+                }else{
+                    // console.log('nav click scroll next')
+                    scrollSmoothly(rect.left - center, 0)
+                }
+            }else if(rect.left < 0){
+                scrollSmoothly(rect.left - center, 0)
+            }
+
+        } else if(curr === workDb.length -1){
+            console.log('is last')
+        } 
+        e.target.style.color = `#ff6666`
+        setTimeout(() => {
+            e.target.style.color = `black`
+        }, 100);
+    }
+}
 
 rightBox.addEventListener('click', (e)=>{
     switch(e.target.innerHTML){
@@ -757,7 +777,7 @@ function modelLoad(model){
                 loadDiv.remove();
                 //reloadCounter.update(n => n + 1);
                 selected.set(model.num);
-                localStorage.setItem('selected', currentSelected);
+                // localStorage.setItem('selected', currentSelected);
                 overlay.style.opacity = "0";
                 overlay.style.display = 'none';
                 document.querySelector('.mid-left-3d span').style.pointerEvents = 'auto';
@@ -802,8 +822,6 @@ async function modelDispose(){
             // console.log(myReq_2)
             // console.log(renderer.info);
             // console.log(renderer);
-
-
         }       
     })
     // // console.log(myReq)
@@ -817,6 +835,7 @@ async function modelDispose(){
     //     startStop = false;
     //     // animateStoped();
     // }
+    return console.log('model disposed')
 }
 
 function initAnimate(){
@@ -859,9 +878,6 @@ setInterval(()=>{
         window.location.href = "/";
     }
 }, 60000)
-
-
-
 }
 export default viewerApp
 // npx vite

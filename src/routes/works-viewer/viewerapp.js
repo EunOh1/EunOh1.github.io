@@ -382,21 +382,34 @@ swipe.addEventListener('click', async (e)=>{
     }
     // console.log(Number(e.target.dataset.num) )
 })
-midBox.addEventListener('click', async (e)=>{
+
+let lastTapTime = 0;
+const delay = 300; // 더블 탭으로 판단하기 위한 시간 간격(밀리초)
+midBox.addEventListener('mousedown', (e)=>{
     let center = window.innerWidth / 2
-    if(nowLoading <= 0 || e.detail >= 2){
+    if(nowLoading === 0 || e.detail === 2){
         alert('좀 천천히하셈');
     } else {
         midboxAction(e, center);
     }
 });
-midBox.addEventListener('touchstart', async (e)=>{
-    let center = window.innerWidth / 2
-    if(nowLoading <= 0 || e.detail >= 2){
+
+midBox.addEventListener('touchend', (e)=>{
+    e.preventDefault(); // 클릭이벤트 발생 방지;
+    let currentTime = new Date().getTime();
+    let timeDifference = currentTime - lastTapTime;
+
+    if(timeDifference < delay && timeDifference > 0){
         alert('좀 천천히하셈');
     } else {
-        midboxAction(e, center);
+        let center = window.innerWidth / 2;
+        if(nowLoading === 0){
+            alert('좀 천천히하셈');
+        } else {
+            midboxAction(e, center);
+        }
     }
+    lastTapTime = currentTime; // 마지막 탭 시간을 현재 시간으로 업데이트
 });
 
 async function midboxAction(e, center){

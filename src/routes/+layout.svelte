@@ -9,7 +9,7 @@
         if(link[link.length -1] !== 'works-viewer'){
           removeLs();
         }
-    })
+    });
 //     twitter={{
 //     handle: '@handle',
 //     site: '@site',
@@ -26,19 +26,19 @@
     let items = [
         {
           label: "Works",
-		      value: 1,
+          value: 1,
           href:"/works"
 		//  component: Tab1
 		},
         {
           label: "Texts",
-		      value: 2,
+          value: 2,
           href:"/texts"
 		//  component: Tab2
 		},
         {
           label: "About",
-		      value: 3,
+          value: 3,
           href:"/about"
 		//  component: Tab3
 		}
@@ -53,7 +53,20 @@
         if(pullSelected){
             localStorage.removeItem('selected');
         }
-    }
+    };
+
+    onMount(async () =>{
+            /** ============ set screensize =============== */
+        function setScreenSize() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        };
+
+        /** ====== Generate a resize event if the device doesn't do it ====== */  
+        window.addEventListener("orientationchange", () => window.dispatchEvent(new Event("resize")), false);
+        window.addEventListener('resize', setScreenSize);
+        window.dispatchEvent(new Event("resize"));
+    });
 </script>
 <MetaTags
   title="Eun Oh's website"

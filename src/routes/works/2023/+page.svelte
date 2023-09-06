@@ -17,21 +17,22 @@
             href:"/works-viewer"
 		}
     ];
-    let innerH;
+    let innerH = 500;
     onMount(async()=>{
         delCache();
         if(enterCount >= 1) window.location.reload()
-        let header = document.querySelector('.top-menu');
-        let innerMenu = document.querySelector('.ul-tab-menu');
-        let footer = document.querySelector('footer');
+        let header = document.querySelector('header').getBoundingClientRect().height;
+        let innerMenu = document.querySelector('.worksnav').getBoundingClientRect().height;
+        let footer = document.querySelector('footer').getBoundingClientRect().height;
 
-        innerH = 500;
         await tick();
-            innerH = window.innerHeight - header.offsetHeight - innerMenu.clientHeight - footer.clientHeight;
+            innerH = window.innerHeight - header - innerMenu - footer -1;
+
+            console.log(innerH)
 
         window.addEventListener('resize', async ()=>{
             await tick();
-            innerH = window.innerHeight - header.offsetHeight - innerMenu.clientHeight - footer.clientHeight;
+            innerH = window.innerHeight - header - innerMenu - footer -1;
         })
     });
 

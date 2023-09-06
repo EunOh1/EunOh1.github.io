@@ -14,16 +14,16 @@
     })
     onMount(async () => { 
         innerH = 500;
-        let header = document.querySelector('.top-menu');
-        let lowSelector = document.querySelector('.numbering');
-        let back = document.querySelector('.back');
-        let footer = document.querySelector('footer');
+        let header = document.querySelector('header').getBoundingClientRect().height;
+        let lowSelector = document.querySelector('.numbering').getBoundingClientRect().height;
+        let back = document.querySelector('.back').getBoundingClientRect().height;
+        let footer = document.querySelector('footer').getBoundingClientRect().height;
         await tick();
-            innerH = window.innerHeight - header.clientHeight - footer.clientHeight - lowSelector.clientHeight - back.clientHeight;
+            innerH = window.innerHeight - header - footer - lowSelector - back;
 
         window.addEventListener('resize', async ()=>{
             await tick();
-            innerH = window.innerHeight - header.clientHeight - footer.clientHeight - lowSelector.clientHeight - back.clientHeight;
+            innerH = window.innerHeight - header - footer - lowSelector - back;
         })
     });
     function select(value) {
@@ -33,17 +33,19 @@
     const handleClick = tabValue => () => activeTabValue.set(tabValue);
 
 </script>
-<nav class = "txt-list-nav" style="height:{innerH}px">
-    <ul class="ul-txt-list" >
-        {#each [...txts_data].reverse() as txt}
-        <li class="txt-list {selNum === txt.value ? 'active' : ''}" data-nums="{txt.value}"> 
-            <a on:click={()=>{ 
-                console.log(selNum)
-                select(txt.value)}} href={txt.href}>{txt.title}</a>       
-        </li>
-        {/each}
-    </ul>
-</nav>
+<div style="height:{innerH}px; display:flex; align-items:center;" >
+    <nav class = "txt-list-nav" >
+        <ul class="ul-txt-list" >
+            {#each [...txts_data].reverse() as txt}
+            <li class="txt-list {selNum === txt.value ? 'active' : ''}" data-nums="{txt.value}"> 
+                <a on:click={()=>{ 
+                    console.log(selNum)
+                    select(txt.value)}} href={txt.href}>{txt.title}</a>       
+            </li>
+            {/each}
+        </ul>
+    </nav>
+</div>
 <!-- <slot></slot> -->
 <style>
     .txt-list-nav{

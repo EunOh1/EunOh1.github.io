@@ -11,17 +11,19 @@
     const handleClick = tabValue => () => activeTabValue.set(tabValue);
 
 </script>
-<slot></slot>
-<nav class="numbering">
-    <ul class="ul-txt-numbering">
-        {#each [...txts_data].reverse() as txt}
-        <li class="txt-numbering"> 
-            <a class="{selNum === txt.value ? 'active' : ''}" on:click={handleClick(txt.value)} href={txt.href}>{txt.value}</a>       
-        </li>
-        {/each}
-    </ul>
-</nav>
-<p class="back"><a href="/texts" on:click={handleClick(0)}>&gt;back to list&lt;</a></p>
+<div style="overflow-y: scroll;">
+    <slot></slot>
+    <nav class="numbering">
+        <ul class="ul-txt-numbering">
+            {#each [...txts_data].reverse() as txt}
+            <li class="txt-numbering"> 
+                <a class="{selNum === txt.value ? 'active' : ''}" on:click={handleClick(txt.value)} href={txt.href}>{txt.value}</a>       
+            </li>
+            {/each}
+        </ul>
+    </nav>
+    <p class="back"><a href="/texts" on:click={handleClick(0)}>&gt;back to list&lt;</a></p>
+</div>
 <style>
     nav {
         border-top: 1px solid #6e6e6e;

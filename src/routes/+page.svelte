@@ -7,32 +7,33 @@
         "/assets/misun.glb"
     ];
 
-    let innerH;
-    onMount(async () =>{
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-        let vw = window.innerWidth * 0.01;
-        document.documentElement.style.setProperty('--vw', `${vw}px`);
+    // let innerH;
+    // onMount(async () =>{
+        // let vh = window.innerHeight * 0.01;
+        // document.documentElement.style.setProperty('--vh', `${vh}px`);
+        // let vw = window.innerWidth * 0.01;
+        // document.documentElement.style.setProperty('--vw', `${vw}px`);
 
-        let header = document.querySelector('header');
-        let footer = document.querySelector('footer');
+        // let header = document.querySelector('header');
+        // let footer = document.querySelector('footer');
         
-        innerH = 500;
-        await tick();
-            innerH = window.innerHeight - header.clientHeight - footer.clientHeight;
+        // innerH = 500;
+        // await tick();
+        //     innerH = window.innerHeight - header.clientHeight - footer.clientHeight;
 
-        window.addEventListener('resize', async ()=>{
-            await tick();
-            innerH = window.innerHeight - header.clientHeight - footer.clientHeight;
-        })
-    });
+        // window.addEventListener('resize', async ()=>{
+        //     await tick();
+        //     innerH = window.innerHeight - header.clientHeight - footer.clientHeight;
+        // })
+    // });
 
 </script>
 <svelte:head>
 	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </svelte:head>
 <!-- <h1>스벨트로 만들어보고 싶어요!</h1> -->
-<div id="container" style="height:{innerH}px">
+<!-- <div id="container" style="height:{innerH}px"> -->
+<div id="container" style="height:100%">
     <div class="mainitems">
         <model-viewer class="mainitem_1" src={mainitem_data[0]} poster="/assets/17-20.webp" camera-controls auto-rotate shadow-intensity="1"></model-viewer>
         <model-viewer class="mainitem_2" src={mainitem_data[1]} poster="/assets/17-19.webp" camera-controls auto-rotate shadow-intensity="1"></model-viewer>

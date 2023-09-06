@@ -1,50 +1,50 @@
 <script>
   import "./+about_style.css"
-  import { onMount } from "svelte";
-  import { tick } from 'svelte';
+  // import { onMount } from "svelte";
+  // import { tick } from 'svelte';
 
-  let innerH;
-  let temproral;
-    onMount(async()=>{
-      await tick();
-      let top = document.querySelector('.top');
-      let bottom = document.querySelector('.bottom');
-      let selector = document.querySelector('.selector');
-      let footer = document.querySelector('footer');
-      let header = document.querySelector('header');
-      innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
-      temproral = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
+  // let innerH;
+  // let temproral;
+  //   onMount(async()=>{
+  //     await tick();
+  //     let top = document.querySelector('.top');
+  //     let bottom = document.querySelector('.bottom');
+  //     let selector = document.querySelector('.selector');
+  //     let footer = document.querySelector('footer');
+  //     let header = document.querySelector('header');
+  //     innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
+  //     temproral = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
 
-      if(window.innerWidth > window.innerHeight){
-        await tick();
-        if(innerH === temproral){
-          console.log('같음')
-        }else{
-          innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
-        }
-      }else{
-        await tick();
-        if(window.innerHeight === innerH){
-          innerH;
-        }else{
-          innerH = window.innerHeight - header.offsetHeight - selector.clientHeight - footer.clientHeight;
-        }
-      }
+  //     if(window.innerWidth > window.innerHeight){
+  //       await tick();
+  //       if(innerH === temproral){
+  //         console.log('같음')
+  //       }else{
+  //         innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
+  //       }
+  //     }else{
+  //       await tick();
+  //       if(window.innerHeight === innerH){
+  //         innerH;
+  //       }else{
+  //         innerH = window.innerHeight - header.offsetHeight - selector.clientHeight - footer.clientHeight;
+  //       }
+  //     }
 
-        window.addEventListener('resize', async ()=>{
-            await tick();
-            if(window.innerWidth > window.innerHeight){
-              await tick();
-              innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
-            }else{
-              await tick();
-              innerH = window.innerHeight - header.offsetHeight - selector.clientHeight - footer.clientHeight;
-            }
-        })
-    })
+  //       window.addEventListener('resize', async ()=>{
+  //           await tick();
+  //           if(window.innerWidth > window.innerHeight){
+  //             await tick();
+  //             innerH = top.offsetHeight + bottom.offsetHeight + selector.offsetHeight;
+  //           }else{
+  //             await tick();
+  //             innerH = window.innerHeight - header.offsetHeight - selector.clientHeight - footer.clientHeight;
+  //           }
+  //       })
+  //   })
 </script>
 <slot name="ko">
-<div id="about_container" style = "height: {innerH}px;">
+<div id="about_container" style = "height: 100%;">
 <div class="top">
   <p class="name"><strong>오은 吳垠</strong></p>
   <p>1989 인천 출생<br>서울 거주 및 작업<br>+82 10-6375-4876<br>bdohhhhh@gmail.com</p>

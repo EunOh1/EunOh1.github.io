@@ -1,6 +1,7 @@
 <script>
     import {fade, slide} from 'svelte/transition';
-    // import { tick } from 'svelte';
+    import { tick } from 'svelte';
+    import { onMount } from "svelte";
     import "../+works_style.css";
     import {lazyLoad} from '../lazyload.js'
 
@@ -54,12 +55,29 @@
     let selected;
     let selectedTxt;
 
+    let innerH = 500;
+    onMount(async()=>{
+        let header = document.querySelector('header').getBoundingClientRect().height;
+        let innerMenu = document.querySelector('.worksnav').getBoundingClientRect().height;
+        let footer = document.querySelector('footer').getBoundingClientRect().height;
+
+        await tick();
+            innerH = window.innerHeight - header - innerMenu - footer -1;
+
+            console.log(innerH)
+
+        window.addEventListener('resize', async ()=>{
+            await tick();
+            innerH = window.innerHeight - header - innerMenu - footer -1;
+        })
+    });
+
 </script>
 <!-- Header -->
 <div class="header"></div>
 
 <!-- Photo Grid -->
-<div class="grid-container">
+<div class="grid-container" style="height: {innerH}px;">
 <div class="column">
     {#each images_data as image, value}
         <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} decoding="async" loading='lazy'> 

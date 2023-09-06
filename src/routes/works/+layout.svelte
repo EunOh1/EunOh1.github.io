@@ -57,7 +57,7 @@
 </script>
 
 <!-- Years Grid -->
-    <nav>
+    <nav class="worksnav" style="box-sizing: border-box; border-bottom: 1px solid #6e6e6e;">
         <ul class="ul-tab-menu">
             {#each years_data as year}
             <li class="tab-menu {activeTabValue === year.value ? 'active' : ''}"> 
@@ -66,10 +66,14 @@
             {/each}
         </ul>
     </nav>
-<div>
+<div style="width: 100%; box-sizing:border-box; overflow-y: auto;">
 <slot></slot>
 </div>
 <style>
+    nav{
+        width: 100%;
+        height: fit-content;
+    }
     .ul-tab-menu {
         margin-block-start: 0;
         margin-block-end: 0;

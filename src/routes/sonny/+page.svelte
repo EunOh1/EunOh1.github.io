@@ -1,12 +1,14 @@
 <script>
-    import { onMount } from 'svelte';
+    import { onDestroy, onMount } from 'svelte';
     import ThreeApp from './threeapp';
     import "./+viewer_style.css";
+    import { browser } from '$app/environment'; // (was '$app/env' in a pre 1.0 SvelteKit version)
 
     let app;
     let idleTime = 0;
     let lastTapTime = 0;
     const delay = 300; // 더블 탭으로 판단하기 위한 시간 간격(밀리초)
+    let interval;
 
     const isMobile = () => {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
@@ -99,19 +101,24 @@
         lastTapTime = currentTime; // 마지막 탭 시간을 현재 시간으로 업데이트
     };
 
-    async function hiding(){
+    function hiding(){
         document.querySelector('header').style.display = 'none';
         document.querySelector('footer').style.display = 'none';  
     };
 
-    onMount(async() => { 
-        await hiding();
-        app = new ThreeApp();
+    function seeking(){
+        document.querySelector('header').style.display = 'block';
+        document.querySelector('footer').style.display = 'block';
+    };
 
-        const idleTimeReset = () => {
+    const idleTimeReset = () => {
             idleTime = 0;
             console.log('idleTime reset');
-        }
+    };
+
+    onMount(async() => { 
+        hiding();
+        app = new ThreeApp();
 
         /** ====== Generate a resize event if the device doesn't do it ======  밖으로   */  
         const vh = window.innerHeight * 0.01;
@@ -122,7 +129,7 @@
 
         document.body.addEventListener('click', idleTimeReset);
 
-        const interval = setInterval(()=>{
+        interval = setInterval(()=>{
             idleTime = idleTime + 1;
             if (idleTime >= 3) { // 3 minutes
                 console.log('reload!')
@@ -130,12 +137,20 @@
             }
         }, 60000)
 
-        return() => {
+        // return() => {
+        //     document.body.removeEventListener('click', idleTimeReset);
+        //     clearInterval(interval);
+        //     app._destroy();
+        // }
+    }); 
+
+    onDestroy(() => {
+        if (browser) {
             document.body.removeEventListener('click', idleTimeReset);
             clearInterval(interval);
             app._destroy();
         }
-    }); 
+    })
 
 </script>
 <div class="gui-main-3d">
@@ -144,7 +159,7 @@
     <div class="gui-wrapper-3d" on:mousedown={handleMouseDown} on:touchend={handleTouchEnd}>
 
         <div class="top-3d">
-            <a href="/works/2023"><span class="material-icons-outlined">clear</span></a>
+            <a href="/works/2023" on:click={() => seeking()}><span class="material-icons-outlined">clear</span></a>
         </div>
 
         <div class="mid-3d">

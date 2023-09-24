@@ -14,9 +14,23 @@
         {
             label: "works-viewer",
             value: 1,
-            href:"/works-viewer"
-		}
+            href: "/works-viewer",
+            target: false
+		},
+        {
+            label: "sanctum",
+            value: 2,
+            href: "https://screenxyz.net/sanctum",
+            target: true
+        },
+        {
+            label: "sonny",
+            value: 3,
+            href: "/sonny",
+            target: false
+        }
     ];
+
     let innerH = 500;
     onMount(async()=>{
         delCache();
@@ -53,9 +67,9 @@
 <div class="min-main" style="height:{innerH}px">
     <div class="column" transition:fade={{duration: 300}}>
         {#each items as item} 
-        <a href={item.href} on:click={()=>delCache()}>
+        <a href={item.href} target={item.target ? "_blank" : "_self"} on:click={()=>delCache()}>
             <div class="image">
-                    <h3 class="nope">works-viewer</h3>
+                    <h3 class="nope">{item.label}</h3>
             </div>
         </a>
         {/each}
@@ -104,7 +118,7 @@
     .column {
         box-sizing: border-box;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         /* grid-template-rows: repeat(4, fit-content(100vh)); */
         align-items: center;
         justify-content: center;
@@ -119,7 +133,7 @@
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 1024px) {
     .column {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(1, 1fr);
         justify-items: flex-start;
         padding-left: 2vw;
@@ -132,7 +146,7 @@
 }
 @media screen and (max-width: 915px) {
     .column {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(1, 1fr);
         justify-items: flex-start;
         padding-left: 2vw;
@@ -146,7 +160,7 @@
   /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
     .column {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(1, 1fr);
         justify-items: flex-start;
         padding-left: 2vw;
@@ -160,7 +174,7 @@
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
     .column {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(1, 1fr);
     }
     .image {

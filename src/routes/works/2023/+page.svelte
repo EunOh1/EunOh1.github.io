@@ -12,20 +12,26 @@
 
     let items = [
         {
-            label: "works-viewer",
+            label: "src",
             value: 1,
+            href: "/source",
+            target: false
+        },
+        {
+            label: "works-viewer",
+            value: 2,
             href: "/works-viewer",
             target: false
 		},
         {
             label: "sanctum",
-            value: 2,
+            value: 3,
             href: "https://screenxyz.net/sanctum",
             target: true
         },
         {
             label: "sonny",
-            value: 3,
+            value: 4,
             href: "/sonny",
             target: false
         }

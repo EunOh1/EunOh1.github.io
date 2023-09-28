@@ -57,6 +57,7 @@ export default class ThreeApp{
         this._scene = scene;
 
         /************ init App **************/
+        this.delCache();
         this._setupLoader();
         this._setupBasicWorld();
         this._setupModel(workDb[0]);
@@ -362,16 +363,9 @@ export default class ThreeApp{
 		this._renderer.setSize(width, height);
 	};
     render() {
-        if( WebGL.isWebGLAvailable() ) {
             if (!this.running) return;
-            this.delCache();
             this._animate();
-            this._controls.update();
-            
-        } else {    
-            const warning = WebGL.getWebGLErrorMessage();
-            document.getElementById( 'container' ).appendChild( warning );   
-        }
+            // this._controls.update();
 	};
     _animate() {
         requestAnimationFrame( this._animate.bind(this) );

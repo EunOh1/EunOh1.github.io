@@ -32,7 +32,7 @@
         {
             label: "sonny",
             value: 4,
-            href: "/sonny",
+            href: "/sonnyinfo",
             target: false
         }
     ];

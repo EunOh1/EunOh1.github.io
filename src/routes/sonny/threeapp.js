@@ -346,8 +346,10 @@ export default class ThreeApp{
         });
     };
     resize() {
-		const width = this._xyzCanvas.clientWidth;
-		const height = this._xyzCanvas.clientHeight;
+		// const width = this._xyzCanvas.clientWidth;
+		// const height = this._xyzCanvas.clientHeight;
+        const width = window.innerWidth;
+		const height = window.innerHeight;
 		const aspect = width / height;
 
 		if (this._camera instanceof THREE.PerspectiveCamera) {
@@ -361,6 +363,7 @@ export default class ThreeApp{
 
 		this._camera.updateProjectionMatrix();
 		this._renderer.setSize(width, height);
+        this._composer.setSize(width, height);
 	};
     render() {
             if (!this.running) return;

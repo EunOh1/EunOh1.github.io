@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=Rubik+Mono+One&family=Silkscreen&display=swap');
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* font-family: 'Alumni Sans Collegiate One', sans-serif;
+font-family: 'Rubik Mono One', monospace;
+font-family: 'Silkscreen', sans-serif; */
 
 html, body{
     font-family: 'Rubik', 'Malgun Gothic', '맑은 고딕', sans-serif;

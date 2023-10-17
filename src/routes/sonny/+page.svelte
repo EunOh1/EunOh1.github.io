@@ -159,7 +159,8 @@
     <div class="gui-wrapper-3d" on:mousedown={handleMouseDown} on:touchend={handleTouchEnd}>
 
         <div class="top-3d">
-            <a href="/works/2023" on:click={() => seeking()}><span class="material-icons-outlined">clear</span></a>
+            <a href="/sonnyinfo"><span class="sonnyinfoa">info</span></a>
+            <a href="/" on:click={() => seeking()}><span class="material-icons-outlined">clear</span></a>
         </div>
 
         <div class="mid-3d">

@@ -71,10 +71,10 @@
 <MetaTags
   title="Eun Oh's website"
 	titleTemplate = '%s | Svelte Meta Tags'
-  description="This is Eun Oh's website"
-  canonical="https://eunoh.pages.dev/"
+  description="Eun Oh's website"
+  canonical="https://eunoh.top/"
   openGraph={{
-    url: 'https://eunoh.pages.dev/',
+    url: 'https://eunoh.top/',
     title: "Eun Oh's website",
     description: "This is Eun Oh's website",
     images: [
@@ -99,7 +99,7 @@ schema={{
     '@type': 'Article',
     mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': 'https://eunoh.pages.dev/works'
+        '@id': 'https://eunoh.top/works'
     },
     headline: 'Works',
     image: [

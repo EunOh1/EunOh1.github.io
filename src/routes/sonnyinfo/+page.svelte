@@ -34,7 +34,7 @@
                     </div>
                     <p>HAPPY</p>
                     <div class="bannercontwo">
-                        <p class="sonnymark">!</p><p class="sonnynum">237</p><p class="sonnygoal">GOAL</p><p class="sonnymark">!</p>
+                        <p class="sonnymark">!</p><p class="sonnynum">238</p><p class="sonnygoal">GOAL</p><p class="sonnymark">!</p>
                     </div>
                 </div>
                 <img class="sonnyphoto" src="/assets/sonnyinfo/photo.jpg" alt="sonnyshot">
@@ -59,9 +59,11 @@
 
         <p class="sonnycaption">Sonny_2023_responsive web</p>
 
-        <div class="sonnyviewpage">
-            <a href="/sonny">click</a>
-        </div>
+        <a href="/sonny">
+            <div class="sonnyviewpage">
+                click
+            </div>
+        </a>
     </div>
 </div>
 
@@ -74,6 +76,7 @@
         overflow: hidden;
         z-index: 9000;
         position: absolute;
+        box-sizing: border-box;
     }
 
     .sonnypage p{
@@ -187,15 +190,42 @@
         border-radius: 0.3rem;
         margin: 2rem;
     }
-    .sonnyviewpage a{
+    .sonnycontents a{
         text-decoration: none;
         color: black;
     }
-
-
-@media screen and (max-width:1400px) {
+@media screen and (max-width:1800px) {
+    :global(body) {
+        height: 100%;
+        overflow: hidden;
+    }
     .sonnypage{
+        height: auto;
+        overflow: auto;
         display: flex;
+    }
+    .sonnytitle{
+        padding-top: 1.4rem;
+    }
+    .sonnyviewpage{
+        margin: 0.9rem;
+    }
+}
+@media screen and (max-width:1477px) {
+    :global(body) {
+        height: 100%;
+        overflow: auto;
+    }
+    .sonnypage{
+        height: auto;
+        overflow: auto;
+        display: flex;
+    }
+    .sonnytitle{
+        padding-top: 1.4rem;
+    }
+    .sonnyviewpage{
+        margin: 1rem;
     }
 }
 @media screen and (max-width:1180px) and (orientation:landscape) {

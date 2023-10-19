@@ -194,6 +194,9 @@
         text-decoration: none;
         color: black;
     }
+    .sonnycontents a:focus{
+        outline: "none";
+    }
 @media screen and (max-width:1800px) {
     :global(body) {
         height: 100%;

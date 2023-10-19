@@ -195,7 +195,8 @@
         color: black;
     }
     .sonnycontents a:focus{
-        outline: "none";
+        outline: "0px";
+        background-color: transparent;
     }
 @media screen and (max-width:1800px) {
     :global(body) {

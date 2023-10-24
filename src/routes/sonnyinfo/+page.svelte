@@ -34,7 +34,7 @@
                     </div>
                     <p>HAPPY</p>
                     <div class="bannercontwo">
-                        <p class="sonnymark">!</p><p class="sonnynum">238</p><p class="sonnygoal">GOAL</p><p class="sonnymark">!</p>
+                        <p class="sonnymark">!</p><p class="sonnynum">239</p><p class="sonnygoal">GOAL</p><p class="sonnymark">!</p>
                     </div>
                 </div>
                 <img class="sonnyphoto" src="/assets/sonnyinfo/photo.jpg" alt="sonnyshot">

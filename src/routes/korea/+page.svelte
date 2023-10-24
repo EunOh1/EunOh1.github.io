@@ -1,66 +1,19 @@
 <script>
-    import axios from 'axios'
+    // import { finalTotalPop } from "./setKorea";
+    export let data;
 
-    async function getToken() {
-        try {
-            const response = await axios.get('https://sgisapi.kostat.go.kr/OpenAPI3/auth/authentication.json', {
-                                params : {
-                                    consumer_key : '3611be5512d04d95bd5e',
-                                    consumer_secret : '80cd5e2a2a85418d97a7'
-                                }
-                            });
-            const accessToken = response.data.result.accessToken
-            return accessToken;
-
-        } catch (err) {
-            console.log(err)
-        }
-    };
-
-    async function getIndexPopulation(token){
-        try{
-            const response = await axios.get('https://sgisapi.kostat.go.kr/OpenAPI3/stats/population.json', {
-                                params: {
-                                    accessToken : token,
-                                    year : "2021",
-                                    low_search : "1"
-                                }
-                            });
-            return response.data;
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-    async function getPopulation(token){
-        try {
-            const response = await axios.get('https://sgisapi.kostat.go.kr/OpenAPI3/stats/searchpopulation.json', {
-                                params: {
-                                    accessToken : token,
-                                    year : "2021",
-                                }
-                            });
-            return response.data;
-        } catch (err) {
-            console.log(err)
-        }
-    }
-    
-    async function init(){
-        const accessToken = await getToken();
-
-        console.log(accessToken)
-
-        const population = await getIndexPopulation(accessToken);
-
-        console.log(population)
-    }
-    
-    init();
+    const population = data.props.totalPopulation.toLocaleString();
 
 </script>
 
-<h2>testmode</h2>
+<h2>테스트 중이다 임마!</h2>
+
+<p>총인구 {population} 명</p>
+<p>평균연령 {data.props.averageAge} 세</p>
+<p>평균남성임금 {data.props.averageSalary[0].toLocaleString()} 천원</p>
+<p>평균여성임금 {data.props.averageSalary[1].toLocaleString()} 천원</p>
+<p>평균정규직임금 {data.props.averageSalary[2].toLocaleString()} 천원</p>
+<p>평균비정규직임금 {data.props.averageSalary[3].toLocaleString()} 천원</p>
 
 <style>
 

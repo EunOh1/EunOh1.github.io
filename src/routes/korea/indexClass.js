@@ -31,9 +31,16 @@ export default class MakeIndex{
                     max : ymax,
                     grace : grace 
                 }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        usePointStyle: true,
+                    }
+                }
             }
         }
-
         this.summary = summary;
     }
 }

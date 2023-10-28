@@ -13,13 +13,15 @@
         document.querySelector('footer').style.display = 'none';  
     }
 
+    //npx wrangler pages dev -- npm run dev --kv=artfunction
     async function getFetch(){
         const params = new URLSearchParams({
             key: 'sonny'
         });
         try {
-            const response = await fetch(`https://eunoh.pages.dev/artfunction?${params.toString()}`, { method: 'GET' })
+            const response = await fetch(`/artfunction?${params.toString()}`, { method: 'GET' });
             const data = await response.json();
+            console.log(response)
             return data;
         } catch(err) {
             console.log(err);

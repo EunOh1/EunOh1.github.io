@@ -42,11 +42,19 @@ export async function onRequest(context) {
             let store = await KV.get(key);
 
             // Add CORS headers
-            response.headers.set('Access-Control-Allow-Origin', '*');
-            response.headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
-            response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
+            // response.headers.set('Access-Control-Allow-Origin', '*');
+            // response.headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
+            // response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
 
-            return new Response(store || '', {status: 200});
+            return new Response(store || '', {
+                status: 200,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': '*',
+                    'Access-Control-Allow-Methods': 'GET, OPTIONS',
+                    'Access-Control-Max-Age': '86400',
+                }
+            });
 
         } else {
             return new Response(`Method not supported.`, {status: 405})

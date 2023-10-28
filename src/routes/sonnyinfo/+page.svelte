@@ -2,6 +2,7 @@
     import { beforeUpdate, onMount } from "svelte";
     import dayjs from 'dayjs';
 
+    let goals;
     let nowtime = dayjs().format('HH:mm:ss MM/DD/YYYY');
     const intervalId = setInterval(() => {
             nowtime = dayjs().format('HH:mm:ss MM/DD/YYYY');
@@ -12,8 +13,22 @@
         document.querySelector('footer').style.display = 'none';  
     }
 
+    async function getFetch(){
+        const params = new URLSearchParams({
+            key: 'sonny'
+        });
+        try {
+            const response = await fetch(`https://eunoh.pages.dev/artfunction?${params.toString()}`, { method: 'GET' })
+            const data = await response.json();
+            return data;
+        } catch(err) {
+            console.log(err);
+        }  
+    }
+
     onMount(async()=>{
         await hiding();
+        goals = await getFetch();
         return() => {
             clearInterval(intervalId);
         }
@@ -34,7 +49,7 @@
                     </div>
                     <p>HAPPY</p>
                     <div class="bannercontwo">
-                        <p class="sonnymark">!</p><p class="sonnynum">239</p><p class="sonnygoal">GOAL</p><p class="sonnymark">!</p>
+                        <p class="sonnymark">!</p><p class="sonnynum">{goals}</p><p class="sonnygoal">GOAL</p><p class="sonnymark">!</p>
                     </div>
                 </div>
                 <img class="sonnyphoto" src="/assets/sonnyinfo/photo.jpg" alt="sonnyshot">

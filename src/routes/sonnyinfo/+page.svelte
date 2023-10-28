@@ -2,7 +2,7 @@
     import { beforeUpdate, onMount } from "svelte";
     import dayjs from 'dayjs';
 
-    let goals;
+    let goals = '~~~';
     let nowtime = dayjs().format('HH:mm:ss MM/DD/YYYY');
     const intervalId = setInterval(() => {
             nowtime = dayjs().format('HH:mm:ss MM/DD/YYYY');
@@ -21,7 +21,6 @@
         try {
             const response = await fetch(`/artfunction?${params.toString()}`, { method: 'GET' });
             const data = await response.json();
-            console.log(response)
             return data;
         } catch(err) {
             console.log(err);

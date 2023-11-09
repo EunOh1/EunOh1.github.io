@@ -12,7 +12,7 @@ export default
 {"num":10,"nick":"plasterufan","title":"17#4","size":"535*220*250","material":"plaster, watercolor, acrylic","year":2017,"author":"Eun Oh","obj":"/assets/models/plasterufan.glb","img":"/assets/17-4.webp"},
 {"num":11,"nick":"doublehead","title":"17#3","size":"710*390*430","material":"polystyrene foam, resin, wood, oil","year":2017,"author":"Eun Oh","obj":"/assets/models/doublehead.glb","img":"/assets/models/doublehead.webp"},
 {"num":12,"nick":"tallufan","title":"17#5","size":"770*240*230","material":"cement, wood, epoxy, clay, polystyrene foam","year":2017,"author":"Eun Oh","obj":"/assets/models/tallufan.glb","img":"/assets/17-5.webp"},
-{"num":13,"nick":"double","title":"17#11","size":"1000*990*580","material":"steel, polystrene foam, resin","year":2017,"author":"Eun Oh","obj":"/assets/models/tallufan.glb","img":"/assets/17-11.webp"},
+{"num":13,"nick":"double","title":"17#11","size":"1000*990*580","material":"steel, polystrene foam, resin","year":2017,"author":"Eun Oh","obj":"/assets/models/double.glb","img":"/assets/17-11.webp"},
 {"num":14,"nick":"littlepainting","title":"17#14","size":"250*200*25","material":"woodpanel, acrylic, oil","year":2017,"author":"Eun Oh","obj":"/assets/models/littlepainting.glb","img":"/assets/models/littlepainting.webp"},
 {"num":15,"nick":"wp","title":"17#15","size":"230*210*210","material":"polystyrene foam, clay, acrylic","year":2017,"author":"Eun Oh","obj":"/assets/models/wp.glb","img":"/assets/22-2.webp"},
 {"num":16,"nick":"hahead","title":"17#16","size":"1370*420*360","material":"steel, cement, epoxy, polystrene foam, resin","year":2017,"author":"Eun Oh","obj":"/assets/models/hahead.glb","img":"/assets/17-16.webp"},

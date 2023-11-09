@@ -34,6 +34,12 @@
             value: 4,
             href: "/sonnyinfo",
             target: false
+        },
+        {
+            label: "korea",
+            value: 5,
+            href: "/korea",
+            target: false
         }
     ];
 

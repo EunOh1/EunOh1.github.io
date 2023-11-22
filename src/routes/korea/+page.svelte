@@ -118,7 +118,6 @@
                     <option value="oldrate">고령화지수</option>
                     <option value="foreigner">체류외국인수</option>
                     <option value="birthDeath">출생/사망자수</option>
-                    <option value="oldrate">고령화지수</option>
                     <option value="greengas">온실가스배출량</option>
                     <option value="immigrant">결혼이민자수</option>
                     <option value="trust">기관신뢰도</option>

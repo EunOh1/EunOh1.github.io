@@ -85,7 +85,6 @@
     #container{
         transition: all 0.5s; 
     }
-
     .mainitems{
         height: 100%;
         box-sizing: border-box;

@@ -7,7 +7,7 @@
         class="showcaseTop"
         width="100%" 
         height="100%"
-        allow="geolocation"
+        allow="geolocation xr-spatial-tracking=*"
         allowFullScreen
         src="https://xr.screenxyz.net/src"
     ></iframe>

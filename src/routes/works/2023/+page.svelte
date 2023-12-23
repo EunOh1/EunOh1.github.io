@@ -14,7 +14,7 @@
         {
             label: "src",
             value: 1,
-            href: "/source",
+            href: "https://xr.screenxyz.net/src",
             target: false
         },
         {
@@ -24,20 +24,14 @@
             target: false
 		},
         {
-            label: "sanctum",
-            value: 3,
-            href: "https://screenxyz.net/sanctum",
-            target: true
-        },
-        {
             label: "sonny",
-            value: 4,
+            value: 3,
             href: "/sonnyinfo",
             target: false
         },
         {
             label: "korea",
-            value: 5,
+            value: 4,
             href: "/korea",
             target: false
         }

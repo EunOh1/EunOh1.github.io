@@ -95,7 +95,7 @@
         <img class='image' alt="what?" on:click={()=>{selected = getImgValue(value), selectedTxt = getTxtValue(value), clicked = !clicked;}} on:keydown={()=>{clicked = !clicked;}} use:lazyLoad={image.src} decoding="async" loading='lazy'> 
         {/each}    
             {#if clicked}
-                <div class="modal" transition:fade={{duration: 100}}>
+                <div class="modal" transition:fade|global={{duration: 100}}>
 	            <div on:click={()=>{clicked = !clicked}} on:keydown={()=>{clicked = !clicked}} class="close">x</div>
 	            <div class="modal-image">
 	                <img class="m-image" src={selected} alt="random img"/>

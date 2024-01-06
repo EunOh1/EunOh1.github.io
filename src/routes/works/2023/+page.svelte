@@ -71,7 +71,7 @@
 </div>
 
 <div class="min-main" style="height:{innerH}px">
-    <div class="column" transition:fade={{duration: 300}}>
+    <div class="column" transition:fade|global={{duration: 300}}>
         {#each items as item} 
         <a href={item.href} target={item.target ? "_blank" : "_self"} on:click={()=>delCache()}>
             <div class="image">

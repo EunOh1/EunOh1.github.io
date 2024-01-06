@@ -220,7 +220,7 @@
         overflow: hidden;
     }
     .sonnypage{
-        height: auto;
+        /* height: auto; */
         overflow: auto;
         display: flex;
     }
@@ -237,7 +237,7 @@
         overflow: auto;
     }
     .sonnypage{
-        height: auto;
+        /* height: auto; */
         overflow: auto;
         display: flex;
     }
@@ -254,7 +254,7 @@
         overflow: auto;
     }
     .sonnypage{
-        height: auto;
+        /* height: auto; */
         overflow: auto;
         display: flex;
     }
@@ -284,7 +284,7 @@
         overflow: auto;
     }
     .sonnypage{
-        height: auto;
+        /* height: auto; */
         overflow: auto;
         display: flex;
     }

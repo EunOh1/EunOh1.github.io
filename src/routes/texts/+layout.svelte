@@ -1,6 +1,7 @@
 <script>
-    import { txts_data } from "./txt_data.js";
+    // import { txts_data } from "./txt_data.js";
     import { activeTabValue } from '../store.js';
+    export let data;
     
     // let activeTabValue = 0;
     let selNum;
@@ -15,11 +16,16 @@
     <slot></slot>
     <nav class="numbering">
         <ul class="ul-txt-numbering">
-            {#each [...txts_data].reverse() as txt}
+            {#each data.posts as txt}
             <li class="txt-numbering"> 
                 <a class="{selNum === txt.value ? 'active' : ''}" on:click={handleClick(txt.value)} href={txt.href}>{txt.value}</a>       
             </li>
             {/each}
+            <!-- {#each [...txts_data].reverse() as txt}
+            <li class="txt-numbering"> 
+                <a class="{selNum === txt.value ? 'active' : ''}" on:click={handleClick(txt.value)} href={txt.href}>{txt.value}</a>       
+            </li>
+            {/each} -->
         </ul>
     </nav>
     <p class="back"><a href="/texts" on:click={handleClick(0)}>&gt;back to list&lt;</a></p>

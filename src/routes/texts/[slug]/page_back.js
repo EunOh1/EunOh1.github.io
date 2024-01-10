@@ -1,29 +1,23 @@
 import { error } from '@sveltejs/kit';
+import { txts_data } from "../txt_data.js";
 
-export async function load({ fetch, params }) {
+export function load({ params }) {
 
-    const response = await fetch("../api/posts");
+    // console.log(params.slug) 
 
-    const posts = await response.json();
-
-    const result = posts.filter((e,i) => {
+    const result = txts_data.filter((e,i) => {
         if(params.slug === e.page) return e;
     });
 
     if(result.length > 0){
-
         const matched = result[0]
-
         return {...matched};
-
     }else{
-
         return {
             title: "Oh...Dear",
             txt: 'There is no such text..',
             author: "nope!"
         }
-
     }
-
+    
 }

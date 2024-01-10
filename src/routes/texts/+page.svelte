@@ -1,8 +1,9 @@
 <script>
-    import { txts_data } from "./txt_data.js";
+    // import { txts_data } from "./txt_data.js";
     import { onMount } from 'svelte'; 
     import { tick } from 'svelte';
     import { activeTabValue } from '../store.js';
+    export let data;
 
     // modify store.js
     // let activeTabValue = 0;
@@ -36,13 +37,20 @@
 <div style="height:{innerH}px; display:flex; align-items:center;" >
     <nav class = "txt-list-nav" >
         <ul class="ul-txt-list" >
-            {#each [...txts_data].reverse() as txt}
+            {#each data.posts as txt}
             <li class="txt-list {selNum === txt.value ? 'active' : ''}" data-nums="{txt.value}"> 
                 <a on:click={()=>{ 
                     console.log(selNum)
                     select(txt.value)}} href={txt.href}>{txt.title}</a>       
             </li>
             {/each}
+            <!-- {#each [...txts_data].reverse() as txt}
+            <li class="txt-list {selNum === txt.value ? 'active' : ''}" data-nums="{txt.value}"> 
+                <a on:click={()=>{ 
+                    console.log(selNum)
+                    select(txt.value)}} href={txt.href}>{txt.title}</a>       
+            </li>
+            {/each} -->
         </ul>
     </nav>
 </div>

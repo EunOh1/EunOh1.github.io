@@ -8,6 +8,7 @@
     <h2 class="txt-title">{data.title}</h2><br>
     <p class='sub-title'>{data.author}</p><br>
     <div class='p-container'>
-        <p class="text">{@html data.txt}</p>
+        <p class="text">{@html data.contents}</p>
+        <!-- <svelte:component this={data.contents} /> -->
     </div>
 </div>

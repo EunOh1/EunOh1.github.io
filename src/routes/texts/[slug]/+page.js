@@ -1,8 +1,10 @@
 import { error } from '@sveltejs/kit';
 
+// export const prerender = 'false'
+
 export async function load({ fetch, params }) {
 
-    const response = await fetch("../api/posts");
+    const response = await fetch("/api/posts");
 
     const posts = await response.json();
 

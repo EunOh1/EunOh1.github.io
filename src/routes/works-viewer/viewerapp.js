@@ -377,7 +377,7 @@ swipe.addEventListener('click', async (e)=>{
                 ev.style.outline = 'none';
                 
             })
-            eachSwipe[dataSet].style.outline = '1px solid #b6b6b6'
+            eachSwipe[dataSet].style.outline = '1.5px solid #ff6666'
         }
     }
     // console.log(Number(e.target.dataset.num) )

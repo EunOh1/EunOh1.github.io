@@ -187,7 +187,8 @@ body{
 .gui-swipe-each{
     box-sizing: border-box;
     margin: 0.5rem;
-    width: 10rem;
+    /* width: 10rem; */
+    width: 7.6rem;
     height: 90%;
     cursor: pointer;
     background-repeat: no-repeat;
@@ -289,7 +290,8 @@ body{
     .gui-swipe-each{
         margin: 0;
         height: 80%;
-        width: 5rem;
+        /* width: 5rem; */
+        width: 4.3rem;
     }
     .gui-down-arrow{
         height: 100%;

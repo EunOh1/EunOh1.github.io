@@ -162,7 +162,7 @@
     <div class="gui-wrapper-3d">
 
         <div class="top-3d">
-            <span class="material-icons-outlined xyz-share" on:click={()=>{share()}} on:keydown={()=>{share()}}>share</span>
+            <span role="button" tabindex="0" class="material-icons-outlined xyz-share" on:click={()=>{share()}} on:keydown={()=>{share()}}>share</span>
             <a on:click={()=> {
                     delCache(); 
                     counting();
@@ -172,10 +172,10 @@
 
         <div class="mid-3d {clicked === true ? 'mid-change' : ''}">
             <div class="mid-left-3d">       
-                <span class="material-icons-outlined" on:click={(e)=>{ naviClick(e); }} on:keydown={(e)=>{naviClick(e)}}>navigate_before</span>
+                <span role="button" tabindex="0" class="material-icons-outlined" on:click={(e)=>{ naviClick(e); }} on:keydown={(e)=>{naviClick(e)}}>navigate_before</span>
             </div>
             <div class="mid-right-3d">
-                <span class="material-icons-outlined" on:click={(e)=>{ naviClick(e); }} on:keydown={(e)=>{naviClick(e)}}>navigate_next</span>
+                <span role="button" tabindex="0" class="material-icons-outlined" on:click={(e)=>{ naviClick(e); }} on:keydown={(e)=>{naviClick(e)}}>navigate_next</span>
             </div>
         </div>
 
@@ -190,8 +190,8 @@
 
         <div class="btm-3d">
             <div class="btm-left-3d">
-                <span class="material-icons-outlined less" on:click={()=>scrollStart()} on:keydown={()=> scrollStart()}>expand_less</span>   
-                <span class="material-icons-outlined que" 
+                <span role="button" tabindex="0" class="material-icons-outlined less" on:click={()=>scrollStart()} on:keydown={()=> scrollStart()}>expand_less</span>   
+                <span role="button" tabindex="0" class="material-icons-outlined que" 
                     on:click={(e)=> {
                         !clicked ? e.currentTarget.style.color = "#ff6666" : e.currentTarget.style.color = "black";
                         clicked = !clicked;
@@ -213,7 +213,7 @@
             </div>
         </div>
     
-        <div class="gui-swipe-3d xyzhide" on:click={(e)=>handleClick(e)} on:keydown={(e)=>handleClick(e)}></div>
+        <div role="button" tabindex="0" class="gui-swipe-3d xyzhide" on:click={(e)=>handleClick(e)} on:keydown={(e)=>handleClick(e)}></div>
 
     </div>
     <div class="xyz-canvas"></div>

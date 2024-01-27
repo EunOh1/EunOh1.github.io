@@ -70,7 +70,7 @@ workDb.forEach((e)=>{
     let cards = document.createElement('div');
         cards.setAttribute('class', 'gui-swipe-each');
         cards.setAttribute('data-num', e.num);
-        cards.style.backgroundImage = `url(${e.img})`
+        cards.style.backgroundImage = `url(${e.thumb})`
         eachBox.insertAdjacentElement('beforeend',cards);
     swipe.insertAdjacentElement('beforeend', eachBox)
 })

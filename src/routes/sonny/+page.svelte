@@ -106,9 +106,14 @@
         document.querySelector('footer').style.display = 'none';  
     };
 
+    // function seeking(){
+    //     document.querySelector('header').style.display = 'block';
+    //     document.querySelector('footer').style.display = 'block';
+    // };
     function seeking(){
         document.querySelector('header').style.display = 'block';
         document.querySelector('footer').style.display = 'block';
+        window.open('','_self').close();
     };
 
     const idleTimeReset = () => {
@@ -159,8 +164,8 @@
     <div class="gui-wrapper-3d" on:mousedown={handleMouseDown} on:touchend={handleTouchEnd}>
 
         <div class="top-3d">
-            <a href="/sonnyinfo"><span class="sonnyinfoa">info</span></a>
-            <a href="/" on:click={() => seeking()}><span class="material-icons-outlined">clear</span></a>
+            <a href="https://eunoh.top/sonnyinfo"><span class="sonnyinfoa">info</span></a>
+            <a href="https://eunoh.top/works/2023" on:click={() => seeking()}><span class="material-icons-outlined">clear</span></a>
         </div>
 
         <div class="mid-3d">

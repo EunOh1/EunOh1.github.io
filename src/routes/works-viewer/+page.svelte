@@ -166,8 +166,9 @@
             <a on:click={()=> {
                     delCache(); 
                     counting();
+                    window.open('','_self').close();
                     // localStorage.removeItem('selected');
-                }} href="/works/2023"><span class="material-icons-outlined">clear</span></a>
+                }} href="https://eunoh.top/works/2023"><span class="material-icons-outlined">clear</span></a>
         </div>
 
         <div class="mid-3d {clicked === true ? 'mid-change' : ''}">

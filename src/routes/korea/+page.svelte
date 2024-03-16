@@ -99,7 +99,7 @@
     <div class="dontlandscape"><h2>가로모드하지마</h2></div>
     <div class="koreabody">
         <div class="koreatext">
-            <a href="/works/2023"><h3>Korea</h3></a>
+            <a href="https://eunoh.top/works/2023" on:click={() => window.open('','_self').close() }><h3>Korea</h3></a>
             <p>사회 : {societyString}</p>
             <p>경제 : {economyString}</p>
             <p>문화 : {cultureString}</p>
